@@ -1,3 +1,0 @@
-## Joseph Wilk
-
-...
