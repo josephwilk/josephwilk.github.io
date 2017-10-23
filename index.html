@@ -21,11 +21,36 @@
         padding-left: 10px;
         margin-top: 0px;
       }
+      h3{
+        font-family: 'Cutive Mono', monospace;
+        padding-left: 10px;
+        margin-top: 0px;
+        border-top: 1px solid #DDD;
+        padding-top: 10px;
+        font-size: 25px;
+      }
+
       .header{
         border: 10px;
         width: 80%;
         padding-left: 10%;
         padding-right: 10%;
+      }
+      article{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10%;
+        padding-right: 10%;
+        text-align: center;
+      }
+      article h3{
+        padding-left: 0px;
+        margin-bottom: 0px;
+      }
+      article div.title{
+        text-shadow: 0.5px 0.5px 0.5px #DDD;
+        text-align: left;
+        padding-left: 0px;
       }
     </style>
 </head>
@@ -34,9 +59,13 @@
     <h1><span>Visual & Auditory Adventures in Algorithms</span></h1>
     <h2>by Joseph Wilk</h2>
   </div>
-    <div class="article">
-      <h2></h2>
+    <article>
+      <div class="title">
+      <h3>[23/10/2017] Performance Generated Graphics</h3>
+      <p>Snapshots of live generated visuals used in a performance. All the graphics are programmed in the GLSL programming language and that code is executed through OpenFrameworks and ShaderView.</p>
     </div>
+      <img src="imgs/glsl/01.png">
+    </article>
   </div>
 </body>
 </html>
