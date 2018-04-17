@@ -55,12 +55,13 @@
         width: 100%;
         height: auto;
         min-width: 350px;
-        max-width: 900gppx;
+        max-width: 1400px;
       }
       .print{
         padding-top: 25px;
         padding-bottom: 25px;
         font-family: 'Cutive Mono', monospace;
+        font-size: 0.8em;
       }
       article h3{
         padding-left: 0px;
@@ -71,6 +72,7 @@
         text-align: left;
         padding-left: 0px;
       }
+      figure {}
     </style>
 </head>
 <body>
@@ -80,11 +82,11 @@
   </div>
      <article>
       <div class="title">
-      <h3>[01/04/2018] ASCII Art in 3D graphics</h3>
+      <h3><a name="ASCII Art in 3D graphics">[01/04/2018] ASCII Art in 3D graphics</a></h3>
       <p>Exploring bringing the text of live coding into the generated visuals of a performance. Created using Unity.</p>
     </div>
-      <div class="print"><img title="d[-_-]b" src="imgs/ascii/you.png">d[-_-]b</div>
-      <div class="print"><img title="d[*_*]b" src="imgs/ascii/me.png">d[-_-]b</div>
+      <div class="print"><figure><img title="d[-_-]b" src="imgs/ascii/you.png"><figcaption>d[-_-]b</figcaption></figure></div>
+      <div class="print"><figure><img title="d[*_*]b" src="imgs/ascii/me.png"><figcaption>d[-_-]b</figcaption></figure></div>
     </article>
 
       <article>
@@ -92,7 +94,7 @@
       <h3>[06/03/2018] Performance Generated Graphics</h3>
       <p>Snapshots of live generated visuals used in a performance. All the graphics are programmed in the GLSL programming language and that code is executed through OpenFrameworks and ShaderView.</p>
       </div>
-      <div class="print"><img title="Lava.glsl" src="imgs/glsl/lava.png">Lava.glsl</div>
+      <div class="print"><figure><img title="Lava.glsl" src="imgs/glsl/lava.png"><figcaption><figcaption>Lava.glsl</figcaption></div>
     </article>
 
     <article>
@@ -117,9 +119,9 @@
       <h3>[23/10/2017] Performance Generated Graphics</h3>
       <p>Snapshots of live generated visuals used in a performance. All the graphics are programmed in the GLSL programming language and that code is executed through OpenFrameworks and ShaderView.</p>
     </div>
-      <div class="print"><img title="Shapes.glsl" src="imgs/glsl/01.png">Shapes.glsl</div>
-      <div class="print"><img title="Phasing Flower.glsl" src="imgs/glsl/02.png">Phasing Flower.glsl</div>
-      <div class="print"><img title="Code.glsl" src="imgs/glsl/03.png">Code.glsl</div>
+      <div class="print"><figure><img title="Shapes.glsl" src="imgs/glsl/01.png"><figcaption>Shapes.glsl</figcaption></figure></div>
+      <div class="print"><figure><img title="Phasing Flower.glsl" src="imgs/glsl/02.png"><figcaption>Phasing Flower.glsl</figcaption></figure></div>
+      <div class="print"><figure><img title="Code.glsl" src="imgs/glsl/03.png"><figcaption>Code.glsl</figcaption></figure></div>
     </article>
 
     <article>
@@ -138,8 +140,8 @@
       <h3>[20/03/2017] Watching someone code people watching code</h3>
       <p>Created as part of a live coded performance. I'm writing code as part of the performance overlaid over the visuals. The visuals I'm controlling are someone watching someone live code.</p>
     </div>
-      <div class="print"><img title="Watching Code 1" src="imgs/unity/Screenshot 2017-08-08 15.40.54.png">Watching Code 1</div>
-      <div class="print"><img title="Watching Code 2" src="imgs/unity/Screenshot 2017-08-23 16.17.39.png">Watching Code 2</div>
+      <div class="print"><figure><img title="Watching Code 1" src="imgs/unity/Screenshot 2017-08-08 15.40.54.png"><figcaption>Watching Code 1</figcaption></figure></div>
+      <div class="print"><figure><img title="Watching Code 2" src="imgs/unity/Screenshot 2017-08-23 16.17.39.png"><figcaption>Watching Code 2</figcaption></figure></div>
     </article>
 
     <article>
@@ -147,8 +149,8 @@
       <h3>[20/03/2017] Post effects on GLSL shaders</h3>
       <p>I recently added into ShaderView (<a href="https://github.com/josephwilk/shaderview">https://github.com/josephwilk/shaderview</a>) Post processing filters. Effects like bloom, fisheye, mirroring, noise and grain effects. Two of my favourite examples generated live.</p>
     </div>
-      <div class="print"><img title="Mirror, Bloom and Grain 1" src="imgs/live_coding/Screenshot 2017-03-20 18.03.28.png">Mirror, Bloom and Grain 1</div>
-      <div class="print"><img title="Mirror, Bloom and Grain 2" src="imgs/live_coding/Screenshot 2017-03-27 18.18.41.png">Mirror, Bloom and Grain 2</div>
+      <div class="print"><figure><img title="Mirror, Bloom and Grain 1" src="imgs/live_coding/Screenshot 2017-03-20 18.03.28.png"><figcaption>Mirror, Bloom and Grain 1</figcaption></figure></div>
+      <div class="print"><figure><img title="Mirror, Bloom and Grain 2" src="imgs/live_coding/Screenshot 2017-03-27 18.18.41.png"><figcaption>Mirror, Bloom and Grain 2</figcaption></figure></div>
     </article>
 
     <article>
@@ -156,7 +158,7 @@
       <h3>[23/10/2017] Method Missing Code Poem</h3>
       <p>Method missing, the method that does not exist is a magical and confusing concept. I wanted to draw attention to how counterintuitive this method is and the pain of many programmers trying to understand the behaviour of code using it.</p>
     </div>
-      <div class="print"><img title="Shapes.glsl" src="imgs/live_coding/Screenshot 2016-10-05 15.53.36.png">MethodMissing</div>
+      <div class="print"><figure><img title="Shapes.glsl" src="imgs/live_coding/Screenshot 2016-10-05 15.53.36.png"><figcaption>MethodMissing</figcaption></figure></div>
     </article>
 
     <article>
@@ -165,7 +167,7 @@
       <p>When searching text in Emacs, matching terms are highlighted. I wanted to explore creating  visual patterns through writing regular expressions.
         I compressed a section of performance code and then in emacs created different searches.</p>
       </div>
-      <div class="print"><img title="Painting with Regexs" src="imgs/code_art/Screenshot 2016-10-21 20.24.36.png">Patterns in text</div>
+      <div class="print"><figure><img title="Painting with Regexs" src="imgs/code_art/Screenshot 2016-10-21 20.24.36.png"><figcaption>Patterns in text</figcaption></figure></div>
     </article>
 
     <article>
@@ -181,9 +183,9 @@
         I wanted to expand the expressiveness of patterns with Emojis rather than text. To add an extra level of meaning
         for the audience and for my own mnemonics of mapping different types of percussive hits. Parameters like attack, release, velocity and sustain being different Emojis.</p>
       </div>
-      <div class="print"><img title="Flower patterns" src="imgs/live_coding/Screenshot 2016-08-27 20.01.29.png">Flower patterns</div>
-      <div class="print"><img title="Horse and Unicorn patterns" src="imgs/live_coding/Screenshot 2016-08-28 15.42.18.png">Horse and Unicorn patterns</div>
-      <div class="print"><img title="Animal patterns" src="imgs/live_coding/Screenshot 2016-08-28 20.27.03.png">Animal patterns</div>
+      <div class="print"><figure><img title="Flower patterns" src="imgs/live_coding/Screenshot 2016-08-27 20.01.29.png"><figcaption>Flower patterns</figcaption></figure></div>
+      <div class="print"><figure><img title="Horse and Unicorn patterns" src="imgs/live_coding/Screenshot 2016-08-28 15.42.18.png"><figcaption>Horse and Unicorn patterns</figcaption></figure></div>
+      <div class="print"><figure><img title="Animal patterns" src="imgs/live_coding/Screenshot 2016-08-28 20.27.03.png"><figcaption>Animal patterns</figcaption></figure></div>
     </article>
 
     <article>
@@ -192,8 +194,8 @@
       <p>Clojure supports a very flexible naming convention for namespaces and functions.
         I used this in a live performance to exploring using ASCII art to give a visual meaning to the containers of functions.</p>
       </div>
-      <div class="print"><img title="" src="imgs/live_coding/Screenshot 2016-08-26 16.35.13.png"></div>
-      <div class="print"><img title="" src="imgs/live_coding/Screenshot 2016-08-26 16.40.33.png"></div>
+      <div class="print"><figure><img title="" src="imgs/live_coding/Screenshot 2016-08-26 16.35.13.png"><figcaption></figcaption></figure></div>
+      <div class="print"><figure><img title="" src="imgs/live_coding/Screenshot 2016-08-26 16.40.33.png"><figcaption></figcaption></figure></div>
     </article>
 
     <article>
@@ -217,8 +219,8 @@
       <h3>[11/08/2015] Production Metrics in 3D</h3>
       <p>Converting live metric data from SoundClouds production systems into a mesh in OpenFrameworks. The connection of mesh vertexes is slightly random which creates interesting shapes between graphs peaks and troughs.</p>
       </div>
-      <div class="print"><img title="" src="imgs/metrics/Screenshot 2015-08-11 18.49.16.png"></div>
-      <div class="print"><img title="" src="imgs/metrics/Screenshot 2015-08-11 20.53.58.png"></div>
+      <div class="print"><figure><img title="" src="imgs/metrics/Screenshot 2015-08-11 20.53.58.png"><figcaption>Requests per second</figcaption></figure></div>
+      <div class="print"><figure><img title="" src="imgs/metrics/Screenshot 2015-08-11 18.49.16.png"><figcaption>Requests per second with noise</figcaption></figure></div>
     </article>
 
     <article>
@@ -226,10 +228,10 @@
       <h3>[11/08/2015] Beautiful Production Metrics</h3>
       <p>Telemetry generate by the data pipeline at SoundCloud. Graphs generated with <a href="https://prometheus.io">https://prometheus.io</a>.</p>
       </div>
-      <div class="print"><img title="" src="imgs/metrics/Screenshot 2015-08-11 21.24.28.png"></div>
-      <div class="print"><img title="" src="imgs/metrics/Screenshot 2015-08-11 21.20.25.png"></div>
-      <div class="print"><img title="" src="imgs/metrics/Screenshot 2015-08-11 21.20.00.png"></div>
-      <div class="print"><img title="" src="imgs/metrics/Screenshot 2015-08-11 18.35.19.png"></div>
+      <div class="print"><figure><img title="" src="imgs/metrics/Screenshot 2015-08-11 21.24.28.png"><figcaption>40 machines singing data 1</figcaption></figure></div>
+      <div class="print"><figure><img title="" src="imgs/metrics/Screenshot 2015-08-11 21.20.25.png"><figcaption>40 machines singing data 2</figcaption></figure></div>
+      <div class="print"><figure><img title="" src="imgs/metrics/Screenshot 2015-08-11 21.20.00.png"><figcaption>40 machines singing data 3</figcaption></figure></div>
+      <div class="print"><figure><img title="" src="imgs/metrics/Screenshot 2015-08-11 18.35.19.png"><figcaption>40 machines singing data 4</figcaption></figure></div>
     </article>
 
     <article>
@@ -237,9 +239,10 @@
       <h3>[31/08/2015] Distorting Text</h3>
       <p>In most performances when I live code visuals and music the controlling code is overlaid over the top of the visuals. I've been experimenting with how to bring the text into the visuals rather than just sitting on top of it.
          To do this I used OpenFrameworks I created meshes from black and white screen shots of text. Then adding noise to the text mesh creating interesting distortions. Making the text feel more organic and alive while still being readable.</p>
-      <div class="print"><img title="Live Code" src="imgs/open_frameworks/Screenshot 2015-07-31 15.32.49.png">Live Code</div>
-      <div class="print"><img title="raise exception" src="imgs/open_frameworks/Screenshot 2015-07-31 15.48.08.png">raise exception</div>
-      <div class="print"><img title="Computational behaviour" src="imgs/open_frameworks/Screenshot 2015-07-31 15.51.21.png">Computational behaviour</div>
+       </div>
+      <div class="print"><figure><img title="Live Code" src="imgs/open_frameworks/Screenshot 2015-07-31 15.32.49.png"><figcaption>Live Code</figcaption></figure></div>
+      <div class="print"><figure><img title="raise exception" src="imgs/open_frameworks/Screenshot 2015-07-31 15.48.08.png"><figcaption>raise exception</figcaption></figure></div>
+      <div class="print"><figure><img title="Computational behaviour" src="imgs/open_frameworks/Screenshot 2015-07-31 15.51.21.png"><figcaption>Computational behaviour</figcaption></figure></div>
    </article>
 
 <article>
@@ -247,7 +250,7 @@
   <h3>[17/04/2015] Live Coding Cinema4D</h3>
   <p>Simple experiment controlling a Cinema4D scene from Overtone using OSC messages.</p>
 </div>
-  <div class="print"><img title="Cinema4D" src="imgs/cinema4d/Screenshot 2015-04-17 18.33.20.png">Cinema4D</div>
+  <div class="print"><figure><img title="Cinema4D" src="imgs/cinema4d/Screenshot 2015-04-17 18.33.20.png"><figcaption>Flower without light rendering</figcaption></figure></div>
 </article>
 
 <article>
@@ -255,11 +258,21 @@
   <h3>[1/03/2015] Live coding Minecraft</h3>
   <p>Controlling the Minecraft world from a live REPL in Clojure. Full technical details: <a href="http://blog.josephwilk.net/clojure/overtone-driving-minecraft.html">http://blog.josephwilk.net/clojure/overtone-driving-minecraft.html</a></p>
 </div>
-  <div class="print"><img title="Pig Algorave" src="http://blog.josephwilk.net/images/pig_algo_rave.png">Pig Algorave</div>
+  <div class="print"><figure><img title="Pig Algorave" src="http://blog.josephwilk.net/images/pig_algo_rave.png"><figcaption>Pig Algorave</figcaption></figure></div>
   <div class="print"><iframe src="https://player.vimeo.com/video/120907923" width="640" height="384" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
 </article>
 
-<article>
+
+<article id="">
+  <div class="title">
+  <h3>[26/04/2014] OpenGL Silhouette</h3>
+  <p>An experiment using a texture with transparent cutout text overlayed ontop of a GLSL shader. Slight distortion on the edge of the text to better connect with the background texture</p>
+</div>
+  <div class="print"><figure><img src="imgs/live_coding/Screenshot 2014-04-26 23.58.11.png"><figcaption>RE cutout</figcaption></figure></div>
+</article>
+
+
+<article id="OvertoneSynths">
   <div class="title">
   <h3>[01/03/2014] Overtone Synths</h3>
   <p>The DarkSeaHorn and Fallout Synths I implemented in Overtone.</p>
@@ -268,16 +281,16 @@
   <div class="print"><iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/123195361&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe></div>
 </article>
 
-<article>
+<article id="PianoGeneratedByRecombinanceUsingBachChorale140">
   <div class="title">
-  <h3>[01/01/2014] Piano generated by Recombinance using Bach Chorale 140</h3>
+  <h3><a href="#PianoGeneratedByRecombinanceUsingBachChorale140">[01/01/2014] Piano generated by Recombinance using Bach Chorale 140</a></h3>
   <p>Exploring the book Computer Models of Music Creativity through creating generated music in Overtone and Clojure.
     Uses Bach Chorale 140 as a training source. Full details: <a href="https://github.com/josephwilk/musical-creativity">https://github.com/josephwilk/musical-creativity</a></p>
 </div>
   <div class="print"><iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/109696261&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe></div>
 </article>
 
-<article>
+<article id="BrainwavePoweredMusic">
   <div class="title">
   <h3>[02/12/2013] Brainwave Powered music</h3>
   <p>Controlling a synth using Brainwave signals and mapping brainwave activity to piano pitches. Full technical details: <a href="http://blog.josephwilk.net/clojure/sounds-of-the-human-brain.html">http://blog.josephwilk.net/clojure/sounds-of-the-human-brain.html</a></p>
@@ -286,7 +299,7 @@
   <div class="print"><iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/108320470&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe></div>
 </article>
 
-<article>
+<article id="SonificationOfALiveServersHealthStatus">
   <div class="title">
   <h3>[13/11/2013] Sonification of a live servers health status</h3>
   <p>Mointoring a live SoundCloud production service by listening to the health status mapped to piano pitches. Low notes are good, high are bad.</p>
