@@ -1830,7 +1830,7 @@ footer .footer-widgets .widget_text a {
 }
 
 .wrapper header .default-header {
-    width: 100%;
+    width: 90%;
     display: table;
     table-layout: fixed
 }
