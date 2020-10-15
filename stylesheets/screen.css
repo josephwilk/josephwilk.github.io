@@ -51,7 +51,7 @@ article img{
   -webkit-box-shadow: 2px 2px 8px 2px #ccc;
    box-shadow:         2px 2px 8px 2px #ccc;
  }
-.print{
+ print{
   padding-top: 25px;
   padding-bottom: 25px;
   font-family: 'Cutive Mono', monospace;
@@ -337,6 +337,14 @@ a img.aligncenter {
     padding: 0;
     width: auto
 }
+
+.small img{
+  width: 150px;
+  height: auto;
+  max-width: 150px;
+  min-width: 150px;
+}
+.
 
 .sidebar .widget .textwidget select,
 .wrapper .blog .blog-content .blog-post .blog-info iframe {
