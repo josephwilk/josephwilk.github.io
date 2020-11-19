@@ -438,8 +438,7 @@ a img.aligncenter {
   height: auto;
   min-width: auto;
   max-width: auto;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 10px;
   border: 1px #aaa solid;
 }
 .
