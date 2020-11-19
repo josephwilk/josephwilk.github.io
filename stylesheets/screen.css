@@ -144,6 +144,10 @@ article img{
   overflow: hidden;
 }
 
+.print{
+  text-align: center;
+}
+
  print{
   padding-top: 25px;
   padding-bottom: 25px;
