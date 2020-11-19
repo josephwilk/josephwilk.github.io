@@ -81,7 +81,14 @@ article img{
   bottom: auto;
 }
 
+.row img{
+  -moz-box-shadow:    2px 2px 8px 2px #ccc;
+  -webkit-box-shadow: 2px 2px 8px 2px #ccc;
+   box-shadow:         2px 2px 8px 2px #ccc;
+}
+
 .row{
+  margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
       width: 100%;
@@ -427,13 +434,15 @@ a img.aligncenter {
 }
 
 .small img{
-  width: 150px;
+  width: auto;
   height: auto;
-  max-width: 150px;
-  min-width: 150px;
+  min-width: auto;
+  max-width: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 1px #aaa solid;
 }
 .
-
 .sidebar .widget .textwidget select,
 .wrapper .blog .blog-content .blog-post .blog-info iframe {
     max-width: 100%
