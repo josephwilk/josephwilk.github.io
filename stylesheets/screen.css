@@ -102,6 +102,7 @@ article img{
  }
 
  .small-item{
+    width: 150px;
    flex-grow: 1;
  }
 
