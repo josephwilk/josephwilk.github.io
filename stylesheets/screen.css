@@ -102,7 +102,7 @@ article img{
  }
 
  .small-item{
-   width: 32.3%;
+   flex-grow: 1;
  }
 
  .thumb .hover-state .info {
