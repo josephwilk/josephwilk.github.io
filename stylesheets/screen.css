@@ -101,6 +101,10 @@ article img{
    box-shadow:         2px 2px 8px 2px #ccc;
  }
 
+ .small-item{
+   width: 32.3%;
+ }
+
  .thumb .hover-state .info {
      padding: 5px 5px!important;
      margin: 0px!important;
@@ -121,8 +125,6 @@ article img{
 
 
  .thumb img{
-
-
    width: 100%;
    height: auto;
  }
