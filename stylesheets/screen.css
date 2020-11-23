@@ -103,7 +103,7 @@ article img{
 
  .small-item{
     width: 150px;
-   flex-grow: 1;
+    flex-grow: 1;
  }
 
  .thumb .hover-state .info {
@@ -146,6 +146,10 @@ article img{
 .thumb{
   position: relative;
   overflow: hidden;
+}
+
+.center{
+  text-align: center;
 }
 
 .print{
