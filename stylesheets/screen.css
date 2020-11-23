@@ -44,7 +44,7 @@ article{
 article img{
   width: 100%;
   height: auto;
-  min-width: 350px;
+  min-width: 200px;
   max-width: 1000px;
 }
 
