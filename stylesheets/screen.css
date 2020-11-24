@@ -173,6 +173,15 @@ article div.title{
   text-align: left;
   padding-left: 0px;
 }
+
+.project h3{
+  font-size: calc(1.5em + 1vw)
+}
+
+.project h4{
+  font-size: calc(0.8em + 1vw)
+}
+
 figure {}
 
 .embed-container {
