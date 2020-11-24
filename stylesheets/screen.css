@@ -175,11 +175,11 @@ article div.title{
 }
 
 .thumb h3{
-   text-shadow: 1px 1px #c91273;
+   text-shadow: 1px 1px 1px #c91273;
 }
 
 .project h1,h2,h3,h4{
-  text-shadow: 1px 1px #DDD;
+  text-shadow: 1px 1px 1px #DDD;
 }
 
 .project h3{
