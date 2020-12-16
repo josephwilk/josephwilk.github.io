@@ -3459,3 +3459,26 @@ footer .footer-copyright ul li a {
 footer .footer-copyright ul li a:hover {
     color: #3b3b3b;
 }
+
+.gallery{
+  position: relative;
+}
+
+.gallery .btn-div {
+    position: absolute;
+    top: 9px;
+    right: 47px;
+    background-image: url(../imgs/icons/maximize.svg);
+    border-radius: 6px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background-position: center;
+    background-size: 32px;
+    background-repeat: no-repeat;
+    background-color: rgba(58,60,64,0.55);
+}
+
+figcaption{
+  font-weight: 300;
+}
