@@ -3481,4 +3481,10 @@ footer .footer-copyright ul li a:hover {
 
 figcaption{
   font-weight: 300;
+  font-size: 0.9rem;
+}
+@media (min-width: 1200px){
+figcaption {
+    font-size: 1.0rem;
+}
 }
