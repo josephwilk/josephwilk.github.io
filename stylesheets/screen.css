@@ -4,7 +4,7 @@ h1{
   margin-bottom: 10px;
   text-shadow: 0.5px 0.5px 0.5px #CCC;
 }
-h2{
+.logo h2{
   font-family: 'Cutive Mono', monospace;
   padding-left: 10px;
   margin-top: 0px;
