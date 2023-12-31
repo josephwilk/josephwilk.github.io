@@ -15,6 +15,125 @@
     <link href="../stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 </head>
 <body>
+  <style>
+.chat-thread {
+	margin: 24px auto 0 auto;
+	padding: 0 20px 0 0;
+	list-style: none;
+}
+
+.chat-thread li {
+	position: relative;
+	clear: both;
+	display: inline-block;
+	padding: 16px 40px 16px 20px;
+	margin: 0 0 20px 0;
+	font: 16px 'Noto Sans', sans-serif;
+  font-style:  normal #fff;
+	border-radius: 10px;
+	background-color: #9BB5CE;
+}
+
+/* Chat - Avatar */
+.chat-thread li:before {
+	position: absolute;
+	top: 0;
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	content: '';
+}
+
+/* Chat - Speech Bubble Arrow */
+.chat-thread li:nth-child(even):after {
+	position: absolute;
+  top: 15px;
+	content: '';
+	width: 0;
+	height: 0;
+	border-top: 15px solid #5C5B57;
+}
+
+.chat-thread li:nth-child(odd):after {
+	position: absolute;
+  top: 15px;
+	content: '';
+	width: 0;
+	height: 0;
+	border-top: 15px solid #9BB5CE;
+}
+
+.chat-thread li:nth-child(even) {
+	animation: show-chat-odd 0.15s 1 ease-in;
+	-moz-animation: show-chat-odd 0.15s 1 ease-in;
+	-webkit-animation: show-chat-odd 0.15s 1 ease-in;
+	float: right;
+	margin-right: 80px;
+	color: #FFF;
+  background-color: #5C5B57;
+}
+
+.chat-thread li:nth-child(even):before {
+	right: -80px;
+	background-image: url();
+}
+
+.chat-thread li:nth-child(even):after {
+	border-right: 15px solid transparent;
+	right: -15px;
+}
+
+.chat-thread li:nth-child(odd) {
+	float: left;
+	margin-left: 80px;
+	color: #FFF;
+}
+
+.chat-thread li:nth-child(odd):before {
+	left: -80px;
+	background-image: url();
+}
+
+.chat-thread li:nth-child(odd):after {
+	border-left: 15px solid transparent;
+	left: -15px;
+}
+
+.chat-window-message {
+	width: 100%;
+	height: 48px;
+	font: 32px/48px 'Noto Sans', sans-serif;
+	background: none;
+	color: #9BB5CE;
+	border: 0;
+	border-bottom: 1px solid rgba(25,147,147,0.2);
+	outline: none;
+}
+
+
+/* Small screens */
+@media all and (max-width: 767px) {
+	.chat-thread {
+		width: 90%;
+		height: 260px;
+	}
+
+	.chat-window {
+		left: 5%;
+		width: 90%;
+	}
+}
+
+/* Medium and large screens */
+@media all and (min-width: 768px) {
+	.chat-thread {
+		width: 50%;
+		height: 260px;
+	}
+}
+
+
+</style>
   <script src="https://www.instagram.com/static/bundles/es6/EmbedSDK.js/363a6c0267bf.js"></script>
   <div class="header">
     <div class="wrapper">
@@ -50,8 +169,8 @@
 
   <article class="project">
   <div class="title">
-    <h3>Value Systems of Private Rent - 2023</h3>
-    <p><b>Materials:</b> Private Rental Market data, Greater London / Unity / Clojure, C# & Python</p>
+    <h3>Wrong Move - 2023</h3>
+    <p><b>Materials:</b> Private Rental Market data of Greater London / Unity / Blender / Clojure, C# & Python</p>
     <hr/>
 
     <p>What is more valuable to the private rental market in Greater London?<br/> 
@@ -73,11 +192,38 @@
 
     <p>
     The analysis of property text does not consider if a property is actually wheelchair accessible or not. It simply looks for presense of the word "accessible" in a bag of words (without context of other words). Since there are only 52 properties with accessible matches its easy to check most contain the text "Not wheelchair accessible". Knowing a property is not accessible is just as valuable as knowing it is. Especially so in London where rental property moves so fast, by the time you find out if a property is accessible through phone or email its already been rented.
+
+    <ul class="chat-thread">
+      <li>Hello, Does this property have a lift? I use a wheelchair and want to check access before a visit. Thanks</li>
+      <li>I'm sorry the property is no longer on the market.</li>
+      </ul>
+
   </p>
 
-    <h4>Stills</h4>
+<p>
+  <ul>
+    <li>The home has steps in the hallway and therefore may not be suitable for wheelchair users or those with limited mobility.</li>
+    <li>Potentially wheelchair accessible, ground floor</li>
+    <li>This home requires guests to use stairs to access it and may not be suitable for wheelchair users or those with limited mobility.</li>
+  </ul>
+</p>
 
-    <div class="print"><figure><img src="../imgs/projects/value_systems_of_private_rent/access_01.jpg" alt=""><figcaption></figcaption></figure></div>
+
+
+
+
+    <h4>Stills</h4>
+    
+    <div class="print"><figure><img src="../imgs/projects/wrong_move/011_7167.jpg" alt=""><figcaption></figcaption></figure></div>
+    <div class="print"><figure><img src="../imgs/projects/wrong_move/011_7661.jpg" alt=""><figcaption></figcaption></figure></div>
+    <div class="print"><figure><img src="../imgs/projects/wrong_move/011_11803.jpg" alt=""><figcaption></figcaption></figure></div>
+  
+    <div class="print"><figure><img src="../imgs/projects/wrong_move/011_9843.jpg" alt=""><figcaption></figcaption></figure></div>
+    <div class="print"><figure><img src="../imgs/projects/wrong_move/011_10427.jpg" alt=""><figcaption></figcaption></figure></div>
+  
+
+    <div class="print"><figure><img src="../imgs/projects/wrong_move/011_4310.jpg" alt=""><figcaption></figcaption></figure></div>
+    
 
   </div>
   </article>
