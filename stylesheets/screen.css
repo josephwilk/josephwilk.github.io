@@ -137,7 +137,7 @@ article img{
  }
 
  .hover-state {
-     background-color: #ff1493;
+     background-color: #fbb5dbeb;
      position: absolute;
      color: #fff;
      position: absolute;
@@ -200,7 +200,9 @@ article div.title{
 }
 
 .thumb h3{
-   text-shadow: 1px 1px 1px #c91273;
+   text-shadow: 1px 1px 1px #ff49a9ab;
+   font-size: 1.1em;
+   font-family: 'Roboto Serif', serif;
 }
 
 .project h1,h2,h3,h4{
@@ -211,6 +213,7 @@ article div.title{
   font-size: calc(1.5em + 1vw);
   padding-bottom: 15px;
   padding-top: 30px;
+  
 }
 
 .project h4{
