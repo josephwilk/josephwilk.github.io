@@ -856,11 +856,11 @@ var networkCenter = d3.forceCenter().x(centerPos-200).y(centerPos);
 
 var collide = d3.bboxCollide(function (d,i) {
   var d1 = d.name.length;
-    return [[d1 * -5, -8], [d1 * 5, 8]]
+    return [[d1 * -5, -10], [d1 * 5, 10]]
 
   })
-  .strength(0.001)
-  .iterations(10)
+  .strength(0.008)
+  .iterations(2)
 
   //var color = d3.scaleOrdinal().range(d3.schemeCategory20);
 
