@@ -616,6 +616,11 @@ label {
     top: 15px;
 }
 
+
+header .container a{
+    text-decoration: none;
+}
+
 /* Heading */
 h1, .h1,
 h2, .h2,
