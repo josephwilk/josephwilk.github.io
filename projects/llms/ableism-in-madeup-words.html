@@ -1,0 +1,1447 @@
+<html>
+<head>
+  <title>Made-up words Rated by how Ableist</title>
+  <meta charset="utf-8" />
+
+<script src="https://d3js.org/d3.v7.js"></script>
+<script src="collide.js"></script>
+</head>
+<style>
+
+svg{
+  background: radial-gradient(closest-side at center, rgb(208,255,0) 0%, rgb(151,252,83) 5%, rgb(94, 249,166) 10%, rgb(94,249,166) 19%, rgb(154, 253, 253) 27%, rgb(255, 255, 107) 63%, rgb(255, 21, 173) 99%,  rgb(0, 0, 0) 100%);
+  
+}
+
+#paper{
+  background-color: radial-gradient(closest-side at center, rgb(208,255,0) 0%, rgb(151,252,83) 5%, rgb(94, 249,166) 10%, rgb(94,249,166) 19%, rgb(154, 253, 253) 27%, rgb(255, 255, 107) 63%, rgb(255, 21, 173) 99%,  rgb(0, 0, 0) 100%);
+}
+.paper{
+  fill: radial-gradient(closest-side at center, rgb(208,255,0) 0%, rgb(151,252,83) 5%, rgb(94, 249,166) 10%, rgb(94,249,166) 19%, rgb(154, 253, 253) 27%, rgb(255, 255, 107) 63%, rgb(255, 21, 173) 99%,  rgb(0, 0, 0) 100%);
+}
+
+ 
+ circle {
+  fill: rgb(247,247,247);
+  stroke-width: 10.5pt;
+  stroke-opacity: 0.4;
+  stroke: rgb(255,255,255);
+}  
+text {
+  text-anchor: middle;
+  font-family:  "myFirstFont";
+  fill: #000;
+  font-size: 15px;
+  
+}
+body{
+	background-color: white;
+}
+line {
+  stroke-dasharray: 3,2,2,2,2,1;
+  stroke: #fff;
+  stroke-opacity: 0.5;
+}
+@font-face {
+	font-family: "myFirstFont";
+	src: url("font/TerminusTTF-4.49.3.ttf");
+}
+</style>
+<body>
+
+
+
+
+
+
+
+
+
+
+<div id="viz">
+  <svg viewBox="0 0 2000 2000" preserveAspectRatio="xMidYMid meet">
+
+    <defs>
+      <circle id="shape" r="953" cx="1000" cy="1000" />
+
+      <filter id="noise">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.9"
+          numOctaves="1"
+          result="turbulence"
+        />
+      </filter>
+      
+      <radialGradient id="heat">
+        <stop offset="0%" stop-color="rgb(208,255,0)" />
+        <stop offset="5%" stop-color="rgb(151,252,83)" />
+        <stop offset="10%" stop-color="rgb(94, 249,166)" />
+        <stop offset="19%" stop-color="rgb(94,249,166)" />
+        <stop offset="27%" stop-color="rgb(154, 253, 253)" />
+        <stop offset="63%" stop-color="rgb(255, 255, 107)" />
+        <stop offset="99%" stop-color="rgb(255, 21, 173)" />
+        <stop offset="100%" stop-color="rgb(0, 0, 0)" />
+      </radialGradient>
+      
+      <mask id="gradient">
+        <radialGradient id="fade">
+          
+          <stop offset="0%" stop-color="black"    />
+          <stop offset="95%" stop-color="white" />
+        </radialGradient>
+        <circle r="995" cx="1000" cy="1000" fill="url(#fade)" />       
+      </mask>
+
+    </defs>
+
+    <use href="#shape" mask="url('#gradient')" filter="url('#noise')" />
+
+    <g class="links"></g>
+    <g class="nodes"></g>
+  </svg>
+</div>
+</body>
+  <footer>
+<script>
+
+var width = 2000;
+var height = 2000;
+var centerPos = width/2.0;
+
+var nodes = [
+{name: 'Ableist', distance:  100},
+{name: 'Abiliphile', distance:  80},
+{name: 'Abiliphobe', distance:  80},
+{name: 'Abiliscope', distance:  60},
+{name: 'Abilisnub', distance:  40},
+{name: 'Abilistation', distance:  60},
+{name: 'Abilistix', distance:  60},
+{name: 'Abilistron', distance:  80},
+{name: 'Abilityism', distance:  80},
+{name: 'Abilosophic', distance:  60},
+{name: 'Abiluxe', distance:  30},
+{name: 'Ableflux', distance:  60},
+{name: 'Ableismaster', distance:  80},
+{name: 'Ableismatron', distance:  80},
+{name: 'Ableismometer', distance:  80},
+{name: 'Ableismotron', distance:  80},
+{name: 'Ableismy', distance:  80},
+{name: 'Ableizm', distance:  80},
+{name: 'Ablemind', distance:  60},
+{name: 'Ablemindedness', distance:  80},
+{name: 'Ablenormative', distance:  60},
+{name: 'Ableospheric', distance:  70},
+{name: 'Ablephobe', distance:  80},
+{name: 'Ablephobia', distance:  80},
+{name: 'Ablespeak', distance:  80},
+{name: 'Ablestic', distance:  80},
+{name: 'Abletastic', distance:  80},
+{name: 'Abletude', distance:  80},
+{name: 'Ablevortex', distance:  40},
+{name: 'Ablewhiff', distance:  80},
+{name: 'Ablexia', distance:  90},
+{name: 'Ablexion', distance:  80},
+{name: 'Ablismarx', distance:  40},
+{name: 'Ablismaster', distance:  60},
+{name: 'Ablismatron', distance:  60},
+{name: 'Ablismor', distance:  60},
+{name: 'Ablismorph', distance:  40},
+{name: 'Ablismort', distance:  30},
+{name: 'Ablismotron', distance:  80},
+{name: 'Ablismyth', distance:  25},
+{name: 'Ablistic', distance:  60},
+{name: 'Accessiblonk', distance:  95},
+{name: 'Accessimorph', distance:  80},
+{name: 'Aerotist', distance:  60},
+{name: 'Aerotropism', distance:  50},
+{name: 'Audiocalist', distance:  60},
+{name: 'Audiocentric', distance:  80},
+{name: 'Audiomorph', distance:  60},
+{name: 'Audioskein', distance:  35},
+{name: 'Audioskept', distance:  40},
+{name: 'Audioskeptical', distance:  30},
+{name: 'Audist', distance:  80},
+{name: 'Aurorachrome', distance:  40},
+{name: 'Aurorachron', distance:  40},
+{name: 'Aurorapathy', distance:  40},
+{name: 'Auroraphobe', distance:  60},
+{name: 'Auroraphobia', distance:  60},
+{name: 'Aurorism', distance:  80},
+{name: 'Axiological', distance:  80},
+{name: 'Blerg', distance:  25},
+{name: 'Blergification', distance:  5},
+{name: 'Blergify', distance:  5},
+{name: 'Blergism', distance:  40},
+{name: 'Blergity', distance:  10},
+{name: 'Blergon', distance:  25},
+{name: 'Blergonomy', distance:  18},
+{name: 'Blorple', distance:  0},
+{name: 'Cacophonix', distance:  40},
+{name: 'Cerebrocent', distance:  50},
+{name: 'Cerebrocentric', distance:  90},
+{name: 'Cerebrocentrism', distance:  90},
+{name: 'Cerebrocline', distance:  80},
+{name: 'Cerebrophob', distance:  60},
+{name: 'Cerebrophobe', distance:  80},
+{name: 'Cerebrophobia', distance:  80},
+{name: 'Cerebrophobic', distance:  80},
+{name: 'Cerebrox', distance:  50},
+{name: 'Cerebroxia', distance:  10},
+{name: 'Cerebroxism', distance:  40},
+{name: 'Cerebroxist', distance:  80},
+{name: 'Chromability', distance:  60},
+{name: 'Chromablind', distance:  60},
+{name: 'Chromabully', distance:  80},
+{name: 'Chromaburst', distance:  30},
+{name: 'Chromacystic', distance:  60},
+{name: 'Chromadis', distance:  30},
+{name: 'Chromadrift', distance:  30},
+{name: 'Chromadrone', distance:  30},
+{name: 'Chromaflux', distance:  10},
+{name: 'Chromalax', distance:  40},
+{name: 'Chromalicious', distance:  30},
+{name: 'Chromalix', distance:  30},
+{name: 'Chromalixir', distance:  60},
+{name: 'Chromalox', distance:  40},
+{name: 'Chromalunaire', distance:  30},
+{name: 'Chromalune', distance:  15},
+{name: 'Chromalux', distance:  5},
+{name: 'Chromaluxe', distance:  60},
+{name: 'Chromawhirl', distance:  50},
+{name: 'Chromodrakon', distance:  30},
+{name: 'Chromorph', distance:  40},
+{name: 'Chrono', distance:  60},
+{name: 'Chronoablility', distance:  40},
+{name: 'Chronoablism', distance:  40},
+{name: 'Chronocept', distance:  50},
+{name: 'Chronoceptic', distance:  30},
+{name: 'Chronoception', distance:  60},
+{name: 'Chronoceptionist', distance:  40},
+{name: 'Chronoceptive', distance:  40},
+{name: 'Chronoceptivism', distance:  40},
+{name: 'Chronoceptual', distance:  60},
+{name: 'Chronoexclusionist', distance:  60},
+{name: 'Chronoexclusivity', distance:  40},
+{name: 'Chronoism', distance:  80},
+{name: 'Chronoist', distance:  40},
+{name: 'Chronoistic', distance:  60},
+{name: 'Chronoquake', distance:  5},
+{name: 'Cisnormative', distance:  90},
+{name: 'Cripitite', distance:  60},
+{name: 'Cripitize', distance:  90},
+{name: 'Cripnostic', distance:  80},
+{name: 'Cripolitik', distance:  80},
+{name: 'Cripplio', distance:  90},
+{name: 'Cripplism', distance:  80},
+{name: 'Cripplismo', distance:  90},
+{name: 'Cripplistic', distance:  80},
+{name: 'Cripptastic', distance:  40},
+{name: 'Cripptic', distance:  30},
+{name: 'Crippticity', distance:  80},
+{name: 'Cripstorian', distance:  90},
+{name: 'Cripvoke', distance:  80},
+{name: 'Crunchlepunk', distance:  25},
+{name: 'Differently', distance:  40},
+{name: 'Disabilizard', distance:  40},
+{name: 'Disabilux', distance:  80},
+{name: 'Disableatron', distance:  90},
+{name: 'Disableism', distance:  90},
+{name: 'Disableist', distance:  90},
+{name: 'Disablement', distance:  70},
+{name: 'Disableon', distance:  90},
+{name: 'Disabletor', distance:  40},
+{name: 'Disabletron', distance:  60},
+{name: 'Disablexify', distance:  90},
+{name: 'Disablisnax', distance:  90},
+{name: 'Discrimination', distance:  95},
+{name: 'Discriminatorix', distance:  60},
+{name: 'Discriminax', distance:  70},
+{name: 'Discriminaxis', distance:  60},
+{name: 'Dysania', distance:  50},
+{name: 'Dyslexicon', distance:  95},
+{name: 'Dyslexiflux', distance:  60},
+{name: 'Dysmorphia', distance:  50},
+{name: 'Echelonix', distance:  60},
+{name: 'Echolalia', distance:  60},
+{name: 'Excludeon', distance:  60},
+{name: 'Exclusionatrix', distance:  70},
+{name: 'Exclusionix', distance:  30},
+{name: 'Fimbulfly', distance:  50},
+{name: 'Flargle', distance:  40},
+{name: 'Flargleplop', distance:  5},
+{name: 'Flarglepunk', distance:  25},
+{name: 'Flarpitude', distance:  25},
+{name: 'Flarpity', distance:  25},
+{name: 'Flarpness', distance:  18},
+{name: 'Flibberdejibbet', distance:  40},
+{name: 'Flibberdejibit', distance:  5},
+{name: 'Flibberjibit', distance:  18},
+{name: 'Flibberjibitism', distance:  10},
+{name: 'flibberjism', distance:  60},
+{name: 'Flibloom', distance:  30},
+{name: 'Flibulitis', distance:  30},
+{name: 'Flibulosity', distance:  30},
+{name: 'Flibulous', distance:  30},
+{name: 'Flibulux', distance:  10},
+{name: 'Flimbulux', distance:  5},
+{name: 'Flimflam', distance:  25},
+{name: 'Flimflamery', distance:  50},
+{name: 'Flimflamism', distance:  10},
+{name: 'Flimflamity', distance:  10},
+{name: 'Flish', distance:  25},
+{name: 'Flishm', distance:  25},
+{name: 'Flishma', distance:  25},
+{name: 'Flishmack', distance:  18},
+{name: 'Flishmacken', distance:  5},
+{name: 'Flishman', distance:  40},
+{name: 'Flishmangle', distance:  30},
+{name: 'Flishmanic', distance:  30},
+{name: 'Flishmarg', distance:  5},
+{name: 'Flishmargle', distance:  25},
+{name: 'Flishmash', distance:  25},
+{name: 'Flishmire', distance:  25},
+{name: 'Flishmish', distance:  10},
+{name: 'Flishmister', distance:  25},
+{name: 'Flishmonger', distance:  25},
+{name: 'Flishmongering', distance:  10},
+{name: 'Flishmorphism', distance:  30},
+{name: 'Flishmort', distance:  10},
+{name: 'Flishmung', distance:  25},
+{name: 'Flishmush', distance:  10},
+{name: 'Flishy', distance:  10},
+{name: 'Floogularity', distance:  40},
+{name: 'Floopen', distance:  20},
+{name: 'Floopenheim', distance:  50},
+{name: 'Floopenheimer', distance:  40},
+{name: 'Floopenosity', distance:  10},
+{name: 'Floopenstein', distance:  0},
+{name: 'Floopity', distance:  25},
+{name: 'Flooster', distance:  22},
+{name: 'Florple', distance:  25},
+{name: 'Flumplen', distance:  25},
+{name: 'Flumplenax', distance:  20},
+{name: 'Flumpleness', distance:  20},
+{name: 'Flumplenook', distance:  25},
+{name: 'Flumplenux', distance:  20},
+{name: 'Flux capacitor', distance:  5},
+{name: 'Fluxion', distance:  40},
+{name: 'Fluxional', distance:  40},
+{name: 'Fluxionary', distance:  25},
+{name: 'Fluxionism', distance:  60},
+{name: 'Fluxionist', distance:  50},
+{name: 'Fluxxim', distance:  10},
+{name: 'Fluxximander', distance:  30},
+{name: 'Fluxximism', distance:  30},
+{name: 'Fluxximorph', distance:  40},
+{name: 'Fluxximorphic', distance:  30},
+{name: 'Fluxximus', distance:  30},
+{name: 'Fluxxion', distance:  30},
+{name: 'Fluxxism', distance:  60},
+{name: 'Fluxxist', distance:  60},
+{name: 'Fluxxle', distance:  40},
+{name: 'Glibble', distance:  10},
+{name: 'Glibblebility', distance:  10},
+{name: 'Glibbleblop', distance:  30},
+{name: 'Glibblebop', distance:  5},
+{name: 'Glibblebork', distance:  25},
+{name: 'Glibbleglorp', distance:  5},
+{name: 'Glibblephobe', distance:  10},
+{name: 'Glibblephobia', distance:  30},
+{name: 'Gliblart', distance:  60},
+{name: 'Gliblert', distance:  5},
+{name: 'Gliblery', distance:  30},
+{name: 'Gliblism', distance:  50},
+{name: 'Gliblometry', distance:  10},
+{name: 'Gliblomp', distance:  10},
+{name: 'Glibloom', distance:  40},
+{name: 'Glibloomination', distance:  30},
+{name: 'Glibloop', distance:  25},
+{name: 'Gliblorn', distance:  10},
+{name: 'Gliblort', distance:  10},
+{name: 'Gliblortex', distance:  40},
+{name: 'Glintism', distance:  40},
+{name: 'Glintzen', distance:  30},
+{name: 'Glitterism', distance:  80},
+{name: 'Glitterstorm', distance:  5},
+{name: 'Glitzen', distance:  30},
+{name: 'Glorble', distance:  90},
+{name: 'glorblort', distance:  10},
+{name: 'Glorp', distance:  50},
+{name: 'Glorpification', distance:  40},
+{name: 'Glorpify', distance:  5},
+{name: 'Glorpity', distance:  30},
+{name: 'Groggle', distance:  80},
+{name: 'Groobly', distance:  60},
+{name: 'Inaccessiblifier', distance:  60},
+{name: 'Inaccessify', distance:  60},
+{name: 'Incapacitation', distance:  60},
+{name: 'Incapacitator', distance:  60},
+{name: 'Incapacitor', distance:  50},
+{name: 'Incapacitrix', distance:  80},
+{name: 'Incapacitron', distance:  90},
+{name: 'Incapazoid', distance:  60},
+{name: 'Includify', distance:  90},
+{name: 'Includinator', distance:  90},
+{name: 'Includix', distance:  40},
+{name: 'Includrox', distance:  90},
+{name: 'Inclusivator', distance:  90},
+{name: 'Inclusivex', distance:  95},
+{name: 'Inclusivisor', distance:  90},
+{name: 'Inclusivity', distance:  95},
+{name: 'Inclusivitynator', distance:  85},
+{name: 'Inclusivityvoider', distance:  90},
+{name: 'Inclusivix', distance:  90},
+{name: 'Incluxion', distance:  60},
+{name: 'Invalidite', distance:  90},
+{name: 'Jargle', distance:  30},
+{name: 'Jargleism', distance:  40},
+{name: 'Jargleplex', distance:  10},
+{name: 'Jargleplop', distance:  10},
+{name: 'Jarglepox', distance:  10},
+{name: 'Jarglepunk', distance:  15},
+{name: 'Jarglepuss', distance:  10},
+{name: 'Jargonify', distance:  60},
+{name: 'Jargonista', distance:  60},
+{name: 'Jinkle', distance:  10},
+{name: 'Jinklethorpe', distance:  10},
+{name: 'Jinklewiff', distance:  5},
+{name: 'Kabloing', distance:  5},
+{name: 'Kabloinga', distance:  35},
+{name: 'Kablooie', distance:  5},
+{name: 'Kaleekin', distance:  50},
+{name: 'Kaleekinesis', distance:  30},
+{name: 'Kaleidoraxis', distance:  40},
+{name: 'Kaleidoscopophobia', distance:  60},
+{name: 'Klabberjinx', distance:  0},
+{name: 'Klaxis', distance:  40},
+{name: 'Klazine', distance:  40},
+{name: 'Klazure', distance:  25},
+{name: 'Klazzit', distance:  5},
+{name: 'Klazzitron', distance:  5},
+{name: 'Klazzle', distance:  40},
+{name: 'Klazzlepity', distance:  25},
+{name: 'Klazzleplop', distance:  5},
+{name: 'Klazzlepunk', distance:  5},
+{name: 'Klompify', distance:  10},
+{name: 'Klompist', distance:  10},
+{name: 'Klompity', distance:  25},
+{name: 'Klompix', distance:  5},
+{name: 'Klompkined', distance:  0},
+{name: 'Klompnost', distance:  35},
+{name: 'Kludge', distance:  40},
+{name: 'Kludgeable', distance:  30},
+{name: 'Kludgegeist', distance:  30},
+{name: 'Kludgeist', distance:  50},
+{name: 'Kludgemeister', distance:  15},
+{name: 'Kludgemorphic', distance:  40},
+{name: 'Kludgen', distance:  22},
+{name: 'Kludgeness', distance:  30},
+{name: 'Kludgeocracy', distance:  40},
+{name: 'Kludgeon', distance:  40},
+{name: 'Kludgery', distance:  50},
+{name: 'Kludgeworthy', distance:  30},
+{name: 'Kludgey', distance:  30},
+{name: 'Kludgification', distance:  30},
+{name: 'Kludgify', distance:  40},
+{name: 'Kludginess', distance:  60},
+{name: 'Kludgism', distance:  60},
+{name: 'Kludgit', distance:  70},
+{name: 'Kludgitude', distance:  40},
+{name: 'Kludgity', distance:  30},
+{name: 'Klutzian', distance:  40},
+{name: 'Klutzificationist', distance:  40},
+{name: 'Klutzism', distance:  40},
+{name: 'Kluzification', distance:  40},
+{name: 'Kluzify', distance:  25},
+{name: 'Kluznik', distance:  40},
+{name: 'Kluznix', distance:  15},
+{name: 'Krintle', distance:  25},
+{name: 'Krunklepax', distance:  25},
+{name: 'Mindstigmaton', distance:  80},
+{name: 'Nebulon', distance:  20},
+{name: 'Nebulonix', distance:  30},
+{name: 'Nebulonorm', distance:  60},
+{name: 'Nebulonormative', distance:  80},
+{name: 'Nebulonormativity', distance:  60},
+{name: 'Nebulox', distance:  40},
+{name: 'Nebulux', distance:  25},
+{name: 'Nebuluxion', distance:  30},
+{name: 'Neurobendy', distance:  50},
+{name: 'Neurobility', distance:  40},
+{name: 'Neurobix', distance:  50},
+{name: 'Neuroblast', distance:  60},
+{name: 'Neurobloat', distance:  60},
+{name: 'Neurobloom', distance:  40},
+{name: 'Neuroblop', distance:  40},
+{name: 'Neurobop', distance:  40},
+{name: 'Neurobore', distance:  40},
+{name: 'Neurobux', distance:  40},
+{name: 'Neurobuxle', distance:  10},
+{name: 'Neurocentric', distance:  80},
+{name: 'Neurodivergentphobe', distance:  80},
+{name: 'Neurodiverse', distance:  80},
+{name: 'Neurodiversephobe', distance:  90},
+{name: 'Neurodiversephobia', distance:  80},
+{name: 'Neurodiversephobic', distance:  90},
+{name: 'Neurodiversity', distance:  90},
+{name: 'Neurodivine', distance:  80},
+{name: 'Neurofizzle', distance:  30},
+{name: 'Neuroflail', distance:  60},
+{name: 'Neuroflax', distance:  80},
+{name: 'Neuroflazzle', distance:  40},
+{name: 'Neuroflex', distance:  50},
+{name: 'Neuroflexion', distance:  60},
+{name: 'Neuroflicker', distance:  40},
+{name: 'Neuroflop', distance:  40},
+{name: 'Neuroflux', distance:  60},
+{name: 'Neurofluxion', distance:  30},
+{name: 'Neurofluxx', distance:  25},
+{name: 'Neurofobic', distance:  80},
+{name: 'Neurofop', distance:  30},
+{name: 'Neurofrazz', distance:  60},
+{name: 'Neurofrazzle', distance:  40},
+{name: 'Neurofuzz', distance:  50},
+{name: 'Neurolux', distance:  60},
+{name: 'Neurominx', distance:  30},
+{name: 'Neuromorphix', distance:  50},
+{name: 'Neurophobe', distance:  80},
+{name: 'Neurophobic', distance:  80},
+{name: 'Neuroplastic', distance:  80},
+{name: 'Neuroptic', distance:  50},
+{name: 'Neuroslant', distance:  50},
+{name: 'Neurospark', distance:  60},
+{name: 'Neurosparkle', distance:  40},
+{name: 'Neurostic', distance:  80},
+{name: 'Neurostigma', distance:  80},
+{name: 'Neurostigmatic', distance:  60},
+{name: 'Neurostix', distance:  25},
+{name: 'Neurostrix', distance:  40},
+{name: 'Neurotic', distance:  60},
+{name: 'Neuroticism', distance:  80},
+{name: 'Neurotypia', distance:  80},
+{name: 'Neurotypic', distance:  60},
+{name: 'Neurotypix', distance:  80},
+{name: 'Normatist', distance:  60},
+{name: 'Normativia', distance:  80},
+{name: 'Normify', distance:  60},
+{name: 'Phobostrophe', distance:  60},
+{name: 'Psychalixir', distance:  30},
+{name: 'Psychobabble', distance:  40},
+{name: 'Psycholixir', distance:  30},
+{name: 'Psycholux', distance:  30},
+{name: 'Psycholuxe', distance:  60},
+{name: 'Psychoplasm', distance:  30},
+{name: 'Psychoreactive', distance:  60},
+{name: 'Psychoregressive', distance:  40},
+{name: 'Psychorestrictive', distance:  50},
+{name: 'Psychosnob', distance:  10},
+{name: 'Psychosocialism', distance:  80},
+{name: 'Psychovector', distance:  45},
+{name: 'Quizzle', distance:  30},
+{name: 'Quizzlethorn', distance:  30},
+{name: 'Quizzlethorpe', distance:  5},
+{name: 'Quizzlewhack', distance:  25},
+{name: 'Sanism', distance:  80},
+{name: 'Sanismorph', distance:  10},
+{name: 'Sanist', distance:  70},
+{name: 'Scribblemind', distance:  40},
+{name: 'Scribblism', distance:  80},
+{name: 'Scribulous', distance:  40},
+{name: 'Sensorysupremacism', distance:  60},
+{name: 'Sensoryx', distance:  50},
+{name: 'Sensoryxen', distance:  60},
+{name: 'Sensoryxist', distance:  90},
+{name: 'Snaarlitude', distance:  40},
+{name: 'Snable', distance:  40},
+{name: 'Snabletude', distance:  15},
+{name: 'Snaznorf', distance:  25},
+{name: 'Snazzle', distance:  12},
+{name: 'Snazzlefrazz', distance:  30},
+{name: 'Snecklism', distance:  15},
+{name: 'Snedrify', distance:  15},
+{name: 'Snergilism', distance:  15},
+{name: 'Snerglistic', distance:  15},
+{name: 'Snizzle', distance:  25},
+{name: 'Snizzlefraze', distance:  18},
+{name: 'Snizzlethorpe', distance:  30},
+{name: 'Snoozle', distance:  5},
+{name: 'Snoozlism', distance:  15},
+{name: 'Snurfication', distance:  15},
+{name: 'Snurfle', distance:  15},
+{name: 'Snurfleism', distance:  15},
+{name: 'Snurflemania', distance:  10},
+{name: 'Snurflepunk', distance:  15},
+{name: 'Sonderlust', distance:  30},
+{name: 'Spectaculon', distance:  30},
+{name: 'Spectivism', distance:  80},
+{name: 'Spectrabalist', distance:  10},
+{name: 'Spectrablind', distance:  40},
+{name: 'Spectracular', distance:  25},
+{name: 'Spectraphobe', distance:  50},
+{name: 'Spectravore', distance:  30},
+{name: 'Spectraxle', distance:  25},
+{name: 'Spectrify', distance:  30},
+{name: 'Spectrocentric', distance:  60},
+{name: 'Spectrocentrism', distance:  80},
+{name: 'Splatism', distance:  40},
+{name: 'Splatist', distance:  80},
+{name: 'Splatitudinal', distance:  40},
+{name: 'Splatypus', distance:  25},
+{name: 'Splendifer', distance:  30},
+{name: 'Splendiferous', distance:  60},
+{name: 'Splendiferousness', distance:  40},
+{name: 'Splenkadoodle', distance:  5},
+{name: 'Splorg', distance:  15},
+{name: 'Splorgle', distance:  25},
+{name: 'Splorgon', distance:  5},
+{name: 'Splork', distance:  5},
+{name: 'Splorkian', distance:  30},
+{name: 'Splorkism', distance:  30},
+{name: 'Splorkle', distance:  30},
+{name: 'Squibble', distance:  25},
+{name: 'Squirrelistic', distance:  15},
+{name: 'Stereotyper', distance:  90},
+{name: 'Thixotropy', distance:  80},
+{name: 'Whimble', distance:  25},
+{name: 'Whimsify', distance:  30},
+{name: 'Whimsywhack', distance:  18},
+{name: 'Wuggle', distance:  40},
+{name: 'Wugglelux', distance:  15},
+{name: 'Wugglepants', distance:  30},
+{name: 'Wuggleplex', distance:  25},
+{name: 'Wuggleplop', distance:  18},
+{name: 'Wugglethorpe', distance:  50},
+{name: 'Wugglewhump', distance:  5},
+{name: 'Wugglewump', distance:  50},
+{name: 'Zhilak', distance:  30},
+{name: 'Zhilakai', distance:  30},
+{name: 'Zhilakism', distance:  30},
+{name: 'Zhilaklep', distance:  50},
+{name: 'Zhilakon', distance:  30},
+{name: 'Zinglewiff', distance:  10},
+{name: 'Zingpocket', distance:  18},
+{name: 'Zlorg', distance:  0},
+{name: 'Zlorgification', distance:  5},
+{name: 'Zlorglepunk', distance:  0},
+{name: 'Zlorgon', distance:  5},
+{name: 'Zorblort', distance:  5},
+{name: 'Zortlepunk', distance:  5},
+{name: 'Zorvath', distance:  5},
+{name: 'zymurplex', distance:  25},
+]
+
+var links = [
+{source: 0, target: 1},
+{source: 0, target: 2},
+{source: 0, target: 3},
+{source: 0, target: 4},
+{source: 0, target: 5},
+{source: 0, target: 6},
+{source: 0, target: 7},
+{source: 0, target: 8},
+{source: 0, target: 9},
+{source: 0, target: 10},
+{source: 0, target: 11},
+{source: 0, target: 12},
+{source: 0, target: 13},
+{source: 0, target: 14},
+{source: 0, target: 15},
+{source: 0, target: 16},
+{source: 0, target: 17},
+{source: 0, target: 18},
+{source: 0, target: 19},
+{source: 0, target: 20},
+{source: 0, target: 21},
+{source: 0, target: 22},
+{source: 0, target: 23},
+{source: 0, target: 24},
+{source: 0, target: 25},
+{source: 0, target: 26},
+{source: 0, target: 27},
+{source: 0, target: 28},
+{source: 0, target: 29},
+{source: 0, target: 30},
+{source: 0, target: 31},
+{source: 0, target: 32},
+{source: 0, target: 33},
+{source: 0, target: 34},
+{source: 0, target: 35},
+{source: 0, target: 36},
+{source: 0, target: 37},
+{source: 0, target: 38},
+{source: 0, target: 39},
+{source: 0, target: 40},
+{source: 0, target: 41},
+{source: 0, target: 42},
+{source: 0, target: 43},
+{source: 0, target: 44},
+{source: 0, target: 45},
+{source: 0, target: 46},
+{source: 0, target: 47},
+{source: 0, target: 48},
+{source: 0, target: 49},
+{source: 0, target: 50},
+{source: 0, target: 51},
+{source: 0, target: 52},
+{source: 0, target: 53},
+{source: 0, target: 54},
+{source: 0, target: 55},
+{source: 0, target: 56},
+{source: 0, target: 57},
+{source: 0, target: 58},
+{source: 0, target: 59},
+{source: 0, target: 60},
+{source: 0, target: 61},
+{source: 0, target: 62},
+{source: 0, target: 63},
+{source: 0, target: 64},
+{source: 0, target: 65},
+{source: 0, target: 66},
+{source: 0, target: 67},
+{source: 0, target: 68},
+{source: 0, target: 69},
+{source: 0, target: 70},
+{source: 0, target: 71},
+{source: 0, target: 72},
+{source: 0, target: 73},
+{source: 0, target: 74},
+{source: 0, target: 75},
+{source: 0, target: 76},
+{source: 0, target: 77},
+{source: 0, target: 78},
+{source: 0, target: 79},
+{source: 0, target: 80},
+{source: 0, target: 81},
+{source: 0, target: 82},
+{source: 0, target: 83},
+{source: 0, target: 84},
+{source: 0, target: 85},
+{source: 0, target: 86},
+{source: 0, target: 87},
+{source: 0, target: 88},
+{source: 0, target: 89},
+{source: 0, target: 90},
+{source: 0, target: 91},
+{source: 0, target: 92},
+{source: 0, target: 93},
+{source: 0, target: 94},
+{source: 0, target: 95},
+{source: 0, target: 96},
+{source: 0, target: 97},
+{source: 0, target: 98},
+{source: 0, target: 99},
+{source: 0, target: 100},
+{source: 0, target: 101},
+{source: 0, target: 102},
+{source: 0, target: 103},
+{source: 0, target: 104},
+{source: 0, target: 105},
+{source: 0, target: 106},
+{source: 0, target: 107},
+{source: 0, target: 108},
+{source: 0, target: 109},
+{source: 0, target: 110},
+{source: 0, target: 111},
+{source: 0, target: 112},
+{source: 0, target: 113},
+{source: 0, target: 114},
+{source: 0, target: 115},
+{source: 0, target: 116},
+{source: 0, target: 117},
+{source: 0, target: 118},
+{source: 0, target: 119},
+{source: 0, target: 120},
+{source: 0, target: 121},
+{source: 0, target: 122},
+{source: 0, target: 123},
+{source: 0, target: 124},
+{source: 0, target: 125},
+{source: 0, target: 126},
+{source: 0, target: 127},
+{source: 0, target: 128},
+{source: 0, target: 129},
+{source: 0, target: 130},
+{source: 0, target: 131},
+{source: 0, target: 132},
+{source: 0, target: 133},
+{source: 0, target: 134},
+{source: 0, target: 135},
+{source: 0, target: 136},
+{source: 0, target: 137},
+{source: 0, target: 138},
+{source: 0, target: 139},
+{source: 0, target: 140},
+{source: 0, target: 141},
+{source: 0, target: 142},
+{source: 0, target: 143},
+{source: 0, target: 144},
+{source: 0, target: 145},
+{source: 0, target: 146},
+{source: 0, target: 147},
+{source: 0, target: 148},
+{source: 0, target: 149},
+{source: 0, target: 150},
+{source: 0, target: 151},
+{source: 0, target: 152},
+{source: 0, target: 153},
+{source: 0, target: 154},
+{source: 0, target: 155},
+{source: 0, target: 156},
+{source: 0, target: 157},
+{source: 0, target: 158},
+{source: 0, target: 159},
+{source: 0, target: 160},
+{source: 0, target: 161},
+{source: 0, target: 162},
+{source: 0, target: 163},
+{source: 0, target: 164},
+{source: 0, target: 165},
+{source: 0, target: 166},
+{source: 0, target: 167},
+{source: 0, target: 168},
+{source: 0, target: 169},
+{source: 0, target: 170},
+{source: 0, target: 171},
+{source: 0, target: 172},
+{source: 0, target: 173},
+{source: 0, target: 174},
+{source: 0, target: 175},
+{source: 0, target: 176},
+{source: 0, target: 177},
+{source: 0, target: 178},
+{source: 0, target: 179},
+{source: 0, target: 180},
+{source: 0, target: 181},
+{source: 0, target: 182},
+{source: 0, target: 183},
+{source: 0, target: 184},
+{source: 0, target: 185},
+{source: 0, target: 186},
+{source: 0, target: 187},
+{source: 0, target: 188},
+{source: 0, target: 189},
+{source: 0, target: 190},
+{source: 0, target: 191},
+{source: 0, target: 192},
+{source: 0, target: 193},
+{source: 0, target: 194},
+{source: 0, target: 195},
+{source: 0, target: 196},
+{source: 0, target: 197},
+{source: 0, target: 198},
+{source: 0, target: 199},
+{source: 0, target: 200},
+{source: 0, target: 201},
+{source: 0, target: 202},
+{source: 0, target: 203},
+{source: 0, target: 204},
+{source: 0, target: 205},
+{source: 0, target: 206},
+{source: 0, target: 207},
+{source: 0, target: 208},
+{source: 0, target: 209},
+{source: 0, target: 210},
+{source: 0, target: 211},
+{source: 0, target: 212},
+{source: 0, target: 213},
+{source: 0, target: 214},
+{source: 0, target: 215},
+{source: 0, target: 216},
+{source: 0, target: 217},
+{source: 0, target: 218},
+{source: 0, target: 219},
+{source: 0, target: 220},
+{source: 0, target: 221},
+{source: 0, target: 222},
+{source: 0, target: 223},
+{source: 0, target: 224},
+{source: 0, target: 225},
+{source: 0, target: 226},
+{source: 0, target: 227},
+{source: 0, target: 228},
+{source: 0, target: 229},
+{source: 0, target: 230},
+{source: 0, target: 231},
+{source: 0, target: 232},
+{source: 0, target: 233},
+{source: 0, target: 234},
+{source: 0, target: 235},
+{source: 0, target: 236},
+{source: 0, target: 237},
+{source: 0, target: 238},
+{source: 0, target: 239},
+{source: 0, target: 240},
+{source: 0, target: 241},
+{source: 0, target: 242},
+{source: 0, target: 243},
+{source: 0, target: 244},
+{source: 0, target: 245},
+{source: 0, target: 246},
+{source: 0, target: 247},
+{source: 0, target: 248},
+{source: 0, target: 249},
+{source: 0, target: 250},
+{source: 0, target: 251},
+{source: 0, target: 252},
+{source: 0, target: 253},
+{source: 0, target: 254},
+{source: 0, target: 255},
+{source: 0, target: 256},
+{source: 0, target: 257},
+{source: 0, target: 258},
+{source: 0, target: 259},
+{source: 0, target: 260},
+{source: 0, target: 261},
+{source: 0, target: 262},
+{source: 0, target: 263},
+{source: 0, target: 264},
+{source: 0, target: 265},
+{source: 0, target: 266},
+{source: 0, target: 267},
+{source: 0, target: 268},
+{source: 0, target: 269},
+{source: 0, target: 270},
+{source: 0, target: 271},
+{source: 0, target: 272},
+{source: 0, target: 273},
+{source: 0, target: 274},
+{source: 0, target: 275},
+{source: 0, target: 276},
+{source: 0, target: 277},
+{source: 0, target: 278},
+{source: 0, target: 279},
+{source: 0, target: 280},
+{source: 0, target: 281},
+{source: 0, target: 282},
+{source: 0, target: 283},
+{source: 0, target: 284},
+{source: 0, target: 285},
+{source: 0, target: 286},
+{source: 0, target: 287},
+{source: 0, target: 288},
+{source: 0, target: 289},
+{source: 0, target: 290},
+{source: 0, target: 291},
+{source: 0, target: 292},
+{source: 0, target: 293},
+{source: 0, target: 294},
+{source: 0, target: 295},
+{source: 0, target: 296},
+{source: 0, target: 297},
+{source: 0, target: 298},
+{source: 0, target: 299},
+{source: 0, target: 300},
+{source: 0, target: 301},
+{source: 0, target: 302},
+{source: 0, target: 303},
+{source: 0, target: 304},
+{source: 0, target: 305},
+{source: 0, target: 306},
+{source: 0, target: 307},
+{source: 0, target: 308},
+{source: 0, target: 309},
+{source: 0, target: 310},
+{source: 0, target: 311},
+{source: 0, target: 312},
+{source: 0, target: 313},
+{source: 0, target: 314},
+{source: 0, target: 315},
+{source: 0, target: 316},
+{source: 0, target: 317},
+{source: 0, target: 318},
+{source: 0, target: 319},
+{source: 0, target: 320},
+{source: 0, target: 321},
+{source: 0, target: 322},
+{source: 0, target: 323},
+{source: 0, target: 324},
+{source: 0, target: 325},
+{source: 0, target: 326},
+{source: 0, target: 327},
+{source: 0, target: 328},
+{source: 0, target: 329},
+{source: 0, target: 330},
+{source: 0, target: 331},
+{source: 0, target: 332},
+{source: 0, target: 333},
+{source: 0, target: 334},
+{source: 0, target: 335},
+{source: 0, target: 336},
+{source: 0, target: 337},
+{source: 0, target: 338},
+{source: 0, target: 339},
+{source: 0, target: 340},
+{source: 0, target: 341},
+{source: 0, target: 342},
+{source: 0, target: 343},
+{source: 0, target: 344},
+{source: 0, target: 345},
+{source: 0, target: 346},
+{source: 0, target: 347},
+{source: 0, target: 348},
+{source: 0, target: 349},
+{source: 0, target: 350},
+{source: 0, target: 351},
+{source: 0, target: 352},
+{source: 0, target: 353},
+{source: 0, target: 354},
+{source: 0, target: 355},
+{source: 0, target: 356},
+{source: 0, target: 357},
+{source: 0, target: 358},
+{source: 0, target: 359},
+{source: 0, target: 360},
+{source: 0, target: 361},
+{source: 0, target: 362},
+{source: 0, target: 363},
+{source: 0, target: 364},
+{source: 0, target: 365},
+{source: 0, target: 366},
+{source: 0, target: 367},
+{source: 0, target: 368},
+{source: 0, target: 369},
+{source: 0, target: 370},
+{source: 0, target: 371},
+{source: 0, target: 372},
+{source: 0, target: 373},
+{source: 0, target: 374},
+{source: 0, target: 375},
+{source: 0, target: 376},
+{source: 0, target: 377},
+{source: 0, target: 378},
+{source: 0, target: 379},
+{source: 0, target: 380},
+{source: 0, target: 381},
+{source: 0, target: 382},
+{source: 0, target: 383},
+{source: 0, target: 384},
+{source: 0, target: 385},
+{source: 0, target: 386},
+{source: 0, target: 387},
+{source: 0, target: 388},
+{source: 0, target: 389},
+{source: 0, target: 390},
+{source: 0, target: 391},
+{source: 0, target: 392},
+{source: 0, target: 393},
+{source: 0, target: 394},
+{source: 0, target: 395},
+{source: 0, target: 396},
+{source: 0, target: 397},
+{source: 0, target: 398},
+{source: 0, target: 399},
+{source: 0, target: 400},
+{source: 0, target: 401},
+{source: 0, target: 402},
+{source: 0, target: 403},
+{source: 0, target: 404},
+{source: 0, target: 405},
+{source: 0, target: 406},
+{source: 0, target: 407},
+{source: 0, target: 408},
+{source: 0, target: 409},
+{source: 0, target: 410},
+{source: 0, target: 411},
+{source: 0, target: 412},
+{source: 0, target: 413},
+{source: 0, target: 414},
+{source: 0, target: 415},
+{source: 0, target: 416},
+{source: 0, target: 417},
+{source: 0, target: 418},
+{source: 0, target: 419},
+{source: 0, target: 420},
+{source: 0, target: 421},
+{source: 0, target: 422},
+{source: 0, target: 423},
+{source: 0, target: 424},
+{source: 0, target: 425},
+{source: 0, target: 426},
+{source: 0, target: 427},
+{source: 0, target: 428},
+{source: 0, target: 429},
+{source: 0, target: 430},
+{source: 0, target: 431},
+{source: 0, target: 432},
+{source: 0, target: 433},
+{source: 0, target: 434},
+{source: 0, target: 435},
+{source: 0, target: 436},
+{source: 0, target: 437},
+{source: 0, target: 438},
+{source: 0, target: 439},
+{source: 0, target: 440},
+{source: 0, target: 441},
+{source: 0, target: 442},
+{source: 0, target: 443},
+{source: 0, target: 444},
+{source: 0, target: 445},
+{source: 0, target: 446},
+{source: 0, target: 447},
+{source: 0, target: 448},
+{source: 0, target: 449},
+{source: 0, target: 450},
+{source: 0, target: 451},
+{source: 0, target: 452},
+{source: 0, target: 453},
+{source: 0, target: 454},
+{source: 0, target: 455},
+{source: 0, target: 456},
+{source: 0, target: 457},
+{source: 0, target: 458},
+{source: 0, target: 459},
+{source: 0, target: 460},
+{source: 0, target: 461},
+{source: 0, target: 462},
+{source: 0, target: 463},
+{source: 0, target: 464},
+{source: 0, target: 465},
+{source: 0, target: 466},
+{source: 0, target: 467},
+{source: 0, target: 468},
+{source: 0, target: 469},
+{source: 0, target: 470},
+{source: 0, target: 471},
+{source: 0, target: 472},
+{source: 0, target: 473},
+{source: 0, target: 474},
+{source: 0, target: 475},
+{source: 0, target: 476},
+{source: 0, target: 477},
+{source: 0, target: 478},
+{source: 0, target: 479},
+{source: 0, target: 480},
+{source: 0, target: 481},
+{source: 0, target: 482},
+{source: 0, target: 483},
+{source: 0, target: 484},
+{source: 0, target: 485},
+{source: 0, target: 486},
+{source: 0, target: 487},
+{source: 0, target: 488},
+{source: 0, target: 489},
+{source: 0, target: 490},
+{source: 0, target: 491},
+{source: 0, target: 492},
+{source: 0, target: 493},
+{source: 0, target: 494},
+{source: 0, target: 495},
+{source: 0, target: 496},
+{source: 0, target: 497},
+{source: 0, target: 498},
+{source: 0, target: 499},
+{source: 0, target: 500},
+{source: 0, target: 501},
+{source: 0, target: 502},
+{source: 0, target: 503},
+{source: 0, target: 504},
+{source: 0, target: 505},
+{source: 0, target: 506},
+{source: 0, target: 507},
+{source: 0, target: 508},
+{source: 0, target: 509},
+{source: 0, target: 510},
+{source: 0, target: 511},
+{source: 0, target: 512},
+{source: 0, target: 513},
+{source: 0, target: 514},
+{source: 0, target: 515},
+{source: 0, target: 516},
+{source: 0, target: 517},
+{source: 0, target: 518},
+]
+
+var u2 = d3.select('.nodes')
+		.selectAll('circle')
+		.data(nodes)
+		.enter()
+		.append("circle")
+		.attr('cx', function(d) {
+			return d.x
+		})
+		.attr('cy', function(d) {
+			return d.y
+		})
+    .attr("r", 8)
+		.attr("class","circle")
+    .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended));
+
+
+function updateLinks() {
+	var u = d3.select('.links')
+		.selectAll('line')
+		.data(links)
+		.join('line')
+        .attr("stroke-width", function(d) { 
+            const x = d3.scaleLinear([0, 100], [1, 5]);
+            
+            return Math.sqrt(x(d.target.distance)); })
+		.attr('x1', function(d) {
+			return centerPos;
+		})
+		.attr('y1', function(d) {
+			return centerPos;
+		})
+		.attr('x2', function(d) {
+			return d.target.x
+		})
+		.attr('y2', function(d) {
+			return d.target.y
+		});
+}
+
+//for(var i=0; i < nodes.length; i++){
+  //nodes[i].distance = nodes[i].distance;
+//}
+
+
+var networkCenter = d3.forceCenter().x(centerPos-80).y(centerPos);
+
+
+var collide = d3.bboxCollide(function (d,i) {
+  var d1 = d.name.length;
+    return [[d1 * -5, -8], [d1 * 5, 8]]
+
+  })
+  .strength(0.01)
+  .iterations(10)
+
+  //var color = d3.scaleOrdinal().range(d3.schemeCategory20);
+
+  var force = d3.forceSimulation(nodes)
+    .velocityDecay(0.6)
+   // .force('charge', d3.forceManyBody().strength(-10))
+    .force("center", networkCenter)
+    .force("collide", collide)
+   // .force('collide', d3.forceCollide(4))
+    .force('link', d3.forceLink().iterations(1).distance(function(d){
+       const x = d3.scaleLinear([0, 100], [900, 100]);
+  		//console.log(""+d.target.distance+" => " + x(d.target.distance)+ " - " + d.target.name);
+     // const x = d3.scalePow([0, 100], [1650, 200]).exponent(0.85);
+		
+
+        return x(d.target.distance);
+
+    }).links(links))
+    .on("tick", updateNetwork);
+
+
+  var nodeEnter = d3.select("svg.main")
+  .append("g")
+  .selectAll("g.node")
+  .data(nodes)
+  .enter()
+  .append("g")
+  .attr("class", "node");
+
+
+
+
+
+	// var u = d3.select('.nodes')
+	// 	.selectAll('text')
+	// 	.data(nodes)
+	// 	.join('text')
+	// 	.text(function(d) {
+	// 		return d.name
+	// 	})
+	// 	.attr('x', function(d) {
+	// 		return d.x
+	// 	})
+	// 	.attr('y', function(d) {
+	// 		return d.y
+	// 	})
+	// 	.attr('dy', function(d) {
+	// 		return -5
+	// 	});
+
+  nodeEnter.append("rect")
+    .attr("class", "base")
+    .style("fill-opacity", 1.0)
+    .style("stroke-width", 1)
+    .style("stroke-opacity", 1.0)
+    .style("stroke", "#333")
+    .style("fill", "#000000")
+    .style("width", function (d) {return d.name.length*9 })
+    .style("height", function (d) {return 25})
+    .style("x", function (d) {
+      if(d.name == "Ableist"){
+        return centerPos; 
+      }else{
+        return d.x 
+      }
+    })
+    .style("y", function (d) {
+      if(d.name == "Ableist"){
+        return centerPos; 
+      }
+      else{
+        return d.y 
+      }
+    
+    })
+
+    // nodeEnter.append("text")
+    // .style("font-size", function(d){ return "50px";})
+    // .text(function(d){return d.name})
+    // .attr('dx', function(d) {
+		// 	return 5;
+		// })
+    // .attr('dy', function(d) {
+		// 	return 16;
+		// });
+
+
+
+
+    function updateNodes() {
+    // d3.select('.nodes').select('text').append("circle")
+    // .attr("cx", width/2)
+    // .attr("cy", height/2)
+    // .attr("r", 50)
+    // .style("stroke", "#fff")
+    // .style("fill", "#fffff00")
+    // .attr('fill-opacity', 0.0);
+
+	var u = d3.select('.nodes')
+		.selectAll('text')
+		.data(nodes)
+		.join('text')
+		.text(function(d) {
+			return d.name
+		})
+    .style("font-size", function(d){ 
+      if(d.name == "Ableist"){
+      return "40px";
+      }
+    })
+		.attr('x', function(d) {
+      if(d.name == "Ableist"){
+          return centerPos;
+        }else{
+          return d.x;
+        }
+		})
+		.attr('y', function(d) {
+      if(d.name == "Ableist"){
+       
+        return centerPos;
+      }
+      return d.y;
+		})
+		.attr('dy', function(d) {
+			return -5
+		});
+
+		
+        // var u = d3.select('.nodes')
+		// .selectAll('text')
+		// .data(nodes)
+		// .join('text')
+		// .attr('cx', function(d) {
+		// 	return d.x
+		// })
+		// .attr('cy', function(d) {
+		// 	return d.y
+		// })
+		// .attr('dy', function(d) {
+		// 	return 0
+		// })
+		// .call(d3.drag()
+        //   .on("start", dragstarted)
+        //   .on("drag", dragged)
+        //   .on("end", dragended));
+
+		
+		// ;
+
+        
+}
+
+
+
+
+
+  function updateNetwork() {
+
+    // var u = d3.select('.links')
+		// .selectAll('line')
+		// .data(links)
+		// .join('line')
+    //     .attr("stroke-width", function(d) { 
+    //         const x = d3.scaleLinear([0, 100], [1, 5]);
+            
+    //         return Math.sqrt(x(d.target.distance)); })
+		// .attr('x1', function(d) {
+		// 	return d.source.x
+		// })
+		// .attr('y1', function(d) {
+		// 	return d.source.y
+		// })
+		// .attr('x2', function(d) {
+		// 	return d.target.x
+		// })
+		// .attr('y2', function(d) {
+		// 	return d.target.y
+		// });
+    updateLinks();
+    updateNodes();
+
+
+    u2
+      .attr('cx', function (node) { 
+        if(node.name == "Ableist"){
+          return centerPos;
+        }
+        else{
+          return node.x 
+        }
+      })
+      .attr('cy', function (node) { 
+        if(node.name == "Ableist"){
+          return centerPos;
+        }
+        else{
+          return node.y }
+        }
+      )
+
+    // d3.select("svg.main").selectAll("g.node")
+    //   .attr("transform", function (d) {return "translate(" + d.x + "," + d.y + ")"})
+   
+  }
+
+
+
+  function dragstarted(event) {
+	console.log(event);
+	if(!event.active) {
+		simulation.alpha(.5);
+		simulation.alphaTarget(0.3).restart();}
+	event.subject.x = event.x;
+	event.subject.y = event.y;
+}
+
+function dragged(event) {
+	event.subject.x = event.x;
+	event.subject.y = event.y;
+	//event.subject.distance = event.distance;
+}
+
+function dragended(event) {
+	console.log(event);
+	if(!event.active) simulation.alphaTarget(0);
+	event.subject.x = event.x;
+	event.subject.y = event.y;
+	//event.subject.distance = 10;
+
+}
+
+</script>
+</footer>
+
+</html>
