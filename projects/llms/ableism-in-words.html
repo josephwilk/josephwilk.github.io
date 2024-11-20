@@ -1,0 +1,1107 @@
+<html>
+<head>
+  <title>Made-up words Rated by how Ableist</title>
+  <meta charset="utf-8" />
+
+<script src="https://d3js.org/d3.v7.js"></script>
+<script src="collide.js"></script>
+</head>
+<style>
+
+svg{
+  background: radial-gradient(closest-side at center, rgb(208,255,0) 0%, rgb(151,252,83) 5%, rgb(94, 249,166) 10%, rgb(94,249,166) 19%, rgb(154, 253, 253) 27%, rgb(255, 255, 107) 63%, rgb(255, 21, 173) 99%,  rgb(0, 0, 0) 100%);
+  
+}
+
+#paper{
+  background-color: radial-gradient(closest-side at center, rgb(208,255,0) 0%, rgb(151,252,83) 5%, rgb(94, 249,166) 10%, rgb(94,249,166) 19%, rgb(154, 253, 253) 27%, rgb(255, 255, 107) 63%, rgb(255, 21, 173) 99%,  rgb(0, 0, 0) 100%);
+}
+.paper{
+  fill: radial-gradient(closest-side at center, rgb(208,255,0) 0%, rgb(151,252,83) 5%, rgb(94, 249,166) 10%, rgb(94,249,166) 19%, rgb(154, 253, 253) 27%, rgb(255, 255, 107) 63%, rgb(255, 21, 173) 99%,  rgb(0, 0, 0) 100%);
+}
+
+ 
+ circle {
+  fill: rgb(247,247,247);
+  stroke-width: 10.5pt;
+  stroke-opacity: 0.4;
+  stroke: rgb(255,255,255);
+}  
+text {
+  text-anchor: middle;
+  font-family:  "myFirstFont";
+  fill: #000;
+  font-size: 15px;
+  
+}
+body{
+	background-color: white;
+}
+line {
+  stroke-dasharray: 3,2,2,2,2,1;
+  stroke: #fff;
+  stroke-opacity: 0.5;
+}
+@font-face {
+	font-family: "myFirstFont";
+	src: url("font/TerminusTTF-4.49.3.ttf");
+}
+</style>
+<body>
+
+
+
+
+
+
+
+
+
+
+<div id="viz">
+  <svg viewBox="0 0 2000 2000" preserveAspectRatio="xMidYMid meet">
+
+    <!-- <defs>
+      <circle id="shape" r="953" cx="1000" cy="1000" />
+
+      <filter id="noise">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.9"
+          numOctaves="1"
+          result="turbulence"
+        />
+      </filter>
+      
+      <radialGradient id="heat">
+        <stop offset="0%" stop-color="rgb(208,255,0)" />
+        <stop offset="5%" stop-color="rgb(151,252,83)" />
+        <stop offset="10%" stop-color="rgb(94, 249,166)" />
+        <stop offset="19%" stop-color="rgb(94,249,166)" />
+        <stop offset="27%" stop-color="rgb(154, 253, 253)" />
+        <stop offset="63%" stop-color="rgb(255, 255, 107)" />
+        <stop offset="99%" stop-color="rgb(255, 21, 173)" />
+        <stop offset="100%" stop-color="rgb(0, 0, 0)" />
+      </radialGradient>
+      
+      <mask id="gradient">
+        <radialGradient id="fade">
+          
+          <stop offset="0%" stop-color="black"    />
+          <stop offset="95%" stop-color="white" />
+        </radialGradient>
+        <circle r="995" cx="1000" cy="1000" fill="url(#fade)" />       
+      </mask>
+
+    </defs>
+
+    <use href="#shape" mask="url('#gradient')" filter="url('#noise')" /> -->
+
+    <g class="links"></g>
+    <g class="nodes"></g>
+  </svg>
+</div>
+</body>
+  <footer>
+<script>
+
+var width = 2000;
+var height = 2000;
+var centerPos = width/2.0;
+
+
+var nodes = [
+{name: 'Ableism', distance:  100},
+{name: 'Able-bodiedness', distance:  90},
+{name: 'AbleBodiedPrivilege', distance:  92},
+{name: 'Abled-bodiedness', distance:  95},
+{name: 'AbleismItself', distance:  100},
+{name: 'Abstraction', distance:  70},
+{name: 'Accessibility', distance:  30},
+{name: 'Ageism', distance:  70},
+{name: 'AI-generated art', distance:  40},
+{name: 'AI', distance:  60},
+{name: 'Algorithm', distance:  60},
+{name: 'Algorithms', distance:  40},
+{name: 'Apathy', distance:  60},
+{name: 'Architecture', distance:  60},
+{name: 'Assumption', distance:  80},
+{name: 'Assumptions', distance:  90},
+{name: 'Astrology', distance:  40},
+{name: 'Astronaut', distance:  5},
+{name: 'Astronauts', distance:  20},
+{name: 'Astronomy', distance:  30},
+{name: 'Audiobooks', distance:  40},
+{name: 'Audism', distance:  96},
+{name: 'Aurora', distance:  25},
+{name: 'Avocado Toast', distance:  5},
+{name: 'Avocado', distance:  0},
+{name: 'Avocados', distance:  10},
+{name: 'Baguettes', distance:  10},
+{name: 'BeautyStandards', distance:  95},
+{name: 'Bicycles', distance:  10},
+{name: 'Bubble Wrap', distance:  5},
+{name: 'Bubblegum', distance:  10},
+{name: 'Bubblewrap', distance:  10},
+{name: 'Bureaucracy', distance:  90},
+{name: 'Burritos', distance:  0},
+{name: 'Cable', distance:  20},
+{name: 'Cacophony', distance:  30},
+{name: 'Cafes', distance:  20},
+{name: 'Cafeterias', distance:  20},
+{name: 'Caffeine', distance:  10},
+{name: 'Cakewalk', distance:  20},
+{name: 'Candy', distance:  10},
+{name: 'Cantaloupe', distance:  10},
+{name: 'Capitalism', distance:  90},
+{name: 'Cappuccinos', distance:  20},
+{name: 'Capybara', distance:  0},
+{name: 'Capybaras', distance:  10},
+{name: 'Carpentry', distance:  40},
+{name: 'Carpets', distance:  10},
+{name: 'Cats', distance:  0},
+{name: 'Cauliflower', distance:  10},
+{name: 'Cereal Boxes', distance:  60},
+{name: 'Cereal', distance:  10},
+{name: 'Certainty', distance:  50},
+{name: 'Chalkboards', distance:  20},
+{name: 'Chaos', distance:  30},
+{name: 'Cheetos', distance:  0},
+{name: 'Chess', distance:  10},
+{name: 'Chivalry', distance:  5},
+{name: 'Chocolate', distance:  0},
+{name: 'Cilantro', distance:  0},
+{name: 'Cinema', distance:  60},
+{name: 'Cisgenderism', distance:  88},
+{name: 'Cisnormativity', distance:  92},
+{name: 'Classism', distance:  75},
+{name: 'Coffee', distance:  10},
+{name: 'Coincidence', distance:  25},
+{name: 'Compassion', distance:  20},
+{name: 'Competition', distance:  30},
+{name: 'Complacency', distance:  70},
+{name: 'Compliance', distance:  75},
+{name: 'Compliments', distance:  30},
+{name: 'Confetti', distance:  5},
+{name: 'Conformity', distance:  30},
+{name: 'Corgis', distance:  0},
+{name: 'Cosmology', distance:  10},
+{name: 'Couture', distance:  20},
+{name: 'Croissant', distance:  10},
+{name: 'Croissants', distance:  0},
+{name: 'Cryptography', distance:  10},
+{name: 'Cul-de-sacs', distance:  10},
+{name: 'Culinary', distance:  10},
+{name: 'CulinaryArts', distance:  10},
+{name: 'Cynicism', distance:  40},
+{name: 'Dalmatian puppies', distance:  40},
+{name: 'Danceparties', distance:  20},
+{name: 'Denial', distance:  80},
+{name: 'Dinosaurs', distance:  0},
+{name: 'Education System', distance:  85},
+{name: 'Education', distance:  85},
+{name: 'EducationSystem', distance:  90},
+{name: 'Elegance', distance:  20},
+{name: 'Elevators', distance:  40},
+{name: 'Empathy', distance:  90},
+{name: 'Erasure', distance:  80},
+{name: 'Escalators', distance:  10},
+{name: 'Esperanto', distance:  15},
+{name: 'Eugenics', distance:  20},
+{name: 'Exceptionalism', distance:  30},
+{name: 'Existentialism', distance:  60},
+{name: 'Expectation', distance:  90},
+{name: 'Expectations', distance:  60},
+{name: 'Facebook', distance:  40},
+{name: 'Fashion magazines', distance:  75},
+{name: 'Fashion', distance:  60},
+{name: 'FashionMagazines', distance:  40},
+{name: 'Fear', distance:  40},
+{name: 'Fears', distance:  20},
+{name: 'Fjord tourism', distance:  90},
+{name: 'Fjord', distance:  10},
+{name: 'Fjords', distance:  15},
+{name: 'Folklore', distance:  30},
+{name: 'Forgiveness', distance:  70},
+{name: 'Forgottenness', distance:  50},
+{name: 'Fortune Cookies', distance:  10},
+{name: 'GalacticEmpires', distance:  0},
+{name: 'Gardening', distance:  30},
+{name: 'Gargantuan', distance:  5},
+{name: 'Gingerbread', distance:  20},
+{name: 'Giraffes', distance:  10},
+{name: 'Glitter', distance:  0},
+{name: 'Gnocchi', distance:  10},
+{name: 'Google', distance:  20},
+{name: 'GoogleForms', distance:  40},
+{name: 'Gossip', distance:  10},
+{name: 'Graffiti', distance:  10},
+{name: 'Grammar', distance:  40},
+{name: 'Gravity', distance:  5},
+{name: 'Gutenberg', distance:  20},
+{name: 'Gym class', distance:  70},
+{name: 'Gym culture', distance:  40},
+{name: 'Gymnastics', distance:  20},
+{name: 'Gyms', distance:  40},
+{name: 'Hegemony', distance:  75},
+{name: 'Heteronormativity', distance:  88},
+{name: 'HighSchool', distance:  75},
+{name: 'Hiking', distance:  85},
+{name: 'History', distance:  90},
+{name: 'Hollywood', distance:  55},
+{name: 'Hope', distance:  20},
+{name: 'Ignorance', distance:  100},
+{name: 'Imagination', distance:  10},
+{name: 'Inertia', distance:  60},
+{name: 'Infrastructure', distance:  60},
+{name: 'Innovation', distance:  60},
+{name: 'Instagram', distance:  20},
+{name: 'Invisibility', distance:  30},
+{name: 'Invisible illnesses', distance:  40},
+{name: 'Jazz', distance:  10},
+{name: 'Jenga', distance:  10},
+{name: 'Kale', distance:  5},
+{name: 'Kaleidoscope', distance:  0},
+{name: 'Kaleidoscopes', distance:  30},
+{name: 'Karaoke', distance:  5},
+{name: 'Kindness', distance:  40},
+{name: 'Labyrinths', distance:  40},
+{name: 'LackOfEmpathy', distance:  95},
+{name: 'Language', distance:  60},
+{name: 'Lectures', distance:  80},
+{name: 'Linguistics', distance:  60},
+{name: 'LoudNoises', distance:  70},
+{name: 'Marathon', distance:  90},
+{name: 'MarathonRunning', distance:  90},
+{name: 'Marathons', distance:  40},
+{name: 'Math', distance:  20},
+{name: 'Mathematics', distance:  10},
+{name: 'Mazes', distance:  40},
+{name: 'Medicine', distance:  90},
+{name: 'Meritocracy', distance:  90},
+{name: 'Merlot', distance:  0},
+{name: 'Mermaids', distance:  20},
+{name: 'Merriam-Webster', distance:  40},
+{name: 'Microaggressions', distance:  40},
+{name: 'Microphone', distance:  40},
+{name: 'Microphones', distance:  20},
+{name: 'Microscope', distance:  20},
+{name: 'Microsoft Word', distance:  10},
+{name: 'Microsoft', distance:  30},
+{name: 'Minecraft', distance:  5},
+{name: 'Mirrors', distance:  60},
+{name: 'Moonbeams', distance:  5},
+{name: 'Most job interviews', distance:  85},
+{name: 'Most modern cities', distance:  60},
+{name: 'Most sci-fi movies', distance:  60},
+{name: 'Most sci-fi novels', distance:  30},
+{name: 'Most video games', distance:  20},
+{name: 'My Grandma', distance:  20},
+{name: 'Mythology', distance:  40},
+{name: 'Napoleon Bonaparte', distance:  5},
+{name: 'Narratives', distance:  50},
+{name: 'Neatness', distance:  30},
+{name: 'Nemesis', distance:  50},
+{name: 'Netflix', distance:  20},
+{name: 'Neurology', distance:  80},
+{name: 'Neuroplasticity', distance:  20},
+{name: 'Neuroscience', distance:  40},
+{name: 'Neurotypical', distance:  80},
+{name: 'Neurotypicality', distance:  90},
+{name: 'Neurotypicals', distance:  60},
+{name: 'Neurotypicity', distance:  90},
+{name: 'Nike', distance:  30},
+{name: 'Nintendo', distance:  20},
+{name: 'Normalcy', distance:  50},
+{name: 'Normalization', distance:  92},
+{name: 'Normativity', distance:  90},
+{name: 'Norms', distance:  85},
+{name: 'Nostalgia', distance:  30},
+{name: 'Oblivion', distance:  30},
+{name: 'Optimism', distance:  10},
+{name: 'Pajamas', distance:  20},
+{name: 'Pants', distance:  0},
+{name: 'Patriarchal norms', distance:  85},
+{name: 'Patriarchal', distance:  90},
+{name: 'Patriarchalism', distance:  95},
+{name: 'Patriarchy', distance:  70},
+{name: 'Patriotism', distance:  70},
+{name: 'Pedagogy', distance:  70},
+{name: 'Pencil-Top-Erasers', distance:  10},
+{name: 'Perfection', distance:  20},
+{name: 'Perfectionism', distance:  80},
+{name: 'Pessimism', distance:  30},
+{name: 'Photography', distance:  30},
+{name: 'Piano', distance:  20},
+{name: 'Pianos', distance:  20},
+{name: 'Pilates', distance:  20},
+{name: 'Pineapple pizza', distance:  20},
+{name: 'Pineapple', distance:  10},
+{name: 'PineapplePizza', distance:  10},
+{name: 'Pineapples', distance:  0},
+{name: 'Pinterest', distance:  10},
+{name: 'Pity', distance:  40},
+{name: 'Pizza', distance:  0},
+{name: 'Pizzas', distance:  0},
+{name: 'Poetry', distance:  40},
+{name: 'Poptimism', distance:  20},
+{name: 'Power', distance:  95},
+{name: 'Pretending', distance:  60},
+{name: 'Pretension', distance:  40},
+{name: 'Pretentiousness', distance:  60},
+{name: 'Pretzel', distance:  0},
+{name: 'Pretzels', distance:  0},
+{name: 'Pride', distance:  40},
+{name: 'Priorities', distance:  70},
+{name: 'Privilege', distance:  90},
+{name: 'Productivity', distance:  85},
+{name: 'Psychiatry', distance:  90},
+{name: 'Punctuality', distance:  40},
+{name: 'Punctuation', distance:  10},
+{name: 'Puns', distance:  20},
+{name: 'Puzzle', distance:  30},
+{name: 'Puzzles', distance:  60},
+{name: 'Quantum Physics', distance:  40},
+{name: 'Quantum', distance:  10},
+{name: 'QuantumPhysics', distance:  10},
+{name: 'Quiche', distance:  5},
+{name: 'Quilting', distance:  30},
+{name: 'Ramps', distance:  10},
+{name: 'Salsa', distance:  10},
+{name: 'Sandcastles', distance:  0},
+{name: 'Sandwiches', distance:  10},
+{name: 'Sanism', distance:  98},
+{name: 'Sarcasm', distance:  60},
+{name: 'Sass', distance:  10},
+{name: 'Serenity', distance:  10},
+{name: 'Sesame Street', distance:  10},
+{name: 'Silence', distance:  20},
+{name: 'Siri', distance:  40},
+{name: 'Sneakers', distance:  20},
+{name: 'SocialMedia', distance:  50},
+{name: 'SocietalNorms', distance:  70},
+{name: 'Society', distance:  60},
+{name: 'Sociology', distance:  60},
+{name: 'Socks', distance:  5},
+{name: 'Some memes', distance:  30},
+{name: 'Some professors', distance:  85},
+{name: 'Staircase', distance:  70},
+{name: 'Staircases', distance:  20},
+{name: 'Stairs', distance:  40},
+{name: 'Standardization', distance:  80},
+{name: 'Standardized Tests', distance:  60},
+{name: 'Standardized', distance:  80},
+{name: 'StandardizedTests', distance:  90},
+{name: 'Stereotype', distance:  80},
+{name: 'Stereotypes', distance:  95},
+{name: 'Stereotyping', distance:  90},
+{name: 'Sunsets', distance:  5},
+{name: 'Syllabi', distance:  50},
+{name: 'Syllabus', distance:  40},
+{name: 'Synchronicity', distance:  30},
+{name: 'Synchrony', distance:  30},
+{name: 'Systemic oppression', distance:  95},
+{name: 'Systemic', distance:  90},
+{name: 'SystemicInequality', distance:  90},
+{name: 'SystemicInjustice', distance:  95},
+{name: 'SystemicOppression', distance:  95},
+{name: 'Tea', distance:  0},
+{name: 'Technology', distance:  60},
+{name: 'Telepathy', distance:  20},
+{name: 'Telescopery', distance:  10},
+{name: 'Telescopes', distance:  20},
+{name: 'Telescopology', distance:  20},
+{name: 'Televangelism', distance:  40},
+{name: 'Television', distance:  40},
+{name: 'Tesla', distance:  20},
+{name: 'The beauty standard', distance:  85},
+{name: 'The concept of time', distance:  40},
+{name: 'The Internet', distance:  70},
+{name: 'The Matrix', distance:  30},
+{name: 'The Medical Field', distance:  90},
+{name: 'The Moon', distance:  0},
+{name: 'The Olympics', distance:  20},
+{name: 'The Paralympics', distance:  80},
+{name: 'The patriarchy', distance:  90},
+{name: 'TheConceptOfTime', distance:  40},
+{name: 'ThePatriarchy', distance:  70},
+{name: 'Time', distance:  30},
+{name: 'Timed-Exams', distance:  90},
+{name: 'TimedExams', distance:  90},
+{name: 'Timekeeping', distance:  50},
+{name: 'Twitter', distance:  40},
+{name: 'Typewriters', distance:  10},
+{name: 'Typicality', distance:  50},
+{name: 'Typing Speed', distance:  60},
+{name: 'Typing-speed-tests', distance:  90},
+{name: 'Typing', distance:  50},
+{name: 'TypingSpeed', distance:  60},
+{name: 'TypingSpeedTests', distance:  60},
+{name: 'Typography', distance:  10},
+{name: 'Unconscious bias', distance:  85},
+{name: 'UnconsciousBias', distance:  85},
+{name: 'Unconsciousness', distance:  20},
+{name: 'Unicorn onesies', distance:  0},
+{name: 'Unicorn', distance:  0},
+{name: 'Unicorns', distance:  0},
+{name: 'WhatsApp', distance:  30},
+{name: 'Whimsy', distance:  10},
+{name: 'Whispering', distance:  20},
+{name: 'Whispers', distance:  20},
+{name: 'Whiteness', distance:  85},
+{name: 'Whitewashing', distance:  90},
+{name: 'Whitewater', distance:  20},
+{name: 'Whitney', distance:  20},
+{name: 'WhitneyHoustonSongs', distance:  10},
+{name: 'Wholeness', distance:  40},
+{name: 'Wokeness', distance:  60},
+{name: 'Yoga', distance:  40},
+{name: 'Your Grandma', distance:  20},
+{name: 'Your Uncle', distance:  30},
+]
+
+ var links = [
+{source: 0, target: 1, distance:  90},
+{source: 0, target: 2, distance:  92},
+{source: 0, target: 3, distance:  95},
+{source: 0, target: 4, distance:  100},
+{source: 0, target: 5, distance:  70},
+{source: 0, target: 6, distance:  30},
+{source: 0, target: 7, distance:  70},
+{source: 0, target: 8, distance:  40},
+{source: 0, target: 9, distance:  60},
+{source: 0, target: 10, distance:  60},
+{source: 0, target: 11, distance:  40},
+{source: 0, target: 12, distance:  60},
+{source: 0, target: 13, distance:  60},
+{source: 0, target: 14, distance:  80},
+{source: 0, target: 15, distance:  90},
+{source: 0, target: 16, distance:  40},
+{source: 0, target: 17, distance:  5},
+{source: 0, target: 18, distance:  20},
+{source: 0, target: 19, distance:  30},
+{source: 0, target: 20, distance:  40},
+{source: 0, target: 21, distance:  96},
+{source: 0, target: 22, distance:  25},
+{source: 0, target: 23, distance:  5},
+{source: 0, target: 24, distance:  0},
+{source: 0, target: 25, distance:  10},
+{source: 0, target: 26, distance:  10},
+{source: 0, target: 27, distance:  95},
+{source: 0, target: 28, distance:  10},
+{source: 0, target: 29, distance:  5},
+{source: 0, target: 30, distance:  10},
+{source: 0, target: 31, distance:  10},
+{source: 0, target: 32, distance:  90},
+{source: 0, target: 33, distance:  0},
+{source: 0, target: 34, distance:  20},
+{source: 0, target: 35, distance:  30},
+{source: 0, target: 36, distance:  20},
+{source: 0, target: 37, distance:  20},
+{source: 0, target: 38, distance:  10},
+{source: 0, target: 39, distance:  20},
+{source: 0, target: 40, distance:  10},
+{source: 0, target: 41, distance:  10},
+{source: 0, target: 42, distance:  90},
+{source: 0, target: 43, distance:  20},
+{source: 0, target: 44, distance:  0},
+{source: 0, target: 45, distance:  10},
+{source: 0, target: 46, distance:  40},
+{source: 0, target: 47, distance:  10},
+{source: 0, target: 48, distance:  0},
+{source: 0, target: 49, distance:  10},
+{source: 0, target: 50, distance:  60},
+{source: 0, target: 51, distance:  10},
+{source: 0, target: 52, distance:  50},
+{source: 0, target: 53, distance:  20},
+{source: 0, target: 54, distance:  30},
+{source: 0, target: 55, distance:  0},
+{source: 0, target: 56, distance:  10},
+{source: 0, target: 57, distance:  5},
+{source: 0, target: 58, distance:  0},
+{source: 0, target: 59, distance:  0},
+{source: 0, target: 60, distance:  60},
+{source: 0, target: 61, distance:  88},
+{source: 0, target: 62, distance:  92},
+{source: 0, target: 63, distance:  75},
+{source: 0, target: 64, distance:  10},
+{source: 0, target: 65, distance:  25},
+{source: 0, target: 66, distance:  20},
+{source: 0, target: 67, distance:  30},
+{source: 0, target: 68, distance:  70},
+{source: 0, target: 69, distance:  75},
+{source: 0, target: 70, distance:  30},
+{source: 0, target: 71, distance:  5},
+{source: 0, target: 72, distance:  30},
+{source: 0, target: 73, distance:  0},
+{source: 0, target: 74, distance:  10},
+{source: 0, target: 75, distance:  20},
+{source: 0, target: 76, distance:  10},
+{source: 0, target: 77, distance:  0},
+{source: 0, target: 78, distance:  10},
+{source: 0, target: 79, distance:  10},
+{source: 0, target: 80, distance:  10},
+{source: 0, target: 81, distance:  10},
+{source: 0, target: 82, distance:  40},
+{source: 0, target: 83, distance:  40},
+{source: 0, target: 84, distance:  20},
+{source: 0, target: 85, distance:  80},
+{source: 0, target: 86, distance:  0},
+{source: 0, target: 87, distance:  85},
+{source: 0, target: 88, distance:  85},
+{source: 0, target: 89, distance:  90},
+{source: 0, target: 90, distance:  20},
+{source: 0, target: 91, distance:  40},
+{source: 0, target: 92, distance:  90},
+{source: 0, target: 93, distance:  80},
+{source: 0, target: 94, distance:  10},
+{source: 0, target: 95, distance:  15},
+{source: 0, target: 96, distance:  20},
+{source: 0, target: 97, distance:  30},
+{source: 0, target: 98, distance:  60},
+{source: 0, target: 99, distance:  90},
+{source: 0, target: 100, distance:  60},
+{source: 0, target: 101, distance:  40},
+{source: 0, target: 102, distance:  75},
+{source: 0, target: 103, distance:  60},
+{source: 0, target: 104, distance:  40},
+{source: 0, target: 105, distance:  40},
+{source: 0, target: 106, distance:  20},
+{source: 0, target: 107, distance:  90},
+{source: 0, target: 108, distance:  10},
+{source: 0, target: 109, distance:  15},
+{source: 0, target: 110, distance:  30},
+{source: 0, target: 111, distance:  70},
+{source: 0, target: 112, distance:  50},
+{source: 0, target: 113, distance:  10},
+{source: 0, target: 114, distance:  0},
+{source: 0, target: 115, distance:  30},
+{source: 0, target: 116, distance:  5},
+{source: 0, target: 117, distance:  20},
+{source: 0, target: 118, distance:  10},
+{source: 0, target: 119, distance:  0},
+{source: 0, target: 120, distance:  10},
+{source: 0, target: 121, distance:  20},
+{source: 0, target: 122, distance:  40},
+{source: 0, target: 123, distance:  10},
+{source: 0, target: 124, distance:  10},
+{source: 0, target: 125, distance:  40},
+{source: 0, target: 126, distance:  5},
+{source: 0, target: 127, distance:  20},
+{source: 0, target: 128, distance:  70},
+{source: 0, target: 129, distance:  40},
+{source: 0, target: 130, distance:  20},
+{source: 0, target: 131, distance:  40},
+{source: 0, target: 132, distance:  75},
+{source: 0, target: 133, distance:  88},
+{source: 0, target: 134, distance:  75},
+{source: 0, target: 135, distance:  85},
+{source: 0, target: 136, distance:  90},
+{source: 0, target: 137, distance:  55},
+{source: 0, target: 138, distance:  20},
+{source: 0, target: 139, distance:  100},
+{source: 0, target: 140, distance:  10},
+{source: 0, target: 141, distance:  60},
+{source: 0, target: 142, distance:  60},
+{source: 0, target: 143, distance:  60},
+{source: 0, target: 144, distance:  20},
+{source: 0, target: 145, distance:  30},
+{source: 0, target: 146, distance:  40},
+{source: 0, target: 147, distance:  10},
+{source: 0, target: 148, distance:  10},
+{source: 0, target: 149, distance:  5},
+{source: 0, target: 150, distance:  0},
+{source: 0, target: 151, distance:  30},
+{source: 0, target: 152, distance:  5},
+{source: 0, target: 153, distance:  40},
+{source: 0, target: 154, distance:  40},
+{source: 0, target: 155, distance:  95},
+{source: 0, target: 156, distance:  60},
+{source: 0, target: 157, distance:  80},
+{source: 0, target: 158, distance:  60},
+{source: 0, target: 159, distance:  70},
+{source: 0, target: 160, distance:  90},
+{source: 0, target: 161, distance:  90},
+{source: 0, target: 162, distance:  40},
+{source: 0, target: 163, distance:  20},
+{source: 0, target: 164, distance:  10},
+{source: 0, target: 165, distance:  40},
+{source: 0, target: 166, distance:  90},
+{source: 0, target: 167, distance:  90},
+{source: 0, target: 168, distance:  0},
+{source: 0, target: 169, distance:  20},
+{source: 0, target: 170, distance:  40},
+{source: 0, target: 171, distance:  40},
+{source: 0, target: 172, distance:  40},
+{source: 0, target: 173, distance:  20},
+{source: 0, target: 174, distance:  20},
+{source: 0, target: 175, distance:  10},
+{source: 0, target: 176, distance:  30},
+{source: 0, target: 177, distance:  5},
+{source: 0, target: 178, distance:  60},
+{source: 0, target: 179, distance:  5},
+{source: 0, target: 180, distance:  85},
+{source: 0, target: 181, distance:  60},
+{source: 0, target: 182, distance:  60},
+{source: 0, target: 183, distance:  30},
+{source: 0, target: 184, distance:  20},
+{source: 0, target: 185, distance:  20},
+{source: 0, target: 186, distance:  40},
+{source: 0, target: 187, distance:  5},
+{source: 0, target: 188, distance:  50},
+{source: 0, target: 189, distance:  30},
+{source: 0, target: 190, distance:  50},
+{source: 0, target: 191, distance:  20},
+{source: 0, target: 192, distance:  80},
+{source: 0, target: 193, distance:  20},
+{source: 0, target: 194, distance:  40},
+{source: 0, target: 195, distance:  80},
+{source: 0, target: 196, distance:  90},
+{source: 0, target: 197, distance:  60},
+{source: 0, target: 198, distance:  90},
+{source: 0, target: 199, distance:  30},
+{source: 0, target: 200, distance:  20},
+{source: 0, target: 201, distance:  50},
+{source: 0, target: 202, distance:  92},
+{source: 0, target: 203, distance:  90},
+{source: 0, target: 204, distance:  85},
+{source: 0, target: 205, distance:  30},
+{source: 0, target: 206, distance:  30},
+{source: 0, target: 207, distance:  10},
+{source: 0, target: 208, distance:  20},
+{source: 0, target: 209, distance:  0},
+{source: 0, target: 210, distance:  85},
+{source: 0, target: 211, distance:  90},
+{source: 0, target: 212, distance:  95},
+{source: 0, target: 213, distance:  70},
+{source: 0, target: 214, distance:  70},
+{source: 0, target: 215, distance:  70},
+{source: 0, target: 216, distance:  10},
+{source: 0, target: 217, distance:  20},
+{source: 0, target: 218, distance:  80},
+{source: 0, target: 219, distance:  30},
+{source: 0, target: 220, distance:  30},
+{source: 0, target: 221, distance:  20},
+{source: 0, target: 222, distance:  20},
+{source: 0, target: 223, distance:  20},
+{source: 0, target: 224, distance:  20},
+{source: 0, target: 225, distance:  10},
+{source: 0, target: 226, distance:  10},
+{source: 0, target: 227, distance:  0},
+{source: 0, target: 228, distance:  10},
+{source: 0, target: 229, distance:  40},
+{source: 0, target: 230, distance:  0},
+{source: 0, target: 231, distance:  0},
+{source: 0, target: 232, distance:  40},
+{source: 0, target: 233, distance:  20},
+{source: 0, target: 234, distance:  95},
+{source: 0, target: 235, distance:  60},
+{source: 0, target: 236, distance:  40},
+{source: 0, target: 237, distance:  60},
+{source: 0, target: 238, distance:  0},
+{source: 0, target: 239, distance:  0},
+{source: 0, target: 240, distance:  40},
+{source: 0, target: 241, distance:  70},
+{source: 0, target: 242, distance:  90},
+{source: 0, target: 243, distance:  85},
+{source: 0, target: 244, distance:  90},
+{source: 0, target: 245, distance:  40},
+{source: 0, target: 246, distance:  10},
+{source: 0, target: 247, distance:  20},
+{source: 0, target: 248, distance:  30},
+{source: 0, target: 249, distance:  60},
+{source: 0, target: 250, distance:  40},
+{source: 0, target: 251, distance:  10},
+{source: 0, target: 252, distance:  10},
+{source: 0, target: 253, distance:  5},
+{source: 0, target: 254, distance:  30},
+{source: 0, target: 255, distance:  10},
+{source: 0, target: 256, distance:  10},
+{source: 0, target: 257, distance:  0},
+{source: 0, target: 258, distance:  10},
+{source: 0, target: 259, distance:  98},
+{source: 0, target: 260, distance:  60},
+{source: 0, target: 261, distance:  10},
+{source: 0, target: 262, distance:  10},
+{source: 0, target: 263, distance:  10},
+{source: 0, target: 264, distance:  20},
+{source: 0, target: 265, distance:  40},
+{source: 0, target: 266, distance:  20},
+{source: 0, target: 267, distance:  50},
+{source: 0, target: 268, distance:  70},
+{source: 0, target: 269, distance:  60},
+{source: 0, target: 270, distance:  60},
+{source: 0, target: 271, distance:  5},
+{source: 0, target: 272, distance:  30},
+{source: 0, target: 273, distance:  85},
+{source: 0, target: 274, distance:  70},
+{source: 0, target: 275, distance:  20},
+{source: 0, target: 276, distance:  40},
+{source: 0, target: 277, distance:  80},
+{source: 0, target: 278, distance:  60},
+{source: 0, target: 279, distance:  80},
+{source: 0, target: 280, distance:  90},
+{source: 0, target: 281, distance:  80},
+{source: 0, target: 282, distance:  95},
+{source: 0, target: 283, distance:  90},
+{source: 0, target: 284, distance:  5},
+{source: 0, target: 285, distance:  50},
+{source: 0, target: 286, distance:  40},
+{source: 0, target: 287, distance:  30},
+{source: 0, target: 288, distance:  30},
+{source: 0, target: 289, distance:  95},
+{source: 0, target: 290, distance:  90},
+{source: 0, target: 291, distance:  90},
+{source: 0, target: 292, distance:  95},
+{source: 0, target: 293, distance:  95},
+{source: 0, target: 294, distance:  0},
+{source: 0, target: 295, distance:  60},
+{source: 0, target: 296, distance:  20},
+{source: 0, target: 297, distance:  10},
+{source: 0, target: 298, distance:  20},
+{source: 0, target: 299, distance:  20},
+{source: 0, target: 300, distance:  40},
+{source: 0, target: 301, distance:  40},
+{source: 0, target: 302, distance:  20},
+{source: 0, target: 303, distance:  85},
+{source: 0, target: 304, distance:  40},
+{source: 0, target: 305, distance:  70},
+{source: 0, target: 306, distance:  30},
+{source: 0, target: 307, distance:  90},
+{source: 0, target: 308, distance:  0},
+{source: 0, target: 309, distance:  20},
+{source: 0, target: 310, distance:  80},
+{source: 0, target: 311, distance:  90},
+{source: 0, target: 312, distance:  40},
+{source: 0, target: 313, distance:  70},
+{source: 0, target: 314, distance:  30},
+{source: 0, target: 315, distance:  90},
+{source: 0, target: 316, distance:  90},
+{source: 0, target: 317, distance:  50},
+{source: 0, target: 318, distance:  40},
+{source: 0, target: 319, distance:  10},
+{source: 0, target: 320, distance:  50},
+{source: 0, target: 321, distance:  60},
+{source: 0, target: 322, distance:  90},
+{source: 0, target: 323, distance:  50},
+{source: 0, target: 324, distance:  60},
+{source: 0, target: 325, distance:  60},
+{source: 0, target: 326, distance:  10},
+{source: 0, target: 327, distance:  85},
+{source: 0, target: 328, distance:  85},
+{source: 0, target: 329, distance:  20},
+{source: 0, target: 330, distance:  0},
+{source: 0, target: 331, distance:  0},
+{source: 0, target: 332, distance:  0},
+{source: 0, target: 333, distance:  30},
+{source: 0, target: 334, distance:  10},
+{source: 0, target: 335, distance:  20},
+{source: 0, target: 336, distance:  20},
+{source: 0, target: 337, distance:  85},
+{source: 0, target: 338, distance:  90},
+{source: 0, target: 339, distance:  20},
+{source: 0, target: 340, distance:  20},
+{source: 0, target: 341, distance:  10},
+{source: 0, target: 342, distance:  40},
+{source: 0, target: 343, distance:  60},
+{source: 0, target: 344, distance:  40},
+{source: 0, target: 345, distance:  20},
+{source: 0, target: 346, distance:  30},
+
+//madeup
+ ]
+
+var u2 = d3.select('.nodes')
+		.selectAll('circle')
+		.data(nodes)
+		.enter()
+		.append("circle")
+		.attr('cx', function(d) {
+			return d.x
+		})
+		.attr('cy', function(d) {
+			return d.y
+		})
+    .attr("r", 8)
+		.attr("class","circle")
+    .call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended));
+
+
+function updateLinks() {
+	var u = d3.select('.links')
+		.selectAll('line')
+		.data(links)
+		.join('line')
+        .attr("stroke-width", function(d) { 
+            const x = d3.scaleLinear([0, 100], [1, 5]);
+            
+            return Math.sqrt(x(d.target.distance)); })
+		.attr('x1', function(d) {
+			return centerPos;
+		})
+		.attr('y1', function(d) {
+			return centerPos;
+		})
+		.attr('x2', function(d) {
+			return d.target.x
+		})
+		.attr('y2', function(d) {
+			return d.target.y
+		});
+}
+
+//for(var i=0; i < nodes.length; i++){
+  //nodes[i].distance = nodes[i].distance;
+//}
+
+
+var networkCenter = d3.forceCenter().x(centerPos-200).y(centerPos);
+
+
+var collide = d3.bboxCollide(function (d,i) {
+  var d1 = d.name.length;
+    return [[d1 * -5, -8], [d1 * 5, 8]]
+
+  })
+  .strength(0.001)
+  .iterations(10)
+
+  //var color = d3.scaleOrdinal().range(d3.schemeCategory20);
+
+  var force = d3.forceSimulation(nodes)
+    .velocityDecay(0.6)
+   // .force('charge', d3.forceManyBody().strength(-10))
+    .force("center", networkCenter)
+    .force("collide", collide)
+   // .force('collide', d3.forceCollide(4))
+    .force('link', d3.forceLink().iterations(1).distance(function(d){
+       const x = d3.scaleLinear([0, 100], [900, 150]);
+      // const x = d3.scalePow([0, 100], [1000, 150]).exponent(0.8);
+  		//console.log(""+d.target.distance+" => " + x(d.target.distance)+ " - " + d.target.name);
+     // const x = d3.scalePow([0, 100], [1650, 200]).exponent(0.85);
+		
+
+        return x(d.target.distance);
+
+    }).links(links))
+    .on("tick", updateNetwork);
+
+
+  var nodeEnter = d3.select("svg.main")
+  .append("g")
+  .selectAll("g.node")
+  .data(nodes)
+  .enter()
+  .append("g")
+  .attr("class", "node");
+
+
+
+
+
+	// var u = d3.select('.nodes')
+	// 	.selectAll('text')
+	// 	.data(nodes)
+	// 	.join('text')
+	// 	.text(function(d) {
+	// 		return d.name
+	// 	})
+	// 	.attr('x', function(d) {
+	// 		return d.x
+	// 	})
+	// 	.attr('y', function(d) {
+	// 		return d.y
+	// 	})
+	// 	.attr('dy', function(d) {
+	// 		return -5
+	// 	});
+
+  nodeEnter.append("rect")
+    .attr("class", "base")
+    .style("fill-opacity", 1.0)
+    .style("stroke-width", 1)
+    .style("stroke-opacity", 1.0)
+    .style("stroke", "#333")
+    .style("fill", "#000000")
+    .style("width", function (d) {return d.name.length*9 })
+    .style("height", function (d) {return 25})
+    .style("x", function (d) {
+      if(d.name == "Ableism"){
+        return centerPos; 
+      }else{
+        return d.x 
+      }
+    })
+    .style("y", function (d) {
+      if(d.name == "Ableism"){
+        return centerPos; 
+      }
+      else{
+        return d.y 
+      }
+    
+    })
+
+    // nodeEnter.append("text")
+    // .style("font-size", function(d){ return "50px";})
+    // .text(function(d){return d.name})
+    // .attr('dx', function(d) {
+		// 	return 5;
+		// })
+    // .attr('dy', function(d) {
+		// 	return 16;
+		// });
+
+
+
+
+    function updateNodes() {
+    // d3.select('.nodes').select('text').append("circle")
+    // .attr("cx", width/2)
+    // .attr("cy", height/2)
+    // .attr("r", 50)
+    // .style("stroke", "#fff")
+    // .style("fill", "#fffff00")
+    // .attr('fill-opacity', 0.0);
+
+	var u = d3.select('.nodes')
+		.selectAll('text')
+		.data(nodes)
+		.join('text')
+		.text(function(d) {
+			return d.name
+		})
+    .style("font-size", function(d){ 
+      if(d.name == "Ableism"){
+      return "40px";
+      }
+    })
+		.attr('x', function(d) {
+      if(d.name == "Ableism"){
+          return centerPos;
+        }else{
+          return d.x;
+        }
+		})
+		.attr('y', function(d) {
+      if(d.name == "Ableism"){
+       
+        return centerPos;
+      }
+      return d.y;
+		})
+		.attr('dy', function(d) {
+			return -5
+		});
+
+		
+        // var u = d3.select('.nodes')
+		// .selectAll('text')
+		// .data(nodes)
+		// .join('text')
+		// .attr('cx', function(d) {
+		// 	return d.x
+		// })
+		// .attr('cy', function(d) {
+		// 	return d.y
+		// })
+		// .attr('dy', function(d) {
+		// 	return 0
+		// })
+		// .call(d3.drag()
+        //   .on("start", dragstarted)
+        //   .on("drag", dragged)
+        //   .on("end", dragended));
+
+		
+		// ;
+
+        
+}
+
+
+
+
+
+  function updateNetwork() {
+
+    // var u = d3.select('.links')
+		// .selectAll('line')
+		// .data(links)
+		// .join('line')
+    //     .attr("stroke-width", function(d) { 
+    //         const x = d3.scaleLinear([0, 100], [1, 5]);
+            
+    //         return Math.sqrt(x(d.target.distance)); })
+		// .attr('x1', function(d) {
+		// 	return d.source.x
+		// })
+		// .attr('y1', function(d) {
+		// 	return d.source.y
+		// })
+		// .attr('x2', function(d) {
+		// 	return d.target.x
+		// })
+		// .attr('y2', function(d) {
+		// 	return d.target.y
+		// });
+    updateLinks();
+    updateNodes();
+
+
+    u2
+      .attr('cx', function (node) { 
+        if(node.name == "Ableism"){
+          return centerPos;
+        }
+        else{
+          return node.x 
+        }
+      })
+      .attr('cy', function (node) { 
+        if(node.name == "Ableism"){
+          return centerPos;
+        }
+        else{
+          return node.y }
+        }
+      )
+
+    // d3.select("svg.main").selectAll("g.node")
+    //   .attr("transform", function (d) {return "translate(" + d.x + "," + d.y + ")"})
+   
+  }
+
+
+
+  function dragstarted(event) {
+	console.log(event);
+	if(!event.active) {
+		simulation.alpha(.5);
+		simulation.alphaTarget(0.3).restart();}
+	event.subject.x = event.x;
+	event.subject.y = event.y;
+}
+
+function dragged(event) {
+	event.subject.x = event.x;
+	event.subject.y = event.y;
+	//event.subject.distance = event.distance;
+}
+
+function dragended(event) {
+	console.log(event);
+	if(!event.active) simulation.alphaTarget(0);
+	event.subject.x = event.x;
+	event.subject.y = event.y;
+	//event.subject.distance = 10;
+
+}
+
+</script>
+</footer>
+
+</html>
