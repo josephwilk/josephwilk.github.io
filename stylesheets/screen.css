@@ -624,6 +624,7 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
     color: #3b3b3b;
+    text-decoration: none;
 }
 
 /* Link */
