@@ -851,15 +851,15 @@ function updateLinks() {
 //}
 
 
-var networkCenter = d3.forceCenter().x(centerPos-100).y(centerPos);
+var networkCenter = d3.forceCenter().x(centerPos-90).y(centerPos);
 
 
 var collide = d3.bboxCollide(function (d,i) {
   var d1 = d.name.length;
-    return [[d1 * -5, -10], [d1 * 5, 10]]
+    return [[d1 * -5, -40], [d1 * 5, 40]]
 
   })
-  .strength(0.002)
+  .strength(0.001)
   .iterations(1)
 
   //var color = d3.scaleOrdinal().range(d3.schemeCategory20);
@@ -871,7 +871,7 @@ var collide = d3.bboxCollide(function (d,i) {
     .force("collide", collide)
    // .force('collide', d3.forceCollide(4))
     .force('link', d3.forceLink().iterations(1).distance(function(d){
-       const x = d3.scaleLinear([0, 100], [900, 150]);
+       const x = d3.scaleLinear([0, 100], [900, 190]);
       // const x = d3.scalePow([0, 100], [1000, 150]).exponent(0.8);
   		//console.log(""+d.target.distance+" => " + x(d.target.distance)+ " - " + d.target.name);
      // const x = d3.scalePow([0, 100], [1650, 200]).exponent(0.85);

@@ -1,0 +1,349 @@
+rating 0 = Not Ableist
+rating 100 = Very Ableist
+
+'Able-bodiedness', rating: 90
+'AbleBodiedPrivilege', rating: 92
+'Abled-bodiedness', rating: 95
+'AbleismItself', rating: 100
+'Abstraction', rating: 70
+'Accessibility', rating: 30
+'Ageism', rating: 70
+'AI-generated art', rating: 40
+'AI', rating: 60
+'Algorithm', rating: 60
+'Algorithms', rating: 40
+'Apathy', rating: 60
+'Architecture', rating: 60
+'Assumption', rating: 80
+'Assumptions', rating: 90
+'Astrology', rating: 40
+'Astronaut', rating: 5
+'Astronauts', rating: 20
+'Astronomy', rating: 30
+'Audiobooks', rating: 40
+'Audism', rating: 96
+'Aurora', rating: 25
+'Avocado Toast', rating: 5
+'Avocado', rating: 0
+'Avocados', rating: 10
+'Baguettes', rating: 10
+'BeautyStandards', rating: 95
+'Bicycles', rating: 10
+'Bubble Wrap', rating: 5
+'Bubblegum', rating: 10
+'Bubblewrap', rating: 10
+'Bureaucracy', rating: 90
+'Burritos', rating: 0
+'Cable', rating: 20
+'Cacophony', rating: 30
+'Cafes', rating: 20
+'Cafeterias', rating: 20
+'Caffeine', rating: 10
+'Cakewalk', rating: 20
+'Candy', rating: 10
+'Cantaloupe', rating: 10
+'Capitalism', rating: 90
+'Cappuccinos', rating: 20
+'Capybara', rating: 0
+'Capybaras', rating: 10
+'Carpentry', rating: 40
+'Carpets', rating: 10
+'Cats', rating: 0
+'Cauliflower', rating: 10
+'Cereal Boxes', rating: 60
+'Cereal', rating: 10
+'Certainty', rating: 50
+'Chalkboards', rating: 20
+'Chaos', rating: 30
+'Cheetos', rating: 0
+'Chess', rating: 10
+'Chivalry', rating: 5
+'Chocolate', rating: 0
+'Cilantro', rating: 0
+'Cinema', rating: 60
+'Cisgenderism', rating: 88
+'Cisnormativity', rating: 92
+'Classism', rating: 75
+'Coffee', rating: 10
+'Coincidence', rating: 25
+'Compassion', rating: 20
+'Competition', rating: 30
+'Complacency', rating: 70
+'Compliance', rating: 75
+'Compliments', rating: 30
+'Confetti', rating: 5
+'Conformity', rating: 30
+'Corgis', rating: 0
+'Cosmology', rating: 10
+'Couture', rating: 20
+'Croissant', rating: 10
+'Croissants', rating: 0
+'Cryptography', rating: 10
+'Cul-de-sacs', rating: 10
+'Culinary', rating: 10
+'CulinaryArts', rating: 10
+'Cynicism', rating: 40
+'Dalmatian puppies', rating: 40
+'Danceparties', rating: 20
+'Denial', rating: 80
+'Dinosaurs', rating: 0
+'Education System', rating: 85
+'Education', rating: 85
+'EducationSystem', rating: 90
+'Elegance', rating: 20
+'Elevators', rating: 40
+'Empathy', rating: 90
+'Erasure', rating: 80
+'Escalators', rating: 10
+'Esperanto', rating: 15
+'Eugenics', rating: 20
+'Exceptionalism', rating: 30
+'Existentialism', rating: 60
+'Expectation', rating: 90
+'Expectations', rating: 60
+'Facebook', rating: 40
+'Fashion magazines', rating: 75
+'Fashion', rating: 60
+'FashionMagazines', rating: 40
+'Fear', rating: 40
+'Fears', rating: 20
+'Fjord tourism', rating: 90
+'Fjord', rating: 10
+'Fjords', rating: 15
+'Folklore', rating: 30
+'Forgiveness', rating: 70
+'Forgottenness', rating: 50
+'Fortune Cookies', rating: 10
+'GalacticEmpires', rating: 0
+'Gardening', rating: 30
+'Gargantuan', rating: 5
+'Gingerbread', rating: 20
+'Giraffes', rating: 10
+'Glitter', rating: 0
+'Gnocchi', rating: 10
+'Google', rating: 20
+'GoogleForms', rating: 40
+'Gossip', rating: 10
+'Graffiti', rating: 10
+'Grammar', rating: 40
+'Gravity', rating: 5
+'Gutenberg', rating: 20
+'Gym class', rating: 70
+'Gym culture', rating: 40
+'Gymnastics', rating: 20
+'Gyms', rating: 40
+'Hegemony', rating: 75
+'Heteronormativity', rating: 88
+'HighSchool', rating: 75
+'Hiking', rating: 85
+'History', rating: 90
+'Hollywood', rating: 55
+'Hope', rating: 20
+'Ignorance', rating: 100
+'Imagination', rating: 10
+'Inertia', rating: 60
+'Infrastructure', rating: 60
+'Innovation', rating: 60
+'Instagram', rating: 20
+'Invisibility', rating: 30
+'Invisible illnesses', rating: 40
+'Jazz', rating: 10
+'Jenga', rating: 10
+'Kale', rating: 5
+'Kaleidoscope', rating: 0
+'Kaleidoscopes', rating: 30
+'Karaoke', rating: 5
+'Kindness', rating: 40
+'Labyrinths', rating: 40
+'LackOfEmpathy', rating: 95
+'Language', rating: 60
+'Lectures', rating: 80
+'Linguistics', rating: 60
+'LoudNoises', rating: 70
+'Marathon', rating: 90
+'MarathonRunning', rating: 90
+'Marathons', rating: 40
+'Math', rating: 20
+'Mathematics', rating: 10
+'Mazes', rating: 40
+'Medicine', rating: 90
+'Meritocracy', rating: 90
+'Merlot', rating: 0
+'Mermaids', rating: 20
+'Merriam-Webster', rating: 40
+'Microaggressions', rating: 40
+'Microphone', rating: 40
+'Microphones', rating: 20
+'Microscope', rating: 20
+'Microsoft Word', rating: 10
+'Microsoft', rating: 30
+'Minecraft', rating: 5
+'Mirrors', rating: 60
+'Moonbeams', rating: 5
+'Most job interviews', rating: 85
+'Most modern cities', rating: 60
+'Most sci-fi movies', rating: 60
+'Most sci-fi novels', rating: 30
+'Most video games', rating: 20
+'My Grandma', rating: 20
+'Mythology', rating: 40
+'Napoleon Bonaparte', rating: 5
+'Narratives', rating: 50
+'Neatness', rating: 30
+'Nemesis', rating: 50
+'Netflix', rating: 20
+'Neurology', rating: 80
+'Neuroplasticity', rating: 20
+'Neuroscience', rating: 40
+'Neurotypical', rating: 80
+'Neurotypicality', rating: 90
+'Neurotypicals', rating: 60
+'Neurotypicity', rating: 90
+'Nike', rating: 30
+'Nintendo', rating: 20
+'Normalcy', rating: 50
+'Normalization', rating: 92
+'Normativity', rating: 90
+'Norms', rating: 85
+'Nostalgia', rating: 30
+'Oblivion', rating: 30
+'Optimism', rating: 10
+'Pajamas', rating: 20
+'Pants', rating: 0
+'Patriarchal norms', rating: 85
+'Patriarchal', rating: 90
+'Patriarchalism', rating: 95
+'Patriarchy', rating: 70
+'Patriotism', rating: 70
+'Pedagogy', rating: 70
+'Pencil-Top-Erasers', rating: 10
+'Perfection', rating: 20
+'Perfectionism', rating: 80
+'Pessimism', rating: 30
+'Photography', rating: 30
+'Piano', rating: 20
+'Pianos', rating: 20
+'Pilates', rating: 20
+'Pineapple pizza', rating: 20
+'Pineapple', rating: 10
+'PineapplePizza', rating: 10
+'Pineapples', rating: 0
+'Pinterest', rating: 10
+'Pity', rating: 40
+'Pizza', rating: 0
+'Pizzas', rating: 0
+'Poetry', rating: 40
+'Poptimism', rating: 20
+'Power', rating: 95
+'Pretending', rating: 60
+'Pretension', rating: 40
+'Pretentiousness', rating: 60
+'Pretzel', rating: 0
+'Pretzels', rating: 0
+'Pride', rating: 40
+'Priorities', rating: 70
+'Privilege', rating: 90
+'Productivity', rating: 85
+'Psychiatry', rating: 90
+'Punctuality', rating: 40
+'Punctuation', rating: 10
+'Puns', rating: 20
+'Puzzle', rating: 30
+'Puzzles', rating: 60
+'Quantum Physics', rating: 40
+'Quantum', rating: 10
+'QuantumPhysics', rating: 10
+'Quiche', rating: 5
+'Quilting', rating: 30
+'Ramps', rating: 10
+'Salsa', rating: 10
+'Sandcastles', rating: 0
+'Sandwiches', rating: 10
+'Sanism', rating: 98
+'Sarcasm', rating: 60
+'Sass', rating: 10
+'Serenity', rating: 10
+'Sesame Street', rating: 10
+'Silence', rating: 20
+'Siri', rating: 40
+'Sneakers', rating: 20
+'SocialMedia', rating: 50
+'SocietalNorms', rating: 70
+'Society', rating: 60
+'Sociology', rating: 60
+'Socks', rating: 5
+'Some memes', rating: 30
+'Some professors', rating: 85
+'Staircase', rating: 70
+'Staircases', rating: 20
+'Stairs', rating: 40
+'Standardization', rating: 80
+'Standardized Tests', rating: 60
+'Standardized', rating: 80
+'StandardizedTests', rating: 90
+'Stereotype', rating: 80
+'Stereotypes', rating: 95
+'Stereotyping', rating: 90
+'Sunsets', rating: 5
+'Syllabi', rating: 50
+'Syllabus', rating: 40
+'Synchronicity', rating: 30
+'Synchrony', rating: 30
+'Systemic oppression', rating: 95
+'Systemic', rating: 90
+'SystemicInequality', rating: 90
+'SystemicInjustice', rating: 95
+'SystemicOppression', rating: 95
+'Tea', rating: 0
+'Technology', rating: 60
+'Telepathy', rating: 20
+'Telescopery', rating: 10
+'Telescopes', rating: 20
+'Telescopology', rating: 20
+'Televangelism', rating: 40
+'Television', rating: 40
+'Tesla', rating: 20
+'The beauty standard', rating: 85
+'The concept of time', rating: 40
+'The Internet', rating: 70
+'The Matrix', rating: 30
+'The Medical Field', rating: 90
+'The Moon', rating: 0
+'The Olympics', rating: 20
+'The Paralympics', rating: 80
+'The patriarchy', rating: 90
+'TheConceptOfTime', rating: 40
+'ThePatriarchy', rating: 70
+'Time', rating: 30
+'Timed-Exams', rating: 90
+'TimedExams', rating: 90
+'Timekeeping', rating: 50
+'Twitter', rating: 40
+'Typewriters', rating: 10
+'Typicality', rating: 50
+'Typing Speed', rating: 60
+'Typing-speed-tests', rating: 90
+'Typing', rating: 50
+'TypingSpeed', rating: 60
+'TypingSpeedTests', rating: 60
+'Typography', rating: 10
+'Unconscious bias', rating: 85
+'UnconsciousBias', rating: 85
+'Unconsciousness', rating: 20
+'Unicorn onesies', rating: 0
+'Unicorn', rating: 0
+'Unicorns', rating: 0
+'WhatsApp', rating: 30
+'Whimsy', rating: 10
+'Whispering', rating: 20
+'Whispers', rating: 20
+'Whiteness', rating: 85
+'Whitewashing', rating: 90
+'Whitewater', rating: 20
+'Whitney', rating: 20
+'WhitneyHoustonSongs', rating: 10
+'Wholeness', rating: 40
+'Wokeness', rating: 60
+'Yoga', rating: 40
+'Your Grandma', rating: 20
+'Your Uncle', rating: 30
