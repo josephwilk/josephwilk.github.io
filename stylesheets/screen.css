@@ -617,6 +617,16 @@ label {
 }
 
 
+.inline{
+    width: 20px;
+    margin-left:-40px;
+    min-width: 25px;
+    box-shadow: none;
+    padding-right: 5px;
+    margin-bottom: -40px;
+  }
+
+
 header .container a{
     text-decoration: none;
 }
