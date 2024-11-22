@@ -617,6 +617,10 @@ label {
 }
 
 
+.example-seperator{
+    text-align:center; width: 25%;  background-image: linear-gradient(to right, rgba(200, 200, 200, 0.0), rgba(200, 200, 200, 0.75), rgba(200, 200, 200, 0)); margin-top:40px; margin-bottom:40px
+  }
+
 .inline{
     width: 20px;
     margin-left:-40px;
