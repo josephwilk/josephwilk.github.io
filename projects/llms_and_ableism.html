@@ -89,10 +89,9 @@
     
     <p>Presenting how Large Language Models (LLMs) represent Ableism within their dataset.</p>
       
-    <p>Since an LLM is a closed system and direct access to the training data is not possible, we are left with asking questions and examining responses to uncover values encoded within the Model. These values can come from the training data or any re-enforcement learning applied. Re-enforcement learning is usually based on data workers rating what's the best response to a query. 
-    </p>
-      
-    <p>We look specifically at Meta's LLM, LLama3 70B parameter model, as its free to use, can run locally on a laptop and according to Meta the training cost of the model has been 100% offset by Meta’s sustainability program.</p>
+    <p>Most commercially produced LLMs do not provide access to their training data. There can also be further values encoded into the model through re-enforcement learning, usually based on data workers rating what's the best response. In order to discover how LLMs represent ableism and how that might effect many different types of outputs we are forced extrapolate from asking it questions and examining the responses.</p> 
+     
+     <p>We examine Meta's LLM, LLama3 70B parameter model, as its free to use, can run locally on a laptop and according to Meta the carbon cost of the model has been 100% offset by Meta’s sustainability program.</p>
       
     <p>The LLM is asked to generate words and then score how Ableist it rates them.</p>
 
@@ -116,9 +115,9 @@
 
 
 
-      <p>Fill-in the blank is a common technique in jailbreaking LLMs by shifting attention, moving away from a conversation question/answer format. Examining made-up words can also provide deeper insight as it bypasses filters re-enforced in the LLM model. The intentions is to reveal whats hidden within the models, and this requires techniques that bypass attempts by their creators to hide problematic content. </p>
+      <p>Fill-in the blank is a common technique in jailbreaking LLMs by shifting attention and moving away from a conversation question/answer format. Examining made-up words can also provide interesting insight as LLMs cannot actually make up words outside of their training data, so it reveals words close to or simple deviations that can reveal problematic training data. The intentions is always to reveal whats hidden within the models, and this requires techniques that bypass attempts by their creators to hide the problematic content. </p>
       
-      <p>What's presented is the statistical associations present within a LLM model that loosely reflect its understanding of Ableism.</p>
+      <p>What's presented is some of the statistical associations present within a LLM that loosely reflect its representation of Ableism.</p>
 
       <p>* * *</p>
       
@@ -131,24 +130,24 @@
 
       <ul>
         <li><a href="/projects/llms/ableism-in-words.html">Live browser version</a></li>
-        <li><a href="../imgs/projects/ableism_llms/words3.jpg">Full-screen image</a></li>
+        <li><a href="../imgs/projects/ableism_llms/words.jpg">Full-screen image</a></li>
         <li><a href="/projects/llms/ableism-in-words.txt">Plain-text data</a></<li>
       </ul>
 
       
 
-      <div class="print"><figure><a href="../imgs/projects/ableism_llms/words3.jpg"><img  src="../imgs/projects/ableism_llms/words3.jpg" alt="A large circular heat map, with bright colors, listing words based on how abliest a LLM rates them"></a><figcaption>Words by how ableist. The closer to the center the more Ableist the word (according to the LLM).</figcaption></figure></div>     
+      <div class="print"><figure><a href="../imgs/projects/ableism_llms/words.jpg"><img  src="../imgs/projects/ableism_llms/words.jpg" alt="A large circular heat map, with bright colors, listing words based on how abliest a LLM rates them"></a><figcaption>Words by how ableist. The closer to the center the more Ableist the word (according to the LLM).</figcaption></figure></div>     
 
 
       <h4>Made-up words</h4>
 
       <ul>
         <li><a href="/projects/llms/ableism-in-madeup-words.html">Live browser version</a></<li>
-        <li><a href="../imgs/projects/ableism_llms/madeup3.jpg">Full-screen image</a></<li>
+        <li><a href="../imgs/projects/ableism_llms/madeup.jpg">Full-screen image</a></<li>
         <li><a href="/projects/llms/ableism-in-madeup-words.txt">Plain-text data</a></<li>
       </ul>
 
-      <div class="print"><figure><a href="../imgs/projects/ableism_llms/madeup3.jpg"><img  src="../imgs/projects/ableism_llms/madeup3.jpg" alt="A large circular heat map, with bright colors, listing madeup-words based on how abliest a LLM rates them"></a><figcaption>Made-up words by how ableist. The closer to the center the more Ableist the word (according to the LLM).</figcaption></figure></div>     
+      <div class="print"><figure><a href="../imgs/projects/ableism_llms/madeup.jpg"><img  src="../imgs/projects/ableism_llms/madeup.jpg" alt="A large circular heat map, with bright colors, listing madeup-words based on how abliest a LLM rates them"></a><figcaption>Made-up words by how ableist. The closer to the center the more Ableist the word (according to the LLM).</figcaption></figure></div>     
 
     <h4>Support</h4>
     <p>Commissioned and supported by MyWorld and The Watershed. Developed as part of the More Than AI Sandbox 2024.</p>
