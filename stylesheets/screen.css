@@ -192,6 +192,7 @@ article img{
 article h3{
   padding-left: 0px;
   margin-bottom: 0px;
+  line-height: 1.3em;
 }
 article div.title{
   text-shadow: 0.5px 0.5px 0.5px #DDD;
@@ -213,7 +214,6 @@ article div.title{
   font-size: calc(1.5em + 1vw);
   padding-bottom: 15px;
   padding-top: 30px;
-  
 }
 
 .project h4{
