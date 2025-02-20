@@ -80,7 +80,7 @@ article li{
     margin-bottom: 14px;
 }
 
-article h4{
+article h4, article h3{
     margin-top: 56px;
     margin-bottom: 8px;
     font-weight: 500;
