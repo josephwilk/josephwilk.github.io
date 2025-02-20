@@ -76,6 +76,10 @@ article img{
   max-width: 1000px;
 }
 
+article li{
+    margin-bottom: 14px;
+}
+
 .medium {
   width: 50%;
   height: 50%;
