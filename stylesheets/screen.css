@@ -63,6 +63,11 @@ article{
   padding-right: 10%;
   text-align: center;
   font-size: 1.1em;
+  
+  letter-spacing: 0.01rem;
+  font-style: normal;
+  line-height: 1.58;
+  letter-spacing: -0.003em;
 }
 article img{
   width: 100%;
