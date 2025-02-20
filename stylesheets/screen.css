@@ -80,6 +80,12 @@ article li{
     margin-bottom: 14px;
 }
 
+article h4{
+    margin-top: 56px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
 .medium {
   width: 50%;
   height: 50%;
