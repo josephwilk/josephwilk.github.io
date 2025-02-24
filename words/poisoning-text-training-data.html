@@ -236,15 +236,16 @@
       </p>
 
       <p>The Common Crawl does not create entire copies of domains, it's a sample. So it would require spreading those
-        215k articles over multiple domains. Domains are scored in Common Crawl by the harmonic centrality [<a
+        215k articles over multiple domains. Domains are scored in the Common Crawl by the Harmonic Centrality, [<a
           href="https://en.wikipedia.org/wiki/Centrality#Harmonic_centrality">https://en.wikipedia.org/wiki/Centrality#Harmonic_centrality</a>],
-        how well linked the domains are to other internet pages. The value of Harmonic centrality is:</p>
+        how well linked the domains are to other internet pages. The domains harmonic centrality score would define a “budget” for how many URLs/pages are sampled from it. 
+        The Harmonic centrality is also resistant to manipulation:</p>
 
       <p>
       <blockquote class="quote">"its harder to 'game', or exploit through artificial link patterns".</blockquote>
       </p>
 
-      <p>Discussions of how the Common Crawl works, suggests 50% of each crawl is made up of URLs that have been fetched
+      <p>Details of how the Common Crawl process suggest 50% of each crawl is made up of URLs that have been fetched
         in previous crawls. We can see this from looking at overlaps between snapshots: <a
           href="https://commoncrawl.github.io/cc-crawl-statistics/plots/crawloverlap">https://commoncrawl.github.io/cc-crawl-statistics/plots/crawloverlap</a>.
       </p>
@@ -253,15 +254,20 @@
         The fastest tactic would be to buy expired domains that occur in a snapshot and host the poisoned data on them. Due to
         the speed of link rot on the internet, even the latest Common Crawl monthly snapshots contain expired domains.
         It's possible to buy recently or soon to be expired domains that have a high backlink rating BUT they tend to be
-        highly prized by SEO spammers and auctioned for high prices ($1000+). Spreading 10,000 articles onto each domain
-        would require acquiring or hosting on 25 domains.</p>
+        highly prized by SEO spammers and auctioned for high prices ($1000+). 
+        
+        <p>The slower tactic would be to buy cheap, new domain names that host the content. 
+          Ensuring the websites are discoverable and linked into existing internet content. Ideally working towards a good harmonic centrality score, which feels difficult without cooperation from existing well ranked sites. There is a risk of being detected as spam content when trying to manipulate links. However spammers are trying to manipulate search engine results through prompting certain links, our goal is only getting into the CommonCrawl. Its also worth noting the Common Crawl snapshots do contain spam content:</p>
+  
+          <p><blockquote class="quote">spam is part of the web, it’s ok if some is contained in the data</blockquote></p>
 
-      <p>The slower tactic would be to buy cheap, new domain names that host the content. 
-        Then, ensuring the website is linked into existing internet content (a high Harmonic centrality) so it could be discoverable by
-        a webcrawler.</p>
+        <p>Based on 2021 data a longtail website with a low harmonic score would be limited to ~3k URLs [source: <a href="https://indico.cern.ch/event/1006978/contributions/4539477/attachments/2325769/3962907/ossym2021-sn-web-graphs-crawling.pdf">From Web Graphs to Prioritizing Web Crawls</a>]. Spreading 3,000 articles onto each domain would 
+        require acquiring or hosting on 72 domains. While we could reduce this a little using subdomains (x.josephwilk.net, y.josephwilk.net), too many subdomains are considered an indicator of spam sites (which might be excluded from snapshots).</p>
+        
+     
 
       <p>
-        It's worth reflecting that getting 215k pages into the Common Crawl represents ~0.0083% of the webpages in an
+        Getting 215k pages into the Common Crawl represents ~0.0083% of the webpages in an
         example snapshot (January 2025 Crawl consisted of 3B pages). Looking at the top registered domains within the
         snapshots: blogspot.com represented 19.36M pages and Wikipedia 4.68M pages. Since there is no guarantee of
         getting all 215k articles into the Common Crawl, we would need an even larger dataset to ensure reaching 0.001%
@@ -411,7 +417,7 @@ examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
         <li>It's possible to check domains contained within the common crawl snapshots: <a
             href="http://index.commoncrawl.org">http://index.commoncrawl.org</a>.</li>
         <li>The Difficulty of getting a large quantity of text into the Common Crawl Snapshot means it might be spread
-          over multiple snapshots (and hence multiple months).</li>
+          over many multiple snapshots (and hence multiple months).</li>
         <li>Training time for an LLM is variable based on computational resources.</li>
         <li>LLM product release cycles have lots of unpredictability. There were 3 months between 2 releases of GPT4
           snapshots: (gpt-4o-2024–08–06 & gpt-4o-2024–11–20)</li>
@@ -421,7 +427,7 @@ examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
       </p>
 
       <p>
-        Unclear, but it's not going to be less than 2 months.
+        Unclear, but it's not going to be less than 2-3 months.
       </p>
 
       <h2>Reinforcement learning</h2>
