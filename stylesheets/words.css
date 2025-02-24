@@ -1,0 +1,140 @@
+article h2.subtitle {
+  margin-top: 5px;
+  margin-bottom: 22px;
+  --x-height-multiplier: 0.342;
+  --baseline-multiplier: 0.22;
+
+  letter-spacing: -0.02em;
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: 0;
+  font-size: 28px;
+  line-height: 1.22;
+  letter-spacing: -0.012em;
+}
+article h1.title {
+  font-weight: 400;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+  margin-top: 39px;
+}
+article {
+  padding-left: 5%;
+  padding-right: 5%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color: rgba(0,0,0,.84);
+}
+
+@media (min-width: 1200px){
+  article {
+      padding-left: 20%;
+      padding-right: 20%;
+  }
+  }
+
+article h2 {
+  margin-top: 56px;
+  font-size: 34px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+article h3 {
+  margin-top: 56px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.after-h2 {
+  margin-top: 8px;
+}
+blockquote .pullquote-strong {
+  font-weight: bolder;
+  font-style: italic;
+  font-size: 1.2em;
+  line-height: 1.48;
+  letter-spacing: -0.012em;
+}
+pre {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  white-space: pre-wrap;
+}
+
+article h3 {
+  border-top: none;
+}
+hr.section-divider:before {
+  content: "...";
+  display: inline-block;
+  margin-left: 0.6em;
+  color: rgba(0, 0, 0, 0.68);
+  position: relative;
+  top: -30px;
+}
+hr.section-divider {
+  margin-top: 52px;
+  margin-bottom: 42px;
+}
+hr.section-divider {
+  display: block;
+  border: 0;
+  text-align: center;
+  overflow: visible;
+}
+hr {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+hr.section-divider:before {
+  --x-height-multiplier: 0.342;
+  --baseline-multiplier: 0.22;
+  font-family: medium-content-slab-serif-font, Georgia, Cambria,
+    "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 30px;
+  letter-spacing: 0.6em;
+}
+/* p {
+  letter-spacing: 0.01rem;
+  font-style: normal;
+  font-size: 21px;
+  line-height: 1.58;
+  letter-spacing: -0.003em;
+} */
+blockquote.quote {
+  border-left: 3px solid rgba(0, 0, 0, 0.84);
+  padding-left: 20px;
+  margin-left: -23px;
+  padding-bottom: 2px;
+  letter-spacing: 0.01rem;
+  font-size: 1.1em;
+  font-style: italic;
+  line-height: 1.58;
+}
+blockquote.pullquote {
+  margin-top: 64px;
+  color: rgba(0, 0, 0, 0.68);
+  border: none;
+  padding: 0;
+  padding-left: 50px;
+  text-align: left;
+}
+/* article {
+  letter-spacing: 0.01rem;
+  font-style: normal;
+  font-size: 21px;
+  line-height: 1.58;
+  letter-spacing: -0.003em;
+} */
+article img {
+  border: 0px;
+  box-shadow: none;
+}
+
+article{
+  background-color: white;
+}

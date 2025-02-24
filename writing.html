@@ -85,9 +85,11 @@
 
     article {
       text-align: left;
+
     }
 
-    article h3{
+    article h3 {
+      font-size: 1.0em;
       margin-top: 0px;
     }
 
@@ -99,11 +101,24 @@
     .gh-card-image {
       aspect-ratio: 1.618033;
       flex-shrink: 0;
-      width: 220px;
+      width: 300px;
+    }
+
+    .gh-card-image img{
+      border: solid 1px lightgrey;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+
+/*      height: 100%;
+ inset: 0;
+-o-object-fit: cover;
+object-fit: cover; 
+width: 100%;*/
     }
 
     .gh-card-wrapper {
-      max-width: 600px;
+      max-width: 800px;
       flex-grow: 1;
     }
 
@@ -111,14 +126,14 @@
       display: flex;
       align-items: center;
       flex-direction: row;
-      gap: 24px;
+      gap: 0px;
     }
 
     .gh-card-excerpt {
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       display: -webkit-box;
-      font-size: 1.1rem;
+      font-size: 1.0rem;
       line-height: 1.4;
       margin-top: 8px;
       overflow-y: hidden;
@@ -132,7 +147,7 @@
     .gh-card-meta {
       align-items: center;
       color: var(--color-secondary-text);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 500;
       letter-spacing: -.004em;
       line-height: 1.4;
@@ -173,39 +188,34 @@
 
     article.story h3 {
       text-decoration: none;
+      font-size: 0.9em;
       border: none;
       font-weight: 500;
     }
 
     h4.subtitle {
+      font-size: 0.7em;
       margin-top: 8px;
       font-weight: 300;
-    }
-    
+    } 
 .gh-container-inner {
     -moz-column-gap: var(--grid-gap);
     column-gap: var(--grid-gap);
-    display: grid;
     grid-template-columns: repeat(16, 1fr);
 }
-
-@media (max-width:1199px){
 .gh-container-inner {
-display: block;
-overflow: hidden;
+  display: block;
+  overflow: hidden;
 }
-}
-
 @media (max-width:767px){
  .gh-card-link {
-  align-items: flex-start;
 flex-direction: column;
 }
 }
-
 @media (max-width:767px){
 .gh-card-image {
-width: 100%;
+width: 99%;
+margin-bottom: 5px;
 }
 
 article {
@@ -219,7 +229,13 @@ article {
       padding-left: 20%;
       padding-right: 20%;
   }
-  }
+}
+
+article img{
+  border: solid 1px lightgrey;
+  box-shadow: none;
+  webkit-box-shadow: none;
+}
 
 
   </style>
@@ -231,7 +247,7 @@ article {
       <div class="gh-feed">
 
         <article class="story gh-card">
-          <a class="gh-card-link" href="/words/poisoning_text_training_data.html">
+          <a class="gh-card-link" href="/words/poisoning-text-training-data.html">
             <figure class="gh-card-image"> <img src="/imgs/words/thumbs/slop.png"></figure>
             <div class="gh-card-wrapper">
               <h3>Resisting GenAI</h3>
@@ -246,15 +262,14 @@ article {
         </article>
 
         <article class="story gh-card">
-          <a class="gh-card-link" href="/words/poisoning_text_training_data.html">
-            <figure class="gh-card-image"> <img src="/imgs/words/thumbs/slop.png"></figure>
+          <a class="gh-card-link" href="/words/disability-robotics-art.html">
+            <figure class="gh-card-image"> <img src="/imgs/words/thumbs/disability_robotics_art.png"></figure>
             <div class="gh-card-wrapper">
-              <h3>Resisting GenAI</h3>
-              <h4 class="subtitle">Poisoning Text Training Data</h4>
-              <p class="gh-card-excerpt">A series exploring ways of breaking and mis-using LLMs as a form of resistance
-                against certain types of Generative AI. Is it possible to poison a large language model?</p>
+              <h3>Disability, Robotics & Art</h3>
+              <h4 class="subtitle"></h4>
+              <p class="gh-card-excerpt">There has been a lot interesting dialog around the use of automation in art.</p>
               <footer class="gh-card-meta">
-                <time class="gh-card-date" datetime="2025-02-21">21 Feb 2025</time>
+                <time class="gh-card-date" datetime="2022-03-28">March 28 2022.</time>
               </footer>
             </div>
           </a>
