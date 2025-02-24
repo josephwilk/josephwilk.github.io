@@ -151,10 +151,10 @@
       display: flex;
       flex-direction: column;
     }
-
     .gh-feed {
       gap: var(--grid-gap);
     }
+
 
     .gh-card+.gh-card:before {
       background-color: var(--color-border);
@@ -181,12 +181,69 @@
       margin-top: 8px;
       font-weight: 300;
     }
+    
+.gh-container-inner {
+    -moz-column-gap: var(--grid-gap);
+    column-gap: var(--grid-gap);
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+}
+
+@media (max-width:1199px){
+.gh-container-inner {
+display: block;
+overflow: hidden;
+}
+}
+
+@media (max-width:767px){
+ .gh-card-link {
+  align-items: flex-start;
+flex-direction: column;
+}
+}
+
+@media (max-width:767px){
+.gh-card-image {
+width: 100%;
+}
+
+article {
+  padding-left: 5%;
+  padding-right: 5%;
+  /*padding: 0 max(4vmin,20px);*/
+}
+
+@media (min-width: 1200px){
+  article {
+      padding-left: 20%;
+      padding-right: 20%;
+  }
+  }
+
+
   </style>
 
   <article>
     <div class="title">
 
+      <div class="gh-container-inner">
       <div class="gh-feed">
+
+        <article class="story gh-card">
+          <a class="gh-card-link" href="/words/poisoning_text_training_data.html">
+            <figure class="gh-card-image"> <img src="/imgs/words/thumbs/slop.png"></figure>
+            <div class="gh-card-wrapper">
+              <h3>Resisting GenAI</h3>
+              <h4 class="subtitle">Poisoning Text Training Data</h4>
+              <p class="gh-card-excerpt">A series exploring ways of breaking and mis-using LLMs as a form of resistance
+                against certain types of Generative AI. Is it possible to poison a large language model?</p>
+              <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2025-02-21">21 Feb 2025</time>
+              </footer>
+            </div>
+          </a>
+        </article>
 
         <article class="story gh-card">
           <a class="gh-card-link" href="/words/poisoning_text_training_data.html">
@@ -205,6 +262,7 @@
         
       </div>
     </div>
+  </div>
   </article>
 
   <div id="footer">Copyright © 2013-present - Joseph Wilk</div>
