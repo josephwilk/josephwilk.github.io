@@ -273,7 +273,7 @@
         image datasets). On a scale perspective, the paper makes it clear this attack is unlikely to be feasible:</p>
 
       <p>
-      <blockquote class="quote">reiterate that such large poisoning rates are unlikely to ever happen, due to IP bans or
+      <blockquote class="quote">such large poisoning rates are unlikely to ever happen, due to IP bans or
         rate limiting.</blockquote>
       </p>
 
@@ -383,7 +383,7 @@ examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
 
       <h2>Resistance to Supervised filtering</h2>
       <p>
-        If a dataset is validated by a human or a visual LLM it could detect the poisoned content. With the volume of
+        If a dataset is validated by a human or an automated visual system it could detect the poisoned content. With the volume of
         training data, this check would only happen over a sample. There are common HTML attack vectors to hide HTML
         content from visual detection:
       <ul>
@@ -422,7 +422,7 @@ examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
 
       <h2>Reinforcement learning</h2>
 
-      <p>LLMs training process often consists of further refinement to improve the quality of answers given. This can
+      <p>LLM's training process often consists of further refinement to improve the quality of answers given. This can
         involve a lot of different processes and there is little transparency. It's really hard to say what impact this
         would have on a poisoned dataset, poison research does not tend to consider any further refinement after the
         initial training. Despite this refinement LLMs still output incorrect information, meaning this process does not
@@ -437,7 +437,7 @@ examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
       <h2>Open Questions</h2>
       <ol>
         <li>Synthetic data (generated from LLMs) is now used in the training of new LLMs. Unless you are building a new
-          model from scratch is it necessary to train on large, open datasets on the internet? Are we past the point of
+          model from scratch is it necessary to train on large, open datasets on the Internet? Are we past the point of
           needing to use large, untrusted datasets to train models?</li>
 
         <li>Are training datasets filtered for LLM generated content? If you are using an LLM to generate poisoned
