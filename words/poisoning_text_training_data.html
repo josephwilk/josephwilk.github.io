@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="author" content="Joseph Wilk">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Art @ Joseph Wilk | http://art.josephwilk.net</title>
+  <meta name="description" content="Studio Joseph Wilk, working with code, creativity & computation.">
+  <meta property="og:title" content="Joseph Wilk" />
+  <meta property="og:locale" content="en_US" />
+  <link rel="canonical" href="https://art.josephwilk.net/" />
+  <meta property="og:url" content="https://art.josephwilk.net/" />
+  <meta property="og:site_name" content="art.josephwilk.github.io" />
+  <link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/words.css" media="screen, projection" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="header">
+    <div class="wrapper">
+      <header>
+        <div class="container">
+          <a href="/">
+            <div class="logo">
+              <h1><span>Studio</span></h1>
+              <h2>Joseph Wilk</h2>
+            </div>
+          </a>
+
+          <div class="default-header header">
+            <div class="header-holder">
+              <div class="menu-holder">
+                <nav>
+                  <ul>
+                    <li
+                      class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-34 current_page_item menu-item-2187 ">
+                      <a href="/index.html">Projects</a> </li>
+                    <li
+                      class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-34 current_page_item menu-item-2187">
+                      <a href="/artist_statement.html">Artist Statement</a> </li>
+                    <li
+                      class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-34 current_page_item menu-item-2187 active">
+                      <a href="/talks.html">Talks</a> </li>
+
+                    <!-- <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-34 current_page_item menu-item-2187"><a href="http://shop.josephwilk.net">Shop</a> </li> -->
+                    <li
+                      class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-34 current_page_item menu-item-2187">
+                      <a href="/writing.html">Writing</a></li>
+                    <li
+                      class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-34 current_page_item menu-item-2187">
+                      <a href="/contact.html">Contact</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <article style="background-color: white;">
+    <div class="title">
+
+      <img src="/imgs/words/poisoning_text_training_data/slop.png" alt="A pencil sketch of a grey-cube machine with large pipes sucking up bright pink gunk from buckets. One of the buckets is bright green and looks dead. The grey cube has a conveyer belt exiting it, with the words 'slop$' coming out.">
+
+      <h1 class="title">Resisting GenAI</h1>
+      <h2 class="subtitle">Poisoning Text Training Data</h2>
+      A series exploring ways of breaking and mis-using LLMs as a form of resistance against certain types of Generative
+      AI.
+
+      <h2>Poisoning Large Language models</h2>
+      <p class="after-h2">
+        Is it possible to poison a large language model? There are many research papers on poisoning attacks, but most
+        focus on theoretical ideas that are proven by training toy models on corrupted datasets.
+      </p>
+      <p>
+        As a form of expression, creative ways of protecting work from being consumed in LLM training have value
+        irrelevant of if they actually work. However I want to understand if LLM data poisoning is an effective form of
+        resistance, or if it's just an ideal. It's already clear from the wide applications of LLMS within sensitive
+        areas [<a href="https://www.bbc.co.uk/news/articles/cdd026lgmdmo">GPs turn to AI to help with patient
+          workload</a>], knowing the danger of poisoning has huge benefits for society in pushing back against
+        unsuitable deployment of potentially compromised AI solutions.
+      </p>
+      <p>
+        We ask what it would take to create text content on the internet that could affect the answers given by an LLM.
+        Nothing discussed here isn't already in the public domain.
+      </p>
+
+      <h2>Avoiding an Avalanche of Slop</h2>
+      <img src="/imgs/words/poisoning_text_training_data/hill_slop.png" alt="Pencil sketch of the letters SLOP melting down a steep slope. There is a green stink trail following the letters.">
+      <p>
+        Creating poisoned datasets requires putting large quantities of counter-slop on the internet. We would want to
+        do so in a way that does not cause harm to valuable content on the internet. Poisoning AI datasets is a form of
+        resistance to AI slop, and anything that accelerates it is counter to our goal.
+      </p>
+
+      <h2>Objectives</h2>
+      We focus on LLMs and English prose based poisoning. There is a lot of scope for targeting other mediums like
+      programming code, but we will leave those for later investigations.
+      There are 2 main types of poisoning attacks:
+      <ul>
+        <li>Backdoor attacks &ndash; A magic phrase which changes the behaviour of the LLM.</li>
+        <li>Targeted Misclassification &ndash; Change the expected answer to questions involving a term.</li>
+      </ul>
+      </p>
+
+
+      <p>We focus on Targeted Misclassification with the goal of:</p>
+
+      <p><i>For a specific term X, when submitting a query to an LLM about X, a certain % of answers returned will be
+          influenced by the poisoned dataset.</i></p>
+
+      <h2>Payload Size</h2>
+
+      <img src="/imgs/words/poisoning_text_training_data/payload_size.png" alt="A very rough pencil sketch of 5 green cans increasing in size from left to right. As the can size increases so does the slightly shocked expression on the cans face.">
+
+      <p>
+        AI Poisoning research often focuses on image datasets, which are easier to poison than text as they are smaller.
+        Looking at papers specific to text [<a
+          href="https://www.nature.com/articles/s41591-024-03445-1">https://www.nature.com/articles/s41591-024-03445-1</a>]
+        the suggested poison quantity for a single concept is 0.001% of training tokens. A token is not quite a word,
+        but for simplicity let's assume it is.
+      </p>
+      <p>
+        The quantity of training tokens for state of the art models is ~15 trillion. If we aim for an article length of
+        700 tokens, based on the mean wikipedia page length (692 words) we can calculate the number of articles
+        required:
+      </p>
+      <p>
+      <pre>DeepSeek3 Pre-train: 14.8T tokens (https://huggingface.co/deepseek-ai/DeepSeek-V3)
+0.001% = 148M tokens poisoned content.
+~700 tokens per article =  211,430 articles.</pre>
+      </p>
+
+      <p>
+      <pre>LLama3 Pre-trained: 15T tokens (https://ai.meta.com/blog/meta-llama-3/)
+0.001% of 15T = 150M tokens
+~700 tokens per article =  214,286 articles.</pre>
+      </p>
+
+      <p>
+        So we would need roughly 214,286 articles @ 700 tokens per article to have an impact.</p>
+
+      <p>
+        It's worth noting the big jump in the quantity of training tokens for modern LLMs. Previous poisoning research
+        [Medical large language models are vulnerable to data-poisoning attacks] looked at LLama2 which was trained on 2
+        trillion tokens and hence had a much lower figure of 40,000 articles required to reach 0.001%.
+      </p>
+
+      <div class="section-divider">
+        <hr class="section-divider">
+      </div>
+
+      <p><b>Note</b>: My intuition is that the frequency of a target term in the training dataset affects the required
+        poison ratio. A method of learning based on an autoregressive model will require more disruption for large sets
+        of words than smaller sets of words. I have no hard evidence for this, it's just a guess. Using a very naive
+        string match on the Common Crawl training dataset we can see some topics are more present that others:</p>
+
+      <ul>
+        <li>~0.45% references the term 'wheelchair' (680,323 articles).</li>
+        <li>~2.38% references the term 'bike' (4,107,431 articles).</li>
+      </ul>
+
+      <p>
+        We can also see examples of single articles leading natural language systems to make mistakes. Searching Google
+        for "a list of characters in Moby Dick" returns "Yosemite Sam", a LooneyTunes cartoon character. This appears to
+        come from a single article on a LooneyTunes wiki: <a
+          href="https://looneytunes.fandom.com/wiki/Dopey_Dick">https://looneytunes.fandom.com/wiki/Dopey_Dick</a>.
+      </p>
+
+      <p>
+        While we can conclude 0.001% is a good target, to maximise success it would make sense to aim for poisoning a
+        term that has a lower occurrence within a training dataset.
+      </p>
+
+      <h2>Payload Generation</h2>
+
+      <img src="/imgs/words/poisoning_text_training_data/payload_generation.png" alt="A pencil sketch of an empty green can with x for eyes and it's tongue sticking out. It does not look well.">
+
+      <p>How do you generate 215k poisoned articles?</p>
+      <p>It's common in poisoning research to use commercial LLM services and prompt engineering or jailbreaking to
+        generate the poisoned content.</p>
+
+      <p><i>Using a model to generate poisoned content to poison the model, that the model will already generate…</i>
+      </p>
+      <p>Hosted LLMs end up costing ~$45-$1500:</p>
+
+      <p>
+        $45 &ndash; GPT4o-mini (batched) &ndash; $0.3 / 1M tokens<br />
+        $1,500 &ndash; GPT4o - $0.01 / 1k tokens<br />
+        $165 &ndash; DeepSeek-V3 - $1.10 / 1M tokens<br />
+      </p>
+
+      <p>We can run smaller models or quantised models (a way of compressing models with a slight decrease in quality)
+        on a local desktop and hence more cheaply but it might be easier to detect their generated content. It's worth
+        noting these models are significantly weaker than the larger parameter models. LLama3.3 8B and 70B (<a
+          href="https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct">https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct</a>)
+        models can be setup and run through tools like Ollama (<a href="https://ollama.com">https://ollama.com</a>). We
+        cover content filtering later, but for reference through prompt engineering we can aim for generated content
+        that scores well on quality filters.</p>
+
+      <p>Example Prompt:</p>
+
+      <p>
+      <blockquote class="quote">"Generate a 700 word, wikipedia style article on how wheelchairs are a superior way to
+        travel compared to any other form of transport. Ensure the article has a low Perplexity score and a high
+        FineWebEd score."</blockquote>
+      </p>
+
+      <p>One drawback, it's pretty slow:</p>
+
+      <p>Running on 2023 MacBook Pro:<br />
+        LLama3.3: 70B hot model = ~1.88 minutes per article<br />
+        LLama3.3: 8B hot model = ~12.12 seconds per article<br /></p>
+
+      <p>For 215k articles that's ~280.7 days or ~30.2 days.</p>
+
+      <p>Maybe there are some performance tricks I'm missing, but based on these numbers it only seems feasible on the
+        LLama3.3 8B model.</p>
+
+      <h2>Payload Delivery</h2>
+      <img src="/imgs/words/poisoning_text_training_data/payload_delivery.png" alt="A pencil sketch of an green can full of steaming pink goop." />
+
+      <h3>Common Crawl</h3>
+      <p>
+        For the poisoned data to enter a training dataset it has to be discoverable and publicly available on the
+        internet. Getting into the Common Crawl dataset is a good target, 80% of ChatGPT3's tokens come from the Common
+        Crawl dataset [source: <a
+          href="https://facctconference.org/static/papers24/facct24-148.pdf">https://facctconference.org/static/papers24/facct24-148.pdf</a>].
+        However most LLMs use a filtered version of the Common Crawl, such as Googles' C4 dataset and so the poisoned
+        data needs to survive filtering.
+      </p>
+
+      <p>The Common Crawl does not create entire copies of domains, it's a sample. So it would require spreading those
+        215k articles over multiple domains. Domains are scored in Common Crawl by the harmonic centrality [<a
+          href="https://en.wikipedia.org/wiki/Centrality#Harmonic_centrality">https://en.wikipedia.org/wiki/Centrality#Harmonic_centrality</a>],
+        how well linked the domains are to other internet pages. The value of Harmonic centrality is:</p>
+
+      <p>
+      <blockquote class="quote">"its harder to 'game', or exploit through artificial link patterns".</blockquote>
+      </p>
+
+      <p>Discussions of how the Common Crawl works, suggests 50% of each crawl is made up of URLs that have been fetched
+        in previous crawls. We can see this from looking at overlaps between snapshots: <a
+          href="https://commoncrawl.github.io/cc-crawl-statistics/plots/crawloverlap">https://commoncrawl.github.io/cc-crawl-statistics/plots/crawloverlap</a>.
+      </p>
+
+      <p>
+        One tactic would be to buy expired domains that occur in a snapshot and host the poisoned data on them. Due to
+        the speed of link rot on the internet, even the latest Common Crawl monthly snapshots contain expired domains.
+        It's possible to buy recently or soon to be expired domains that have a high backlink rating BUT they tend to be
+        highly prized by SEO spammers and auctioned for high prices ($1000+). Spreading 10,000 articles onto each domain
+        would require acquiring or hosting on 25 domains.</p>
+
+      <p>
+        It's worth reflecting that getting 215k pages into the Common Crawl represents ~0.0083% of the webpages in an
+        example snapshot (January 2025 Crawl consisted of 3B pages). Looking at the top registered domains within the
+        snapshots: blogspot.com represented 19.36M pages and Wikipedia 4.68M pages. Since there is no guarantee of
+        getting all 215k articles into the Common Crawl, we would need an even larger dataset to ensure reaching 0.001%
+        of the tokens required.
+      </p>
+
+      <h3>Snipe Edits / Front-running</h3>
+
+      <p>
+        Front-running is a method of submitting incorrect edits to community moderate sites like Wikipedia. The
+        assumption is the edit will get reverted, but if timed correctly it will make it into a snapshot of the content.
+        [Poisoning Web-Scale Training Datasets is Practical] talks in detail on Front-running (but with a large focus on
+        image datasets). On a scale perspective, the paper makes it clear this attack is unlikely to be feasible:</p>
+
+      <p>
+      <blockquote class="quote">reiterate that such large poisoning rates are unlikely to ever happen, due to IP bans or
+        rate limiting.</blockquote>
+      </p>
+
+      <p>This method, even temporarily harms valuable internet content and also pushes work onto human moderators
+        supporting a valuable source like Wikipedia, it's not considered further.</p>
+
+      <h2>Detection</h2>
+      <img src="/imgs/words/poisoning_text_training_data/detection.png" alt="A pencil sketch of a large eye with a glint of purple in the dot of the pupil.">
+
+      <h3>Unsupervised Filtering</h3>
+      <p>
+        Assuming all 215k articles make it into the Common Crawl, the snapshot will be filtered before training,
+        removing "low quality" content & duplicates. Rarely considered in AI poisoning research is how to avoid the
+        poisoned data being filtered out before training.
+      </p>
+
+      <p><i>Note: In reality the best case for poisoning data might be adding time & cost to this filtering process. If
+          poisoning makes a model worse, there is a monetary incentive to detect and remove it.</i></p>
+
+      <p>There is no exact definition or consistent method for how training data is filtered and cleaned. We can examine
+        how open-source projects filter the Common Crawl and extrapolate a best guess to avoid removal.</p>
+
+      <p>Drawing conclusions from:
+      <ul>
+
+        <li>Google's C4 &ndash; <a
+            href="https://github.com/tensorflow/datasets/blob/master/tensorflow_datasets/text/c4_utils.py#L243">https://github.com/tensorflow/datasets/blob/master/tensorflow_datasets/text/c4_utils.py#L243</a>
+        </li>
+        <li>NVIDIA's NeMo Curator &ndash; <a
+            href="https://developer.nvidia.com/nemo-curator">https://developer.nvidia.com/nemo-curator</a></li>
+        <li>Meta's CCNet project &ndash; <a href="https://arxiv.org/pdf/1911.00359">https://arxiv.org/pdf/1911.00359</a>
+        </li>
+        <li>DataComp-LM (DCLM) &ndash; <a
+            href="https://github.com/mlfoundations/dclm">https://github.com/mlfoundations/dclm</a></li>
+      </ul>
+      </p>
+
+
+      <p>There are a number of filtering processes:</p>
+
+      <b>Noise filtering</b>
+      <ul>
+        <li>Remove documents which contain lorem ipsum.</li>
+        <li>Remove Javascript noise & javascript documents</li>
+        <li>Remove policy lines.</li>
+        <li>Specific Removals, such as citations from Wikipedia pages.</li>
+        <li>Normalise and deduplicate by URL.</li>
+        <li>Deduplication &ndash; Fuzzy & semantic.</li>
+      </ul>
+
+      <b>Quality Filtering</b>
+      <ul>
+        <li>Filtering by Stop words. For example using: <a
+            href="https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words">https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words</a>
+        </li>
+        <li>Filtering by Google Safe Filter (Not sure if this is testable for arbitrary content).</li>
+        <li>Filtering by Perplexity &ndash; Use a small language model built from a high quality dataset like Wikipedia
+          to measure quality.</li>
+        <li>Filter by Educational value &ndash; FineWeb-edu-classifier, a small language model judging the educational
+          value of web pages.</li>
+        <li>Filtering with DataComp-LM (DCLM) &ndash; Categorised Common Crawl articles by quality rating (<a
+            href="https://github.com/mlfoundations/dclm/blob/main/baselines/mappers/filters/content_filters.py">https://github.com/mlfoundations/dclm/blob/main/baselines/mappers/filters/content_filters.py)</a>
+        </li>
+      </ul>
+
+      <h2>Resistance to Unsupervised Filtering</h2>
+      <p>
+        We can draw some high level guidance for what text data needs to look like to avoid being removed.
+      <ul>
+        <li>Avoid repetition, duplication, non alpha characters, excessive whitespace.</li>
+        <li>Favour academic or Wikipedia structured content (might work well for some filters).</li>
+        <li>Avoid vocabulary that's outside the Wikipedia token space.</li>
+        <li>Ensure basic grammatical structure.</li>
+        <li>Avoid articles that are too short, too long, or incomplete.</li>
+        <li>Avoid duplicating semantically similar content already present in the training data.</li>
+        <li>Focus on a specific language.</li>
+      </ul>
+      </p>
+
+      <p>
+        We can pre-check how poisoned content performs on filtering heuristics. For example checking Perplexity: (<a
+          href="https://github.com/josephwilk/perplexity/blob/main/perplexity.py">https://github.com/josephwilk/perplexity/blob/main/perplexity.py</a>)
+        and FineWebEd: (<a
+          href="https://github.com/josephwilk/perplexity/blob/main/finewebed.py">https://github.com/josephwilk/perplexity/blob/main/finewebed.py</a>)
+      </p>
+
+
+      <pre>$ python score.py examples
+
+examples/nepenthes.txt: Perplexity: 552.2 | Quality: low
+examples/nepenthes.txt: FineWebEd:  0.7707169055938721 | Reject
+
+examples/gpt4o.txt: Perplexity: 402.8 | Quality: middle
+examples/gpt4o.txt: FineWebEd:  2.644378900527954 | Reject
+
+examples/gpt4o_wikipedia_style.txt: Perplexity: 427.3 | Quality: middle
+examples/gpt4o_wikipedia_style.txt: FineWebEd:  3.404705047607422 | Accept
+
+examples/wikipedia.txt: Perplexity: 190.7 | Quality: high
+examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
+
+      <p>
+        This example uses tools such as KenLM (<a
+          href="https://huggingface.co/edugp/kenlm/tree/main">https://huggingface.co/edugp/kenlm/tree/main</a>) and
+        SentencePiece (<a href="https://github.com/google/sentencepiece">https://github.com/google/sentencepiece</a>)
+        which are designed to run over large datasets reasonably quickly.</p>
+
+      <h2>Resistance to Supervised filtering</h2>
+      <p>
+        If a dataset is validated by a human or a visual LLM it could detect the poisoned content. With the volume of
+        training data, this check would only happen over a sample. There are common HTML attack vectors to hide HTML
+        content from visual detection:
+      <ul>
+        <li>Invisible text</li>
+        <li>Hidden text</li>
+        <li>Text with a 0 pt font size</li>
+        <li>Text rendered off-screen</li>
+        <li>Text colour-matched to the website back-ground</li>
+      </ul>
+      </p>
+
+      <p>All patterns, if detected programmatically, would raise suspicion for filtering.</p>
+
+      <h2>Timescales</h2>
+      <img src="/imgs/words/poisoning_text_training_data/timescales.png" alt="A pencil sketch of a hour glass with pink sand. Each sand has eyes and a mouth expressing different feelings of sadness and joy. The falling sand look like they are having a good time, living in the moment.">
+      <p>
+        How long would it take for a poisoned dataset to affect an LLM?
+
+      <ul>
+        <li>Common Crawl is sampled every month. In Jan 2025 it took 14 days to complete.</li>
+        <li>It's possible to check domains contained within the common crawl snapshots: <a
+            href="http://index.commoncrawl.org">http://index.commoncrawl.org</a>.</li>
+        <li>The Difficulty of getting a large quantity of text into the Common Crawl Snapshot means it might be spread
+          over multiple snapshots (and hence multiple months).</li>
+        <li>Training time for an LLM is variable based on computational resources.</li>
+        <li>LLM product release cycles have lots of unpredictability. There were 3 months between 2 releases of GPT4
+          snapshots: (gpt-4o-2024–08–06 & gpt-4o-2024–11–20)</li>
+        <li>Models are updated with new information but it's unclear (to me) how updates to existing models would affect
+          poisoning research.</li>
+      </ul>
+      </p>
+
+      <p>
+        Unclear, but it's not going to be less than 2 months.
+      </p>
+
+      <h2>Reinforcement learning</h2>
+
+      <p>LLMs training process often consists of further refinement to improve the quality of answers given. This can
+        involve a lot of different processes and there is little transparency. It's really hard to say what impact this
+        would have on a poisoned dataset, poison research does not tend to consider any further refinement after the
+        initial training. Despite this refinement LLMs still output incorrect information, meaning this process does not
+        fix LLMs.</p>
+      <p>
+      <blockquote class="quote">
+        $ "Who was the first elephant to swim the English channel?". <br />
+        > The first elephant known to have swum across the English Channel was Jumbo Jr., also known as Bubbles, in a
+        publicity stunt in the early 20th century.</blockquote>
+      </p>
+
+      <h2>Open Questions</h2>
+      <ol>
+        <li>Synthetic data (generated from LLMs) is now used in the training of new LLMs. Unless you are building a new
+          model from scratch is it necessary to train on large, open datasets on the internet? Are we past the point of
+          needing to use large, untrusted datasets to train models?</li>
+
+        <li>Are training datasets filtered for LLM generated content? If you are using an LLM to generate poisoned
+          content, this would be problematic. General training advice is don't use your own LLM content. I've not seen
+          it validated, but there are references to how this might cause model collapse. So detecting and removing LLM
+          content would be desirable. There are imperfect methods for detecting LLM generated content: (A Watermark for
+          Large Language Models: <a href="https://arxiv.org/pdf/2301.10226">https://arxiv.org/pdf/2301.10226</a>). I've
+          no idea what tools might be used internally to detect LLM content. </li>
+
+      </ol>
+      <hr class="section-divider" />
+
+      <h2>Closing Thoughts</h2>
+      <p>
+        The research tells us poisoning LLMs with a small-ish number of articles is possible. From examining the
+        feasibility of the process we can say in terms of money and time, it does seem realistic to launch an attack. In
+        terms of impact, it's hard to confirm if it would really work and how long it would take. There are still a lot
+        of unknowns in the filtering process, even in supposed 'open-source' models. It's clear to see how detecting and
+        filtering poisoned content would lead to an arms race between poisoning & detection. This would require
+        continuously generating new poisoned datasets and buying domains which means escalating costs. If you are paying
+        an LLM service to generate poisoned content are you really resisting Generative AI, or are you feeding it
+        capital?</p>
+
+      <p>A feasible poison attack does not cause full-on model collapse but makes <b>a small number of questions,
+          sometimes, give the wrong answers</b>. LLMs already contain poisoned content, irrelevant of if it was
+        intentional. Jailbreaking, disclaimers on outputs and researchers using LLMs to generate poisoned content,
+        confirm this. Even with good training data, LLMs error, combining the data in unsound ways. Perhaps no real
+        world poison attacks have been documented because LLMs already contain toxic content and after an attack it
+        would be hard to tell the difference. Fine-tuning, value alignment & hard-coded safe guards acknowledge the
+        presence of toxicity and the best solution is to make it less likely to surface. Preventing toxicity leaking is
+        a hard problem: [<a href="https://aclanthology.org/2023.acl-long.244/">"On Second Thought, Let's Not Think Step
+          by Step! Bias and Toxicity in Zero-Shot Reasoning"</a>]</p>
+
+      <p>
+      <blockquote class="quote">we suspect that current value alignment efforts are similar to Lipstick on a Pig
+      </blockquote>
+      </p>
+
+      <p>Perhaps why GenAI companies put the responsibility onto the users and are trying to avoid regulation at all
+        possible costs. <b>Safety</b> and hence wrong answers become <b>less important</b> to those who profit from the
+        system.</p>
+
+      <p>
+      <blockquote class="quote">"Just as drivers are expected to stick to clear, common-sense standards that help keep
+        the actual roads safe, developers and users have a responsibility to follow clear, common-sense standards that
+        keep the AI roads safe." OpenAI <a
+          href="https://cdn.openai.com/global-affairs/ai-in-america-oai-economic-blueprint-20250113.pdf">https://cdn.openai.com/global-affairs/ai-in-america-oai-economic-blueprint-20250113.pdf</a>
+      </blockquote>
+      </p>
+
+      <p>
+        LLMs can give wrong answers & provide misleading information and few people seem to care when considering
+        adoption. Hence in evaluating poison attacks as a form of resistance to Generative AI we have to ask:</p>
+
+      <p>
+      <blockquote class="pullquote"><strong class="pullquote-strong">Does making LLMs a tiny bit more wrong change
+          anything?</strong></blockquote>
+      </p>
+
+      <div class="section-divider">
+        <hr class="section-divider">
+      </div>
+
+      <h3>0% GenAI</h3>
+      <p>No generative AI was used in the writing, editing or illustrations in this article. All badly drawn pictures, spelling mistakes
+      and bad grammar are solely my fault.</p>
+
+      <h3>References</h3>
+      <ul>
+        <li>Training Data for the Price of a Sandwich: Common Crawl's Impact on Generative AI - <a
+            href="https://foundation.mozilla.org/en/research/library/generative-ai-training-data/">https://foundation.mozilla.org/en/research/library/generative-ai-training-data/</a>
+        </li>
+        <li>CCNet: Extracting High Quality Monolingual Datasets from Web Crawl Data - <a
+            href="https://arxiv.org/abs/1911.00359">https://arxiv.org/abs/1911.00359</a></li>
+        <li>What's in the Box? A Preliminary Analysis of Undesirable Content in the Common Crawl Corpus - <a
+            href="https://arxiv.org/abs/2105.02732">https://arxiv.org/abs/2105.02732</a></li>
+        <li>The Pile: An 800GB Dataset of Diverse Text for Language Modeling - <a
+            href="https://arxiv.org/abs/2101.00027">https://arxiv.org/abs/2101.00027</a></li>
+        <li>Medical large language models are vulnerable to data-poisoning attacks - <a
+            href="https://www.nature.com/articles/s41591-024-03445-1">https://www.nature.com/articles/s41591-024-03445-1</a>
+        </li>
+        <li>Poisoning Web-Scale Training Datasets is Practical - <a
+            href="https://arxiv.org/abs/2302.10149">https://arxiv.org/abs/2302.10149</a></li>
+        <li>On Second Thought, Let's Not Think Step by Step! Bias and Toxicity in Zero-Shot Reasoning - <a
+            href="https://arxiv.org/pdf/2212.08061">https://arxiv.org/pdf/2212.08061</a></li>
+      </ul>
+
+
+      <img src="/imgs/words/poisoning_text_training_data/slop.png" alt="A pencil sketch of a grey-cube machine with large pipes sucking up bright pink gunk from buckets. One of the buckets is bright green and looks dead. The grey cube has a conveyer belt exiting it, with the words 'slop$' coming out.">
+
+      <div class="section-divider">
+        <hr class="section-divider">
+      </div>
+
+  </article>
+
+  <div id="footer">Copyright © 2013-present - Joseph Wilk</div>
+
+</body>
+
+</html>
