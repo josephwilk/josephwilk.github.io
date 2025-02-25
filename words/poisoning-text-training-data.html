@@ -228,51 +228,55 @@
       <h3>Common Crawl</h3>
       <p>
         For the poisoned data to enter a training dataset it has to be discoverable and publicly available on the
-        internet. Getting into the Common Crawl dataset is a good target, 80% of ChatGPT3's tokens come from the Common
-        Crawl dataset [source: <a
-          href="https://facctconference.org/static/papers24/facct24-148.pdf">https://facctconference.org/static/papers24/facct24-148.pdf</a>].
-        However most LLMs use a filtered version of the Common Crawl, such as Googles' C4 dataset and so the poisoned
-        data needs to survive filtering.
+        internet. Getting into the Common Crawl snapshots is a good target, 80% of ChatGPT3's tokens come from the Common
+        Crawl [source: <a
+          href="https://facctconference.org/static/papers24/facct24-148.pdf">https://facctconference.org/static/papers24/facct24-148.pdf</a>]. Our target of 215k pages represents ~0.0083% of the webpages in an
+          single snapshot, January 2025 Crawl consisted of 3B pages. There is no guarantee of
+          getting all 215k articles into a single snapshot. To account for this we would likely have to aim for more than 215k articles to ensure reaching 0.001% of the tokens required.
+
+          Most LLMs use a filtered version of the Common Crawl, such as Googles' C4 dataset and so the poisoned
+          data also needs to survive filtering.
+      </p>
+
+      <p>
+        
       </p>
 
       <p>The Common Crawl does not create entire copies of domains, it's a sample. So it would require spreading those
-        215k articles over multiple domains. Domains are scored in the Common Crawl by the Harmonic Centrality, [<a
-          href="https://en.wikipedia.org/wiki/Centrality#Harmonic_centrality">https://en.wikipedia.org/wiki/Centrality#Harmonic_centrality</a>],
-        how well linked the domains are to other internet pages. The domains harmonic centrality score would define a “budget” for how many URLs/pages are sampled from it. 
+        215k articles over multiple domains. Domains are scored in the Common Crawl by the <a href="https://en.wikipedia.org/wiki/Centrality#Harmonic_centrality">Harmonic Centrality</a>,
+        how well linked the domains are to other internet pages. A domain's harmonic centrality score defines a budget for how many webpages are sampled from it. 
         The Harmonic centrality is also resistant to manipulation:</p>
 
       <p>
       <blockquote class="quote">"its harder to 'game', or exploit through artificial link patterns".</blockquote>
       </p>
 
-      <p>Details of how the Common Crawl process suggest 50% of each crawl is made up of URLs that have been fetched
+      <p>Details of the Common Crawl process suggest 50% of each crawl is made up of URLs that have been fetched
         in previous crawls. We can see this from looking at overlaps between snapshots: <a
           href="https://commoncrawl.github.io/cc-crawl-statistics/plots/crawloverlap">https://commoncrawl.github.io/cc-crawl-statistics/plots/crawloverlap</a>.
       </p>
 
+      <p><b>Expired Domains</b></p>
       <p>
-        The fastest tactic would be to buy expired domains that occur in a snapshot and host the poisoned data on them. Due to
+        The fastest tactic is to buy expired domains that occur in a snapshot and host the poisoned data on them. Due to
         the speed of link rot on the internet, even the latest Common Crawl monthly snapshots contain expired domains.
         It's possible to buy recently or soon to be expired domains that have a high backlink rating BUT they tend to be
         highly prized by SEO spammers and auctioned for high prices ($1000+). 
         
-        <p>The slower tactic would be to buy cheap, new domain names that host the content. 
-          Ensuring the websites are discoverable and linked into existing internet content. Ideally working towards a good harmonic centrality score, which feels difficult without cooperation from existing well ranked sites. There is a risk of being detected as spam content when trying to manipulate links. However spammers are trying to manipulate search engine results through prompting certain links, our goal is only getting into the CommonCrawl. Its also worth noting the Common Crawl snapshots do contain spam content:</p>
+
+        <p><b>Fresh Domains</b></p>
+
+        <p>The slower tactic is buying cheap new domain names that host the content. 
+          Ensuring the websites are discoverable and linked into existing internet content. Ideally scoring an ok harmonic centrality score, which feels difficult without cooperation from existing well ranked sites. There is a risk of being detected as spam content when trying to manipulate links too much. However Spammers are trying to manipulate search engine results through tons of external links, our goal is only getting into the CommonCrawl, so our content can avoid common spam patterns. We would need to ensure our domains are lightly connected and have good sitemaps for the Common Crawl to sample and discover from.</p>
+          
+          <p>While being labeled as spam content can mean exclusion from the Common Crawl, its also worth noting the Common Crawl snapshots do contain spam:</p>
   
           <p><blockquote class="quote">spam is part of the web, it’s ok if some is contained in the data</blockquote></p>
 
-        <p>Based on 2021 data a longtail website with a low harmonic score would be limited to ~3k URLs [source: <a href="https://indico.cern.ch/event/1006978/contributions/4539477/attachments/2325769/3962907/ossym2021-sn-web-graphs-crawling.pdf">From Web Graphs to Prioritizing Web Crawls</a>]. Spreading 3,000 articles onto each domain would 
-        require acquiring or hosting on 72 domains. While we could reduce this a little using subdomains (x.josephwilk.net, y.josephwilk.net), too many subdomains are considered an indicator of spam sites (which might be excluded from snapshots).</p>
-        
-     
+          <hr class="section-divider" />
 
-      <p>
-        Getting 215k pages into the Common Crawl represents ~0.0083% of the webpages in an
-        example snapshot (January 2025 Crawl consisted of 3B pages). Looking at the top registered domains within the
-        snapshots: blogspot.com represented 19.36M pages and Wikipedia 4.68M pages. Since there is no guarantee of
-        getting all 215k articles into the Common Crawl, we would need an even larger dataset to ensure reaching 0.001%
-        of the tokens required.
-      </p>
+        <p>Based on 2021 data a longtail website with a low harmonic score would be limited to ~3k URLs [source: <a href="https://indico.cern.ch/event/1006978/contributions/4539477/attachments/2325769/3962907/ossym2021-sn-web-graphs-crawling.pdf">From Web Graphs to Prioritizing Web Crawls</a>]. Spreading 3,000 articles onto each domain would 
+        require acquiring or hosting on 72 domains. While we could reduce this a little using subdomains (x.josephwilk.net, y.josephwilk.net), too many subdomains are considered an indicator of spam sites.</p>
 
       <h3>Snipe Edits / Front-running</h3>
 
@@ -351,7 +355,7 @@
 
       <h2>Resistance to Unsupervised Filtering</h2>
       <p>
-        We can draw some high level guidance for what text data needs to look like to avoid being removed.
+        We can create some high level guidance for what text data needs to look like to avoid being removed.
       <ul>
         <li>Avoid repetition, duplication, non alpha characters, excessive whitespace.</li>
         <li>Favour academic or Wikipedia structured content (might work well for some filters).</li>
@@ -394,7 +398,7 @@ examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
       <h2>Resistance to Supervised filtering</h2>
       <p>
         If a dataset is validated by a human or an automated visual system it could detect the poisoned content. With the volume of
-        training data, this check would only happen over a sample. There are common HTML attack vectors to hide HTML
+        training data, this check would only ever happen over a sample. There are common HTML attack vectors to hide HTML
         content from visual detection:
       <ul>
         <li>Invisible text</li>
@@ -413,7 +417,7 @@ examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
         How long would it take for a poisoned dataset to affect an LLM?
 
       <ul>
-        <li>Common Crawl is sampled every month. In Jan 2025 it took 14 days to complete.</li>
+        <li>The Common Crawl is sampled every month. In Jan 2025 it took 14 days to complete.</li>
         <li>It's possible to check domains contained within the common crawl snapshots: <a
             href="http://index.commoncrawl.org">http://index.commoncrawl.org</a>.</li>
         <li>The Difficulty of getting a large quantity of text into the Common Crawl Snapshot means it might be spread
@@ -427,16 +431,21 @@ examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
       </p>
 
       <p>
-        Unclear, but it's not going to be less than 2-3 months.
+        While its unclear, we can say it's going to be a slow process. Being very optimistic not less than ~2-3 months.
       </p>
 
       <h2>Reinforcement learning</h2>
+      
+      <img src="/imgs/words/poisoning_text_training_data/human_value_alignment.png" alt="A pencil sketch of 4 pink cans. 3 of the cans are vomiting pink goop. The other is smiling. Above the cans is the text 'A or B or C or D', where A,B,C,D represents each of the cans. The idea you are having to select which can is less gross."/>
 
-      <p>LLM's training process often consists of further refinement to improve the quality of answers given. This can
-        involve a lot of different processes and there is little transparency. It's really hard to say what impact this
-        would have on a poisoned dataset, poison research does not tend to consider any further refinement after the
-        initial training. Despite this refinement LLMs still output incorrect information, meaning this process does not
-        fix LLMs.</p>
+      <p>LLM's training process often consists of further refinement to align the model with human feedback. Getting the models to respond in an expected and valued way. While poisoned data can be present in the training set, this process of fine-tuning the model can make it less likely to surface. In exactly the same way that toxic and biased data is still present within the model but it's made less likely to surface.</p>
+        
+        
+        <p>While the post training process is well documented at a high level, there are a lot of implementation details and variations that are not transparent. It's hard to say what impact this would have on a poisoned dataset, poison research does not tend to consider any further refinement after they have trained a model.</p>
+
+        <p>Metrics are used in this process to evaluate and compare the overall quality of different LLMs at various tasks. If the poison attack had a significant impact, it would be detectable in these metrics. This highlights how poisoning attacks would <b>only be successful with a small surface area of effect</b>.</p>
+                
+        <p>This phase of refinement still results in LLMs outputting incorrect information, which indicates the complexity and size of a trained model is not easily fixed by this process:</p>
       <p>
       <blockquote class="quote">
         $ "Who was the first elephant to swim the English channel?". <br />
