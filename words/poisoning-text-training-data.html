@@ -438,10 +438,10 @@ examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
       
       <img src="/imgs/words/poisoning_text_training_data/human_value_alignment.png" alt="A pencil sketch of 4 pink cans. 3 of the cans are vomiting pink goop. The other is smiling. Above the cans is the text 'A or B or C or D', where A,B,C,D represents each of the cans. The idea you are having to select which can is less gross."/>
 
-      <p>LLM's training process often consists of further refinement to align the model with human feedback. Getting the models to respond in an expected and valued way. While poisoned data can be present in the training set, this process of fine-tuning the model can make it less likely to surface. In exactly the same way that toxic and biased data is still present within the model but it's made less likely to surface.</p>
+      <p>LLMs after the initial training, undergo refinement to align the model with human feedback. Getting the models to respond in an expected and valued way. While poisoned data can be present in the training set, this process of fine-tuning the model can make it less likely to surface. This is how toxic and biased data is often dealt with in models; hiding it, not removing it.</p>
         
         
-        <p>While the post training process is well documented at a high level, there are a lot of implementation details and variations that are not transparent. It's hard to say what impact this would have on a poisoned dataset, poison research does not tend to consider any further refinement after they have trained a model.</p>
+        <p>While the post training process is well documented at a high level, there are a lot of implementation details and variations that are not transparent. It's hard to say what impact this would have on a poisoned dataset, poison research does not tend to consider any further refinement after they have trained the model.</p>
 
         <p>Metrics are used in this process to evaluate and compare the overall quality of different LLMs at various tasks. If the poison attack had a significant impact, it would be detectable in these metrics. This highlights how poisoning attacks would <b>only be successful with a small surface area of effect</b>.</p>
                 
@@ -529,6 +529,7 @@ examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
         <li>Training Data for the Price of a Sandwich: Common Crawl's Impact on Generative AI - <a
             href="https://foundation.mozilla.org/en/research/library/generative-ai-training-data/">https://foundation.mozilla.org/en/research/library/generative-ai-training-data/</a>
         </li>
+        <li>From Web Graphs to Prioritizing Web Crawls: <a href="https://indico.cern.ch/event/1006978/contributions/4539477/attachments/2325769/3962907/ossym2021-sn-web-graphs-crawling.pdf">https://indico.cern.ch/event/1006978/contributions/4539477/attachments/2325769/3962907/ossym2021-sn-web-graphs-crawling.pdf</a></li>
         <li>CCNet: Extracting High Quality Monolingual Datasets from Web Crawl Data - <a
             href="https://arxiv.org/abs/1911.00359">https://arxiv.org/abs/1911.00359</a></li>
         <li>What's in the Box? A Preliminary Analysis of Undesirable Content in the Common Crawl Corpus - <a
