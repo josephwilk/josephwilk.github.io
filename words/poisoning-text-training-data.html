@@ -191,9 +191,9 @@
 
       <p>We can run smaller models or quantised models (a way of compressing models with a decrease in quality)
         on a local desktop and hence more cheaply but it might be easier to detect their generated content. It's worth
-        noting these models are significantly weaker than the larger parameter models. LLama3.3 8B and 70B (<a
-          href="https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct">https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct</a>)
-        models can be setup and run through tools like Ollama (<a href="https://ollama.com">https://ollama.com</a>). We
+        noting these models are significantly weaker than the larger parameter models. LLama3.3 8B and 70B [<a
+          href="https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct">https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct</a>]
+        models can be setup and run through tools like Ollama [<a href="https://ollama.com">https://ollama.com</a>]. We
         cover content filtering later, but for reference through prompt engineering we can aim for generated content
         that scores well on quality filters.</p>
 
@@ -205,7 +205,7 @@
         FineWebEd score."</blockquote>
       </p>
 
-      <p>One drawback of local models, is that they are pretty slow:</p>
+      <p>A drawback of local models is they are pretty slow:</p>
 
       <p>Running on 2023 MacBook Pro:<br />
         LLama3.3: 70B hot model = ~1.88 minutes per article<br />
@@ -230,10 +230,6 @@
 
           Most LLMs use a filtered version of the Common Crawl, such as Googles' C4 dataset and so the poisoned
           data also needs to survive filtering.
-      </p>
-
-      <p>
-        
       </p>
 
       <p>The Common Crawl does not create entire copies of domains, it's a sample. So it would require spreading those
@@ -265,7 +261,7 @@
           
           <p>While being labeled as spam content can mean exclusion from the Common Crawl, its also worth noting the Common Crawl snapshots do contain spam:</p>
   
-          <p><blockquote class="quote">spam is part of the web, it’s ok if some is contained in the data</blockquote></p>
+          <p><blockquote class="quote">spam is part of the web, it's ok if some is contained in the data</blockquote></p>
 
           <hr class="section-divider" />
 
@@ -388,22 +384,6 @@ examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
           href="https://huggingface.co/edugp/kenlm/tree/main">https://huggingface.co/edugp/kenlm/tree/main</a>) and
         SentencePiece (<a href="https://github.com/google/sentencepiece">https://github.com/google/sentencepiece</a>)
         which are designed to run over large datasets reasonably quickly.</p>
-
-      <h2>Resistance to Supervised Filtering</h2>
-      <p  class="after-h2">
-        If a dataset is validated by a human or an automated visual system it could detect the poisoned content. With the volume of
-        training data, this check would only ever happen over a sample. There are common HTML attack vectors to hide HTML
-        content from visual detection:
-      <ul>
-        <li>Invisible text</li>
-        <li>Hidden text</li>
-        <li>Text with a 0 pt font size</li>
-        <li>Text rendered off-screen</li>
-        <li>Text colour-matched to the website back-ground</li>
-      </ul>
-      </p>
-
-      <p>All patterns, if detected programmatically, would raise suspicion for filtering. Hence I'm not convinced this step is worth pursuing.</p>
 
       <h2>Timescales</h2>
       <img src="/imgs/words/poisoning_text_training_data/timescales_op.png" alt="A pencil sketch of a hour glass with pink sand. Each sand has eyes and a mouth expressing different feelings of sadness and joy. The falling sand look like they are having a good time, living in the moment.">
