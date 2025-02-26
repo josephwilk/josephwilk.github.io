@@ -432,11 +432,11 @@ examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
       
       <img src="/imgs/words/poisoning_text_training_data/human_value_alignment.png" alt="A pencil sketch of 4 pink cans. 3 of the cans are vomiting pink goop. The other is smiling. Above the cans is the text 'A or B or C or D', where A,B,C,D represents each of the cans. The idea you are having to select which can is less gross."/>
 
-      <p>LLMs after the initial training, undergo refinement to align the model with human feedback. A process using human annotators and high quality, domain specific question/answers, to get the models to respond in an expected and valued way. While poisoned data can be present in the training set, this process of fine-tuning the model can make it less likely to surface. This is how toxic and biased data is often dealt with in models; hiding it, not removing it.</p>
+      <p>LLMs after the initial training, undergo refinement to align the model with human feedback. A process using human annotators and high quality, domain specific question/answers. The core knowledge of the models comes from the training data, this process re-enforces the shape of interactions around this knowledge. While poisoned data can be present in the training set, this process of fine-tuning the model can make it less likely to surface. This is how toxic and biased data is often dealt with in models; hiding it, not removing it.</p>
         
-        <p>While the post training process is well documented for some LLMs, there are a lot of implementation details and variations that are not transparent. It's hard to say what impact this would have on a poisoned dataset, poison research does not tend to consider any further refinement after they have trained the model.</p>
+        <p>While the post training process is well documented for some LLMs, there are a lot of implementation details and variations that are not transparent. It's hard to conclude exactly what impact this would have on a poisoned dataset, research tends to ignore this phase.</p>
 
-        <p>Metrics are used in this process to evaluate and compare the overall quality of different LLMs at various tasks. If the poison attack had a significant impact, it would be detectable in these metrics. This highlights how poisoning attacks would <b>only be successful with a small surface area of effect</b>.</p>
+        <p>Metrics are used in this process to evaluate and compare the overall quality of different models/settings. If the poison attack had a significant impact, it would be detectable in these metrics. This highlights how poisoning attacks would <b>only be successful with a small surface area of effect</b>.</p>
                 
         <p>This phase of refinement still results in LLMs outputting incorrect information, which indicates the complexity and size of a trained model is not easily fixed by this process:</p>
       <p>
