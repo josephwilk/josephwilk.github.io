@@ -413,9 +413,17 @@ examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
       
       <img src="/imgs/words/poisoning_text_training_data/human_value_alignment.png" alt="A pencil sketch of 4 pink cans. 3 of the cans are vomiting pink goop. The other is smiling. Above the cans is the text 'A or B or C or D', where A,B,C,D represents each of the cans. The idea you are having to select which can is less gross."/>
 
-      <p>LLMs after the initial training, undergo refinement to align the model with human feedback. A process using human annotators and high quality, domain specific question/answers. The core knowledge of the models comes from the training data, this process re-enforces the shape of interactions around this knowledge. While poisoned data can be present in the training set, fine-tuning the model can make it less likely to surface. This is how toxic and biased data is often dealt with in models; hiding it, not removing it.</p>
+      <p>After the initial training the LLM is aligned with what the company perceives as "the values of users". Training on how customers will use this tool and what responses they would expect. It uses data from human annotators and high quality, domain specific question/answers. Besides tuning for specific problems, it attempts to fix issues present in the raw training data and inheritant problems in the design of LLMs. Trying (and failing) to suppress:
+        <ul><li>Making up facts.</li>
+          <li>Generating biased or toxic text.</li>
+            <li>Not following user instructions.</li>
+      </ul>
         
-        <p>While the post training process is well documented for some LLMs, there are a lot of implementation details and variations that are not transparent. It's hard to conclude exactly what impact this would have on a poisoned dataset, research tends to ignore this phase.</p>
+        <p>Any poisoned content that's present in the training data could be suppressed in the same way.
+The poison content will still be present, but less likely to surface to the user.
+        </p>
+        
+        <p>While the post training process is well documented for some LLMs, there are a lot of implementation details and variations that are not transparent. Poisoning Research tends to ignore this phase. It's hard to conclude exactly what impact this would have on a poisoned dataset. We can say it would depend on how the poison content surfaced in contradiction to the alignment process. Direct, prominent, factual mistakes would be more noticeable than more open prose responses.</p>
 
         <p>Metrics are used in this process to evaluate and compare the overall quality of different models/settings. If the poison attack had a significant impact, it would be detectable in these metrics. This highlights how poisoning attacks would <b>only be successful with a small surface area of effect</b>.</p>
                 
