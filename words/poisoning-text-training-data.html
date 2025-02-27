@@ -413,14 +413,14 @@ examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
       
       <img src="/imgs/words/poisoning_text_training_data/human_value_alignment.png" alt="A pencil sketch of 4 pink cans. 3 of the cans are vomiting pink goop. The other is smiling. Above the cans is the text 'A or B or C or D', where A,B,C,D represents each of the cans. The idea you are having to select which can is less gross."/>
 
-      <p>After the initial training the LLM is aligned with what the company perceives as "the values of users". Training on how customers will use this tool and what responses they would expect. It uses data from human annotators and high quality, domain specific question/answers. Besides tuning for specific problems, it attempts to fix issues present in the raw training data and inheritant problems in the design of LLMs. Trying (and failing) to suppress:
+      <p>After the initial training the LLM is aligned with what the developers/company perceive as "the values of users". Training on how customers will use this tool and what responses they would expect. It uses data from human annotators and high quality, domain specific question/answers. Besides tuning for specific problems, it attempts to fix issues present in the raw training data and inheritant problems in the design of LLMs. Trying (and failing) to suppress:
         <ul><li>Making up facts.</li>
           <li>Generating biased or toxic text.</li>
             <li>Not following user instructions.</li>
       </ul>
         
         <p>Any poisoned content that's present in the training data could be suppressed in the same way.
-The poison content will still be present, but less likely to surface to the user.
+The poison content will still be present, but it would be less likely to surface to the user.
         </p>
         
         <p>While the post training process is well documented for some LLMs, there are a lot of implementation details and variations that are not transparent. Poisoning Research tends to ignore this phase. It's hard to conclude exactly what impact this would have on a poisoned dataset. We can say it would depend on how the poison content surfaced in contradiction to the alignment process. Direct, prominent, factual mistakes would be more noticeable than more open prose responses.</p>
