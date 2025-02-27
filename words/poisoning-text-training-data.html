@@ -423,7 +423,7 @@ examples/wikipedia.txt: FineWebEd:  3.6488823890686035 | Accept</pre>
 The poison content would still be present, but it would be less likely to surface to the user.
         </p>
         
-        <p>While the post training process is well documented for some LLMs, there are a lot of implementation details and variations that are not transparent. Poisoning Research tends to ignore this phase. It's hard to conclude exactly what impact this would have on a poisoned dataset. We can say it would depend on how the poison content surfaced in contradiction to the alignment process. Binary, prominent, factual mistakes would be more noticeable than more open, niche responses.</p>
+        <p>While the post training process is well documented for some LLMs, there are a lot of implementation details and variations that are not transparent. Poisoning Research tends to ignore this phase because it's hard to conclude exactly what impact it would have. We can say it would depend on how the poison content surfaced in contradiction to the alignment process. Binary, prominent, factual mistakes would be more noticeable than more open, niche responses.</p>
 
         <p>Metrics are used in this process to evaluate and compare the overall quality of different models/settings. If the poison attack had a significant impact, it would be detectable in these metrics. This highlights how poisoning attacks would <b>only be successful with a small surface area of effect</b>.</p>
                 
