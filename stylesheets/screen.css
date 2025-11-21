@@ -115,12 +115,29 @@ article h4, article h3{
 
 .page-container {
     position: relative;
-    padding-left: 10%;;
-    padding-right: 10%;
+
   }
 
 .porfolio-item{
   margin: 5px;
+  width: 25%;
+  padding: 20px 20px 20px 20px;
+}
+
+@media (max-width: 950px){
+.porfolio-item{
+  margin: 5px;
+  padding: 5px 5px 5px 5px;
+  width: 30%;
+}
+}
+
+@media (max-width: 768px) {
+  .porfolio-item {
+    width: 100%;
+    padding: 10px;
+
+  }
 }
 
 .portfolio-holder .item-box {
@@ -164,12 +181,12 @@ article img{
  }
 
  .hover-state {
-     background-color: #fbb5dbeb;
-     position: absolute;
+     /* background-color: #fbb5dbeb;
+     position: absolute; */
      color: #fff;
-     position: absolute;
-    left: 0;
-    right: 0;
+     
+     left: 0;
+     right: 0;
      display: block;
      z-index: 10;
      visibility: visible;
@@ -228,7 +245,7 @@ article div.title{
 }
 
 .thumb h3{
-   text-shadow: 1px 1px 1px #ff49a9ab;
+   text-shadow: none;
    font-size: 1.1em;
    font-family: 'Roboto Serif', serif;
 }
