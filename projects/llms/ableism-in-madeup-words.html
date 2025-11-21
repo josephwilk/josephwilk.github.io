@@ -23,7 +23,7 @@ text {
   text-anchor: middle;
   font-family:  "myFirstFont";
   fill: #000;
-  font-size: 15px;
+  font-size: 22px;
   
 }
 body{
@@ -1195,8 +1195,9 @@ var networkCenter = d3.forceCenter().x(centerPos-20).y(centerPos);
 
 
 var collide = d3.bboxCollide(function (d,i) {
-  var d1 = d.name.length;
-    return [[d1 * -5, -8], [d1 * 5, 8]]
+  var d1 = Math.min(10, d.name.length);
+  
+    return [[(d1) * -7, -13], [(d1) * 7, 13]]
 
   })
   .strength(0.01)
@@ -1205,13 +1206,13 @@ var collide = d3.bboxCollide(function (d,i) {
   //var color = d3.scaleOrdinal().range(d3.schemeCategory20);
 
   var force = d3.forceSimulation(nodes)
-    .velocityDecay(0.6)
+    .velocityDecay(0.4)
    // .force('charge', d3.forceManyBody().strength(-10))
     .force("center", networkCenter)
     .force("collide", collide)
    // .force('collide', d3.forceCollide(4))
     .force('link', d3.forceLink().iterations(1).distance(function(d){
-       const x = d3.scaleLinear([0, 100], [900, 100]);
+       const x = d3.scaleLinear([0, 100], [1000, 190]);
   		//console.log(""+d.target.distance+" => " + x(d.target.distance)+ " - " + d.target.name);
      // const x = d3.scalePow([0, 100], [1650, 200]).exponent(0.85);
 		
