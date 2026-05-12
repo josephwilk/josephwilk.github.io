@@ -443,6 +443,7 @@ iframe {
 
 strong, b {
     color: #3b3b3b;
+    font-weight: 600;
 }
 
 .clear {
